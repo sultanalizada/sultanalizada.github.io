@@ -990,3 +990,78 @@ html, body {
         grid-template-columns: repeat(3, 1fr); /* İlk sətirdə 3 kart, ikinci sətirdə 2 kart mərkəzdə */
     }
 }
+
+/* Premium Kartı Ümumi Mərkəzləmə */
+.premium-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.premium-highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Daxili elementləri mərkəzləyir */
+    text-align: center;
+    max-width: 500px; /* Kartın enini məhdudlaşdırırıq ki, çox yayılmasın */
+    border: 2px solid #FFD700 !important;
+    background: linear-gradient(180deg, #ffffff 0%, #fffdf2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dekorativ Lent */
+.premium-highlight .badge {
+    position: absolute;
+    top: 15px;
+    right: -35px;
+    background: #FFD700;
+    width: 120px;
+    height: 25px;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.premium-subtitle {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.premium-features {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 25px 0;
+}
+
+.premium-features li {
+    margin: 12px 0;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Bayraqların ölçüsü */
+.premium-features li br + text, 
+.premium-features li:nth-child(3) {
+    font-size: 22px; 
+    display: block;
+    margin-top: 5px;
+}
+
+.premium-btn {
+    width: 100%;
+    max-width: 280px; /* Düyməni çox uzatmırıq */
+    background: linear-gradient(135deg, #FFD700, #ffcc00) !important;
+    color: black !important;
+    border: none;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.premium-btn:hover {
+    transform: scale(1.05);
+    background: #ffcc00 !important;
+}
