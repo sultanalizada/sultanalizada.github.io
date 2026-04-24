@@ -716,3 +716,53 @@ margin-left: auto;
 margin-right: auto;
 
 }
+
+/* SUPERPROF COUNTRY BUTTONS - FIXED */
+
+.superprof-buttons {
+
+display: flex;
+
+flex-wrap: wrap;
+
+justify-content: center;
+
+gap: 12px;
+
+margin-top: 18px;
+
+}
+
+/* BUTTON */
+
+.superprof-country-btn {
+
+display: inline-block;
+
+padding: 12px 18px;
+
+background-color: #FF5959;
+
+color: white;
+
+font-weight: bold;
+
+text-decoration: none;
+
+border-radius: 8px;
+
+transition: 0.25s;
+
+box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+}
+
+/* HOVER */
+
+.superprof-country-btn:hover {
+
+background-color: #ff3b3b;
+
+transform: translateY(-3px);
+
+}
