@@ -892,27 +892,34 @@ html, body {
 }
 
 .coffee-button {
-    display: inline-flex; /* Mətni və ikonu mərkəzləmək üçün */
+    display: inline-flex; /* Yazı və ikonun yan-yana və mərkəzdə durması üçün */
     align-items: center;
     justify-content: center;
     margin-top: 15px;
-    padding: 12px 25px; /* Yanlardan bir az daha çox boşluq */
+    padding: 14px 28px; /* Daxili boşluğu artırdıq ki, mətn nəfəs alsın */
     background-color: #ffdd00;
     color: black;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 8px;
-    transition: 0.2s;
-    min-width: 200px; /* Düymənin enini sabitləyərək daha dolğun görünməsini təmin edir */
-    box-sizing: border-box; /* Padding-in enə təsirini nizamlayır */
+    border-radius: 10px; /* Daha müasir görünüş */
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-width: 220px; /* Düymənin daralmasının qarşısını alır */
+    box-shadow: 0 4px 0px #b39b00; /* Alt hissəsinə dərinlik verən kölgə */
 }
 
 .coffee-button:hover {
-    background-color: #ffd000;
-    transform: scale(1.05);
+    background-color: #ffea00;
+    transform: translateY(-3px); /* Yuxarı qalxma effekti */
+    box-shadow: 0 6px 0px #b39b00;
 }
 
-<div class="coffee-container" style="text-align: center;">
+.coffee-button:active {
+    transform: translateY(2px); /* Klikləyəndə basılma effekti */
+    box-shadow: 0 2px 0px #b39b00;
+}
+}
+
+<div class="coffee-container" style="text-align: center; border: 2px dashed #ffdd00;">
     <h3>Support My Work</h3>
     <p>If you find my lessons helpful, you can support my work here.</p>
     
@@ -920,8 +927,8 @@ html, body {
         Buy Me a Coffee ☕
     </a>
 
-    <div style="margin-top: 25px;">
-        <p style="font-size: 14px; color: #666;">Scan to buy me a coffee 👇</p>
-        <img src="qr-code.png" alt="QR Code" style="width: 150px; border-radius: 10px; margin-top: 10px;">
+    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+        <p style="font-size: 13px; color: #777; margin-bottom: 10px;">Scan QR to support quickly 👇</p>
+        <img src="qr-code.png" alt="Donate QR" style="width: 160px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
     </div>
 </div>
