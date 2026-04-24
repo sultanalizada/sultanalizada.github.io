@@ -540,3 +540,64 @@ html {
   background-color: #ff3b3b;
   transform: scale(1.05);
 }
+
+/* PRICING SECTION */
+
+#packages {
+  background-color: #f4f7fb;
+}
+
+.pricing-card {
+  background-color: white;
+  padding: 28px;
+  margin: 20px auto;
+  max-width: 420px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  transition: 0.25s;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+}
+
+.highlight {
+  border: 2px solid #FF5959;
+}
+
+.pricing-card h3 {
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0 18px 0;
+  color: #0d1b2a;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.pricing-card li {
+  margin: 8px 0;
+}
+
+.pricing-button {
+  display: inline-block;
+  padding: 12px 22px;
+  background-color: #0d1b2a;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.pricing-button:hover {
+  background-color: #1b263b;
+  transform: scale(1.05);
+}
