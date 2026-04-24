@@ -773,3 +773,31 @@ transform: translateY(-3px);
   margin-bottom: 36px;
 }
 
+/* Düymələr arası məsafə və mobil optimizasiya */
+.packages-btn {
+    margin-top: 25px !important; /* Qırmızı düymələrdən aralı durması üçün */
+    display: inline-block;
+}
+
+.superprof-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Mobil telefonlar üçün xüsusi ayar */
+@media (max-width: 768px) {
+    .superprof-country-btn {
+        width: 45%; /* Mobil ekranda düymələr yan-yana 2-2 düzülsün */
+        font-size: 13px;
+        padding: 10px 5px;
+        text-align: center;
+    }
+    
+    .packages-btn {
+        width: 80%; /* Tünd düymə mobildə daha geniş görünsün */
+        text-align: center;
+    }
+}
