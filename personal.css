@@ -851,3 +851,42 @@ html, body {
         max-width: 350px; /* Mobildə çox enli olmasın */
     }
 }
+
+/* PC və Mobil üçün Səliqəli Düzülüş */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 400px)); /* PC-də 2-li sütun */
+    gap: 30px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Trial Lesson: Hər zaman yuxarıda tək */
+.pricing-card.highlight {
+    grid-column: 1 / -1; /* Bütün sətiri tutur */
+    max-width: 450px;
+    margin: 0 auto 10px auto;
+    border: 2px solid #FF5959;
+}
+
+/* Bütün kartlar üçün ortaq stil */
+.pricing-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    transition: 0.25s;
+    text-align: center;
+}
+
+/* Mobil görünüşü üçün */
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr; /* Mobildə hamısı 1-li sütun */
+    }
+    .pricing-card.highlight {
+        grid-column: auto; /* Mobildə normal axına qayıdır */
+    }
+}
