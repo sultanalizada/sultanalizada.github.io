@@ -1310,3 +1310,64 @@ html, body {
     border-bottom-width: 0;
     margin-bottom: 4px;
 }
+
+/* Navbar-ın ümumi dizaynı */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #0d1b2a;
+    position: relative;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        position: fixed;
+        right: -100%;
+        top: 60px; /* Navbar-ın hündürlüyünə görə tənzimlə */
+        flex-direction: column;
+        background-color: rgba(13, 27, 42, 0.98); /* Bir az şəffaflıq */
+        width: 100%;
+        height: calc(100vh - 60px); /* Ekranın qalan hissəsini tam tutur */
+        text-align: center;
+        transition: 0.4s ease-in-out;
+        padding-top: 20px;
+        overflow-y: auto; /* Çox düymə olanda aşağı sürüşdürmək üçün */
+    }
+
+    .nav-list.active {
+        right: 0;
+    }
+
+    .nav-list li {
+        margin: 12px 0; /* Düymələr arası məsafəni bir az azaltdım ki, hamısı sığsın */
+    }
+
+    .nav-list li a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 10px;
+    }
+
+    /* Hamburger Düyməsi */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 28px;
+        height: 3px;
+        margin: 5px;
+        background-color: white;
+        transition: 0.3s;
+    }
+
+    /* Düyməyə basanda X formasına düşməsi üçün (opsional amma qəşəngdir) */
+    #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
+    #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
