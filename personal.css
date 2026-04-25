@@ -1121,3 +1121,52 @@ html, body {
 #cusdis_thread {
     color: #222222 !important;
 }
+
+.wechat-container {
+    position: relative;
+    display: inline-block;
+}
+
+.wechat-qr-popup {
+    position: absolute;
+    bottom: 60px; /* İkonun üstündə açılması üçün */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 100;
+    width: 160px; /* QR kodun ölçüsü */
+    text-align: center;
+}
+
+.wechat-qr-popup img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.wechat-qr-popup span {
+    display: block;
+    color: #333;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Üzərinə gələndə göstər */
+.wechat-container:hover .wechat-qr-popup {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Mobil cihazlarda toxunanda görünməsi üçün */
+.wechat-container:active .wechat-qr-popup {
+    visibility: visible;
+    opacity: 1;
+}
