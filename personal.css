@@ -1431,3 +1431,7 @@ html, body {
     #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
+
+.social-icon.youtube:hover {
+    color: #FF0000;
+}
