@@ -599,64 +599,6 @@ WhatsApp
     });
 </script>
 
-<script>
-    const menu = document.querySelector('#mobile-menu');
-    const menuLinks = document.querySelector('#nav-list');
-    const navItems = document.querySelectorAll('.nav-list li a');
-
-    // Hamburgeri klikləyəndə aç/bağla
-    menu.addEventListener('click', function() {
-        menu.classList.toggle('is-active');
-        menuLinks.classList.toggle('active');
-    });
-
-    // Menyu daxilində hər hansı linkə basanda menyunu avtomatik bağla
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            menu.classList.remove('is-active');
-            menuLinks.classList.remove('active');
-        });
-    });
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
-        const navLinks = document.querySelectorAll('.nav-list a');
-
-        // Hamburgerə basanda
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('is-active'); // Hamburgeri X edir
-            navList.classList.toggle('active'); // Menyu barı gətirir
-        });
-
-        // Menyu daxilində linkə basanda avtomatik bağla
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                menuToggle.classList.remove('is-active');
-                navList.classList.remove('active');
-            });
-        });
-    });
-</script>  
-
-<script>
-    const menu = document.querySelector('#mobile-menu');
-    const navList = document.querySelector('#nav-list');
-
-    menu.addEventListener('click', function() {
-        menu.classList.toggle('is-active'); // Hamburgeri X edir
-        navList.classList.toggle('active'); // Menyunun özünü açır
-    });
-
-    // Menyu daxilində nəsə basanda bağlansın
-    document.querySelectorAll('.nav-list a').forEach(n => n.addEventListener('click', () => {
-        menu.classList.remove('is-active');
-        navList.classList.remove('active');
-    }));
-</script>  
-
 </body>
 
 </html>
