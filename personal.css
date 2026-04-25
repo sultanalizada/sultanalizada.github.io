@@ -1227,3 +1227,63 @@ html, body {
     font-weight: bold;
     text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Yazının oxunması üçün xəfif kölgə */
 }
+
+/* Contact bölməsindəki ikon üçün */
+.social-icon.coffee {
+    background-color: #FFDD00; /* Buy Me a Coffee-nin rəsmi rəngi */
+    color: #000000;
+}
+
+/* Sağ aşağıda sabit duran düymə */
+.buy-coffee-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #FFDD00;
+    color: #000000;
+    padding: 10px 10px 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 999;
+    transition: all 0.3s ease;
+    border: 2px solid #000;
+}
+
+.buy-coffee-fixed:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.coffee-text {
+    margin-right: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.coffee-icon-circle {
+    background: #000;
+    color: #FFDD00;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+/* Mobil cihazlarda düyməni bir az kiçiltmək üçün (istəsən) */
+@media (max-width: 768px) {
+    .coffee-text {
+        display: none; /* Mobildə yazı görünsün ya yox? Yazısız daha təmiz durar */
+    }
+    .buy-coffee-fixed {
+        padding: 5px;
+        right: 15px;
+        bottom: 15px;
+    }
+}
