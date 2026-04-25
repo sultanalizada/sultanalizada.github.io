@@ -1234,11 +1234,11 @@ html, body {
     color: #000000;
 }
 
-/* Sağ aşağıda sabit duran düymə */
+/* SOL aşağıda sabit duran düymə */
 .buy-coffee-fixed {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px; /* Sağı sola dəyişdik */
     background-color: #FFDD00;
     color: #000000;
     padding: 10px 10px 10px 20px;
@@ -1254,36 +1254,22 @@ html, body {
     border: 2px solid #000;
 }
 
-.buy-coffee-fixed:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-.coffee-text {
-    margin-right: 12px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.coffee-icon-circle {
-    background: #000;
-    color: #FFDD00;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-}
-
-/* Mobil cihazlarda düyməni bir az kiçiltmək üçün (istəsən) */
+/* Mobildə düzəliş */
 @media (max-width: 768px) {
     .coffee-text {
-        display: none; /* Mobildə yazı görünsün ya yox? Yazısız daha təmiz durar */
+        display: none; /* Mobildə sadəcə ikon qalsın */
     }
     .buy-coffee-fixed {
-        padding: 5px;
-        right: 15px;
+        padding: 0;
+        left: 15px; /* Mobildə də solda qalsın */
         bottom: 15px;
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+        border-radius: 50%; /* Mobildə tam dairəvi olsun */
+    }
+    .coffee-icon-circle {
+        margin-right: 0;
+        background: transparent; /* Mobildə artıq dairə daxilində dairəyə ehtiyac yoxdur */
     }
 }
