@@ -1371,3 +1371,126 @@ html, body {
     #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
+
+/* --- Desktop (PC) üçün Standart Görünüş (769px-dən yuxarı) --- */
+@media (min-width: 769px) {
+    /* Navbarın özü */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        background-color: #0d1b2a;
+        position: relative; /* PC-də fixed-ə ehtiyac yoxdur */
+        z-index: 1000;
+    }
+
+    /* Menyu siyahısı - PC-də yan-yana */
+    .nav-list {
+        display: flex;
+        flex-direction: row; /* PC-də yan-yana */
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Menyu linkləri - PC-də ağ rəng */
+    .nav-list li a {
+        color: white; /* PC-də linklər mütləq ağ olmalıdır */
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    /* PC-də Hamburger düyməsini tam gizlət */
+    .menu-toggle {
+        display: none !important;
+    }
+}
+
+/* --- Mobil üçün Professional Hamburger Menyu (768px və aşağı) --- */
+@media (max-width: 768px) {
+    /* Navbar - Mobildə fixed olması daha yaxşıdır */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px; /* Mobildə padding azaldırıq */
+        background-color: #0d1b2a;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Adın (Logo) - Mobildə kəsilməməsi üçün */
+    .logo {
+        color: white;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    /* Hamburger Düyməsi */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        margin-left: auto; /* Adından uzaqlaşdırıb sağa çəkir */
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px 0;
+        background-color: white;
+        transition: 0.3s;
+    }
+
+    /* Menyu siyahısı - Mobildə Gizli və Sağda */
+    .nav-list {
+        display: none; /* İlkin vəziyyətdə tamamilə gizlədirik */
+        position: fixed;
+        right: 0; /* Sağdan tam sığır */
+        top: 50px; /* Navbar-ın hündürlüyünə görə tənzimlə */
+        width: 100%; /* Menyu tam ekranı tutacaq (Sarı və Vatsap düymələrinə mane olmamaq üçün) */
+        height: calc(100vh - 50px); /* Ekranın qalan hündürlüyünü tutur */
+        background-color: rgba(13, 27, 42, 0.98); /* Sənin tünd fonun */
+        flex-direction: column;
+        text-align: center;
+        padding-top: 20px;
+        overflow-y: auto; /* Çox düymə olanda sürüşdürmək üçün */
+        z-index: 999;
+        margin: 0;
+    }
+
+    /* Menyu Aktiv olanda (display block və fixed) */
+    .nav-list.active {
+        display: flex !important; /* JavaScript ilə aktiv ediləcək */
+    }
+
+    .nav-list li {
+        margin: 15px 0;
+    }
+
+    /* Mobildə Linklərin Rəngi */
+    .nav-list li a {
+        color: white; /* Mobildə linkləri ağ edək, yaddaş rəngini silək */
+        text-decoration: none;
+        font-size: 1.1rem;
+        display: block;
+        padding: 8px;
+    }
+
+    /* "Coming soon!" - Sarı qalsın */
+    .nav-list li a#coming-soon-link {
+        color: #ffdd00 !important;
+    }
+
+    /* Hamburger "X" formasına düşmə effekti */
+    #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
+    #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
