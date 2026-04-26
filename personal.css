@@ -1421,3 +1421,26 @@ html, body {
 #coaching {
     background-color: #0b3d6d;
 }
+
+/* ENGLISH SECTION BACKGROUND — FORCE */
+
+#english {
+    background-color: #0b3d6d !important;
+    padding: 60px 20px;
+}
+
+#english h2 {
+    color: white !important;
+}
+
+#english p {
+    color: #e6eef7 !important;
+}
+
+/* kartların fonu ağ qalsın və arxa fon görünsün */
+
+#english .pricing-card {
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 12px;
+}
