@@ -1479,22 +1479,3 @@ html, body {
     background-color: white;
     border-radius: 12px;
 }
-
-/* FLEXIBLE BACKGROUND SYSTEM */
-
-.section {
-    padding: 60px 20px;
-}
-
-.section-light {
-    background-color: white;
-}
-
-.section-dark {
-    background-color: #0b3d6d;
-    color: white;
-}
-
-.section-dark p {
-    color: #e6eef7;
-}
