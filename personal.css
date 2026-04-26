@@ -1404,17 +1404,17 @@ html, body {
     .nav-list li a {
         font-size: 1.2rem;
       
-/* ENGLISH SECTION BACKGROUND FIX */
+/* ENGLISH SECTION DARK BACKGROUND */
 
-#english {
-    background-color: #0b3d6d;
+.section#english {
+    background-color: #0b3d6d !important;
     padding: 60px 20px;
 }
 
-#english h2 {
+.section#english h2 {
     color: white;
 }
 
-#english p {
+.section#english p {
     color: #e6eef7;
 }
