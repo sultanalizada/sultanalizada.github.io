@@ -1404,15 +1404,17 @@ html, body {
     .nav-list li a {
         font-size: 1.2rem;
       
+/* ENGLISH SECTION BACKGROUND FIX */
+
 #english {
-    background-color: #0b3d6d; /* tünd göy */
+    background-color: #0b3d6d;
     padding: 60px 20px;
-    }
+}
 
-  #english h2 {
+#english h2 {
     color: white;
-    }
+}
 
-  #english p {
+#english p {
     color: #e6eef7;
-    }
+}
