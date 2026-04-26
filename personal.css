@@ -1529,3 +1529,57 @@ html, body {
     margin: 15px 0 !important;
     display: block;
 }
+
+/* --- YENİ MODERN PAKET KARTLARI --- */
+.pricing-card {
+    /* Ağ əvəzinə çox açıq gümüşü-mavi qradiyent */
+    background: linear-gradient(145deg, #f0f7ff, #d9e9f9) !important;
+    border-radius: 20px !important;
+    padding: 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important; /* İncə kənar xətti */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Kartın üzərinə gələndə (hover) effekt */
+.pricing-card:hover {
+    transform: translateY(-10px); /* Yuxarı qalxma effekti */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+    background: linear-gradient(145deg, #ffffff, #e6f0fa) !important;
+}
+
+/* Başlıqları daha cəlbedici edək */
+.pricing-card h3 {
+    color: #0d1b2a !important; /* Sənin loqo rəngin */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Qiymət hissəsini vurğulayaq */
+.pricing-card .price {
+    color: #e63946 !important; /* Diqqət çəkmək üçün tünd qırmızı/venera rəngi */
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    display: block;
+    margin: 20px 0;
+}
+
+/* Düymələri daha "klikləmək istənilən" hala salaq */
+.pricing-card .btn {
+    background-color: #0d1b2a !important;
+    color: white !important;
+    border-radius: 50px !important;
+    padding: 12px 25px !important;
+    font-weight: bold;
+    border: none;
+    transition: 0.3s;
+}
+
+.pricing-card .btn:hover {
+    background-color: #1b263b !important;
+    transform: scale(1.05);
+}
