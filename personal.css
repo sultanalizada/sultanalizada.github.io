@@ -1364,7 +1364,7 @@ html, body {
     .navbar {
         padding: 10px 20px;
     }
-
+}
     .menu-toggle {
         display: block;
         cursor: pointer;
@@ -1478,4 +1478,45 @@ html, body {
 .pricing-card {
     background-color: white;
     border-radius: 12px;
+}
+
+/* --- FUNDAMENTAL FON SİSTEMİ --- */
+
+/* Ümumi sectionlar üçün standart padding */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Açıq fon (Ağ) */
+.section-light {
+    background-color: #ffffff !important;
+    color: #222 !important;
+}
+
+/* Tünd fon (Sənin istədiyin Tünd Göy rəng - #0d1b2a) */
+.section-dark {
+    background-color: #0d1b2a !important; /* Navbar ilə eyni tünd göy */
+    color: #ffffff !important;
+}
+
+/* Tünd fonda olan başlıq və mətnlər */
+.section-dark h2, 
+.section-dark h3, 
+.section-dark p {
+    color: #ffffff !important;
+}
+
+/* Kartların içindəki yazıların həmişə tünd qalması (oxunaqlılıq üçün) */
+.pricing-card {
+    background-color: #ffffff !important;
+    color: #222 !important;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+}
+
+.pricing-card h3, 
+.pricing-card p.price, 
+.pricing-card li {
+    color: #222 !important;
 }
