@@ -1444,3 +1444,9 @@ html, body {
     margin-bottom: 20px;
     border-radius: 12px;
 }
+
+#english .pricing-card {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+}
