@@ -146,16 +146,6 @@ margin-bottom: 20px;
 
 }
 
-/* CALENDAR */
-
-.calendar-container {
-
-max-width: 800px;
-
-margin: auto;
-
-}
-
 /* FOOTER */
 
 .footer {
@@ -319,10 +309,6 @@ transform: scale(1.05);
   #cusdis_thread {
     min-height: 500px;
     padding: 10px;
-  }
-
-  .calendly-inline-widget {
-    height: 700px;
   }
 
 
