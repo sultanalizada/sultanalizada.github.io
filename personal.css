@@ -46,11 +46,12 @@ color: #222;
     left: 0;
     width: 100%;
     background-color: #0d1b2a;
-    padding: 10px 5%; /* Kənarlardan 5% boşluq veririk */
-    z-index: 9999;    /* Digər elementlərdən hər zaman üstdə qalsın */
+    padding: 10px 5%; /* Kənarlardan boşluq */
+    z-index: 9999;    /* Həmişə ən üstdə qalması üçün */
     display: flex;
     justify-content: space-between; /* Loqo solda, menyu sağda */
     align-items: center;
+    box-sizing: border-box; /* Enin kənara daşmaması üçün */
 }
 
 .nav-container {
@@ -86,6 +87,15 @@ font-weight: bold;
     padding: 0;
 }
 
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Düymələr arası məsafə */
+    margin: 0;
+    padding: 0;
+    margin-left: auto; /* MENYUNU SAĞA İTƏLƏYƏN ƏSAS KOD */
+}
+
 .nav-list li a {
     color: white !important;
     text-decoration: none;
@@ -102,13 +112,9 @@ font-weight: bold;
 /* HERO */
 
 .hero {
-
-padding-top: 120px;
-
-text-align: center;
-
-padding-bottom: 60px;
-
+    padding-top: 140px !important; /* Navbarın hündürlüyündən daha çox boşluq */
+    text-align: center;
+    padding-bottom: 60px;
 }
 
 .profile-photo {
@@ -1547,19 +1553,6 @@ img {
 
 }
 
-header {
-
-    width: 100%;
-
-    background: white;
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 1000;
-
-}
 
 body {
 
