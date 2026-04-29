@@ -1004,6 +1004,21 @@ html, body {
 }
 
 /* Yeni Sosial Media Rəngləri */
+
+/* WhatsApp İkonu üçün Yaşıl Fon */
+.social-icon.whatsapp {
+    background-color: #25D366; /* WhatsApp-ın rəsmi yaşıl rəngi */
+    color: white;
+}
+
+/* Əgər ikon yenə kiçik və ya fərqli rəngdədirsə bu kömək edəcək */
+.social-icon.whatsapp i {
+    color: white !important;
+    font-size: 24px;
+    line-height: 50px; /* Dairənin mərkəzində durması üçün (əgər dairə 50px-dirsə) */
+}
+
+
 .social-icon.telegram {
     background-color: #0088cc;
     color: white;
