@@ -1783,3 +1783,36 @@ html {
 }
 
 
+/* Paketlərin ana konteyneri */
+.pricing-grid {
+    display: flex;
+    flex-wrap: wrap; /* Kartlar sığmayanda növbəti sətrə keçsin */
+    justify-content: center; /* KARTLARI MƏRKƏZLƏYƏN ƏSAS KOD */
+    align-items: stretch;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Kartların özü */
+.pricing-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    text-align: center; /* Mətni mərkəzləyir */
+    width: 300px; /* Sabit en mərkəzləməni asanlaşdırır */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Premium kartın mərkəzlənməsi üçün əlavə */
+.premium-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+}
