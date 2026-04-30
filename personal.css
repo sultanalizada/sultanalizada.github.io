@@ -1743,3 +1743,13 @@ html {
     margin-bottom: 8px;
 
 }
+
+.pricing-card li::before {
+
+    content: "✔";
+
+    margin-right: 8px;
+
+    color: #0d6efd;
+
+}
