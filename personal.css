@@ -1637,3 +1637,66 @@ html {
     color: #000 !important;
 
 }
+
+/* ===== TARAZ BACKGROUND DESIGN ===== */
+
+#coming-soon {
+
+    position: relative;
+
+    color: white;
+
+    text-align: center;
+
+    overflow: hidden;
+
+}
+
+/* Arxa fon şəkil */
+#coming-soon::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: url("taraz-bg.jpg") center/cover no-repeat;
+
+    opacity: 0.25; /* çox vacib */
+
+    z-index: 1;
+
+}
+
+/* Overlay (qaraltma effekt) */
+#coming-soon::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.5);
+
+    z-index: 2;
+
+}
+
+/* Content üstdə qalsın */
+#coming-soon * {
+
+    position: relative;
+
+    z-index: 3;
+
+}
