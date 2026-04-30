@@ -1589,3 +1589,51 @@ html {
     color: white !important; /* İkonun mütləq ağ görünməsi üçün */
     font-size: 24px;         /* Ölçüsünü digərləri ilə eyniləşdir */
 }
+
+/* ===== TESTIMONIALS TEXT FIX ===== */
+
+/* Ümumi yazılar */
+#cusdis_thread,
+#cusdis_thread * {
+
+    color: #111 !important;
+
+}
+
+/* Input sahələri */
+#cusdis_thread input,
+#cusdis_thread textarea {
+
+    color: #111 !important;
+
+    background: #fff !important;
+
+    border: 1px solid #ccc !important;
+
+}
+
+/* Placeholder (Nickname, Email və s.) */
+#cusdis_thread input::placeholder,
+#cusdis_thread textarea::placeholder {
+
+    color: #666 !important;
+
+}
+
+/* Reply, Post düymələri */
+#cusdis_thread button {
+
+    color: white !important;
+
+    background: #111 !important;
+
+    border-radius: 6px;
+
+}
+
+/* Comment text xüsusi olaraq */
+#cusdis_thread .cusdis-comment-content {
+
+    color: #000 !important;
+
+}
