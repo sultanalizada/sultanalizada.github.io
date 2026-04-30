@@ -1721,36 +1721,40 @@ html {
 }
 
 
-/* Paketlərin ana konteyneri */
+/* --- YEKUN MƏRKƏZLƏMƏ SİSTEMİ --- */
+
 .pricing-grid {
-    display: flex;
-    flex-wrap: wrap; /* Kartlar sığmayanda növbəti sətrə keçsin */
-    justify-content: center; /* KARTLARI MƏRKƏZLƏYƏN ƏSAS KOD */
-    align-items: stretch;
-    gap: 25px;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important; /* Kartları mərkəzə çəkir */
+    gap: 25px !important;
+    max-width: 1200px !important;
+    margin: 40px auto !important;
 }
 
-/* Kartların özü */
 .pricing-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    transition: 0.3s;
-    text-align: center; /* Mətni mərkəzləyir */
-    width: 300px; /* Sabit en mərkəzləməni asanlaşdırır */
+    background: white !important;
+    border-radius: 15px !important;
+    padding: 25px !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08) !important;
+    text-align: center !important;
+    flex: 0 1 300px !important; /* Kartların enini 300px-də sabitləyir */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* Premium kartın mərkəzlənməsi üçün əlavə */
-.premium-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 20px 0;
+/* Trial Lesson kartını mərkəzdə daha geniş etmək üçün */
+.pricing-card.highlight {
+    flex: 0 1 100% !important;
+    max-width: 500px !important;
+    border: 2px solid #FF5959 !important;
+}
+
+/* Mobildə hər şeyin mərkəzdə qalması üçün */
+@media (max-width: 768px) {
+    .pricing-card {
+        flex: 0 1 100% !important;
+        max-width: 350px !important;
+    }
 }
