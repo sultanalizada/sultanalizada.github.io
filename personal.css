@@ -1727,3 +1727,19 @@ html {
     box-shadow: 0 12px 25px rgba(0,0,0,0.12);
 
 }
+
+.pricing-card ul {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+.pricing-card li {
+
+    margin-bottom: 8px;
+
+}
