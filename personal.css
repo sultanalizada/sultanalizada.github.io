@@ -1498,122 +1498,62 @@ html {
 
 }
 
-/* ===== PRICING CARDS FIX ===== */
+/* --- QƏTİ VƏ SON DÜZƏLİŞ --- */
 
-.pricing-card {
-
-    background: #fff;
-
-    border-radius: 12px;
-
-    padding: 25px;
-
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-
-    transition: 0.3s;
-
-    text-align: left;
-
-}
-
-/* hover effekti */
-.pricing-card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-
-}
-
-.pricing-card ul {
-
-    list-style: none;
-
-    padding: 0;
-
-    margin: 0;
-
-}
-
-.pricing-card li {
-
-    margin-bottom: 8px;
-
-}
-
-.pricing-card li::before {
-
-    content: "✔";
-
-    margin-right: 8px;
-
-    color: #0d6efd;
-
-}
-
-.pricing-card h3 strong {
-
-    background: linear-gradient(90deg, #ff6363, #ff0000);
-
-    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-
-}
-
-.pricing-grid {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    justify-content: center;
-
-    gap: 25px;
-
-}
-
-.pricing-card {
-
-    width: 280px;
-
-}
-
-
-/* --- YEKUN MƏRKƏZLƏMƏ SİSTEMİ --- */
-
+/* Bütün paketləri mərkəzdə toplayan qutu */
 .pricing-grid {
     display: flex !important;
     flex-wrap: wrap !important;
-    justify-content: center !important; /* Kartları mərkəzə çəkir */
-    gap: 25px !important;
+    justify-content: center !important; 
+    align-items: stretch !important;
+    gap: 30px !important;
     max-width: 1200px !important;
     margin: 40px auto !important;
+    padding: 20px !important;
 }
 
+/* Şəkildə itən kart dizaynını geri gətirən kod */
 .pricing-card {
-    background: white !important;
-    border-radius: 15px !important;
-    padding: 25px !important;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08) !important;
+    background-color: #ffffff !important;
+    border-radius: 16px !important;
+    padding: 30px !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important; /* Kölgəni mütləq artırdıq */
+    width: 320px !important;
     text-align: center !important;
-    flex: 0 1 300px !important; /* Kartların enini 300px-də sabitləyir */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: transform 0.3s ease !important;
+    border: 1px solid #f0f0f0 !important;
 }
 
-/* Trial Lesson kartını mərkəzdə daha geniş etmək üçün */
+.pricing-card:hover {
+    transform: translateY(-8px) !important;
+}
+
+/* Trial Lesson kartını mərkəzdə tək və geniş etmək */
 .pricing-card.highlight {
     flex: 0 1 100% !important;
-    max-width: 500px !important;
-    border: 2px solid #FF5959 !important;
+    max-width: 600px !important;
+    border: 2px solid #ff4d4d !important;
 }
 
-/* Mobildə hər şeyin mərkəzdə qalması üçün */
+/* Siyahı nöqtələrini və mətni nizama sal */
+.pricing-card ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 !important;
+}
+
+.pricing-card li {
+    margin-bottom: 10px !important;
+    font-size: 16px !important;
+    color: #444 !important;
+}
+
+/* Mobildə hər şeyi tam mərkəzdə bir sütun et */
 @media (max-width: 768px) {
     .pricing-card {
         flex: 0 1 100% !important;
-        max-width: 350px !important;
+        max-width: 380px !important;
     }
 }
