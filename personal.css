@@ -484,19 +484,6 @@ html {
   background-color: #f4f7fb;
 }
 
-.pricing-card {
-  background-color: white;
-  padding: 28px;
-  margin: 20px auto;
-  max-width: 420px;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-  transition: 0.25s;
-}
-
-.pricing-card:hover {
-  transform: translateY(-6px);
-}
 
 .highlight {
   border: 2px solid #FF5959;
@@ -537,28 +524,6 @@ html {
 .pricing-button:hover {
   background-color: #1b263b;
   transform: scale(1.05);
-}
-
-/* PRICING GRID LAYOUT */
-
-.pricing-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(260px, 1fr));
-
-  gap: 25px;
-
-  max-width: 1200px;
-
-  margin: 40px auto;
-}
-
-/* kartların width limitini silirik */
-
-.pricing-card {
-  max-width: none;
-  width: 100%;
 }
 
 /* SUPERPROF COUNTRY BUTTONS */
@@ -747,33 +712,6 @@ html, body {
     padding: 0;
 }
 
-/* Qiymət cədvəlinin ana qutusu */
-.pricing-grid {
-    display: flex;
-    flex-wrap: wrap; /* Mobildə alt-alta keçməsi üçün */
-    justify-content: center;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-/* Trial Lesson kartı - Tam en və mərkəzdə */
-.pricing-card.highlight {
-    flex: 0 1 100%; /* Mobildə tam sətiri tutur */
-    max-width: 500px;
-    margin-bottom: 20px;
-}
-
-/* Digər paketlər */
-.pricing-card {
-    flex: 1 1 250px; /* PC-də yan-yana, mobildə avtomatik ölçü */
-    max-width: 300px;
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    text-align: center;
 }
 
 /* Mobil üçün xüsusi toxunuşlar */
