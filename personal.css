@@ -1702,3 +1702,58 @@ html {
     background: linear-gradient(180deg, #ffffff 0%, #fffdf5 100%);
     position: relative;
 }
+
+.pricing-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    padding: 28px 24px;
+
+    border-radius: 16px; /* daha yumşaq künclər */
+
+    border: 1px solid #e5e7eb; /* 👈 əsas fərq */
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+
+    text-align: left; /* daha professional görünür */
+
+    transition: all 0.25s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+
+    border-color: #d1d5db;
+}
+
+.premium-highlight {
+    border: 2px solid #FFD700;
+
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+
+    transform: scale(1.03);
+}
+
+.pricing-grid {
+    align-items: stretch;
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pricing-card ul {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+}
+
