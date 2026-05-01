@@ -488,7 +488,6 @@ html {
   background-color: white;
   padding: 28px;
   margin: 20px auto;
-  max-width: 420px;
   border-radius: 14px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.08);
   transition: 0.25s;
@@ -539,13 +538,6 @@ html {
   transform: scale(1.05);
 }
 
-
-/* kartların width limitini silirik */
-
-.pricing-card {
-  max-width: none;
-  width: 100%;
-}
 
 /* SUPERPROF COUNTRY BUTTONS */
 
@@ -632,9 +624,6 @@ background: linear-gradient(
 .pricing-card.highlight {
 
 grid-column: 1 / -1;
-
-max-width: 500px;
-
 margin-left: auto;
 margin-right: auto;
 
@@ -737,14 +726,12 @@ html, body {
 /* Trial Lesson kartı - Tam en və mərkəzdə */
 .pricing-card.highlight {
     flex: 0 1 100%; /* Mobildə tam sətiri tutur */
-    max-width: 500px;
     margin-bottom: 20px;
 }
 
 /* Digər paketlər */
 .pricing-card {
     flex: 1 1 250px; /* PC-də yan-yana, mobildə avtomatik ölçü */
-    max-width: 300px;
     background: white;
     padding: 25px;
     border-radius: 15px;
@@ -758,17 +745,11 @@ html, body {
         flex-direction: column; /* Kartları bir-birinin altına düzür */
         align-items: center;
     }
-
-    .pricing-card {
-        width: 100%;
-        max-width: 350px; /* Mobildə çox enli olmasın */
-    }
 }
 
 /* Trial Lesson: Hər zaman yuxarıda tək */
 .pricing-card.highlight {
     grid-column: 1 / -1; /* Bütün sətiri tutur */
-    max-width: 450px;
     margin: 0 auto 10px auto;
     border: 2px solid #FF5959;
 }
@@ -1695,4 +1676,29 @@ html {
     max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
+}
+
+.pricing-card {
+    width: 100%;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: 0.25s;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-card.highlight {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.premium-highlight {
+    border: 2px solid #FFD700;
+    background: linear-gradient(180deg, #ffffff 0%, #fffdf5 100%);
+    position: relative;
 }
