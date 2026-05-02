@@ -90,7 +90,8 @@ font-weight: bold;
 .nav-list {
     list-style: none;
     display: flex;
-    gap: 15px; /* Düymələr arası məsafə */
+    gap: 10
+    px; /* Düymələr arası məsafə */
     margin: 0;
     padding: 0;
     margin-left: auto; /* MENYUNU SAĞA İTƏLƏYƏN ƏSAS KOD */
@@ -1234,7 +1235,7 @@ html, body {
 /* --- MOBİL ÜÇÜN DÜZƏLİŞLƏR --- */
 @media (max-width: 768px) {
     .navbar {
-        padding: 10px 20px;
+        padding: 8px 15px;
     }
 
     .menu-toggle {
@@ -1394,7 +1395,7 @@ img {
 
     margin: 0 auto;
 
-    padding: 15px 20px;
+    padding: 13px 18px;
 
 }
 
