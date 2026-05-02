@@ -384,7 +384,7 @@ html {
     flex-direction: column;
     justify-content: center;
     gap: 15px;
-    padding: 10px 0;
+    padding: 5px 0;
     margin-left: 0; /* Mobildə sağa yapışmasın, mərkəzləşsin */
   }
 
@@ -1274,7 +1274,7 @@ html, body {
     }
 
     .nav-list li a {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 } /* <--- Media query burada bağlanmalıdır! */
 
