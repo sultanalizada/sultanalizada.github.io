@@ -1758,3 +1758,7 @@ html {
     font-weight: bold;
 }
 
+.logo {
+    white-space: nowrap;
+}
+
