@@ -1762,11 +1762,12 @@ html {
 }
 
 .social-icon.patreon {
-    background: #ff424d; /* Patreon rəngi */
-    color: #ffffff;
+    background: #000;        /* qara dairə */
+    color: #fff;
     border-radius: 50%;
-    width: 38px;
-    height: 38px;
+
+    width: 44px;             /* əvvəl 38 idi → böyütdük */
+    height: 44px;
 
     display: inline-flex;
     align-items: center;
@@ -1776,11 +1777,11 @@ html {
 }
 
 .social-icon.patreon:hover {
-    background: #e63a44;
-    transform: scale(1.1);
+    background: #222;
+    transform: scale(1.12);
 }
 
 .social-icon.patreon svg {
-    width: 18px;
-    height: 18px;
+    width: 22px;   /* əvvəl 18 idi */
+    height: 22px;
 }
