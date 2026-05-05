@@ -47,7 +47,7 @@ color: #222;
     width: 100%;
     background-color: #0d1b2a;
     padding: 10px 5%; /* Kənarlardan boşluq */
-    z-index: 9999;    /* Həmişə ən üstdə qalması üçün */
+    z-index: 99999;    /* Həmişə ən üstdə qalması üçün */
     display: flex;
     justify-content: space-between; /* Loqo solda, menyu sağda */
     align-items: center;
@@ -1315,6 +1315,8 @@ html, body {
     margin: 50px auto;
     border-radius: 10px;
     overflow: visible;
+    position: relative;
+    z-index: 1;
     touch-action: pan-y;
 }
 
