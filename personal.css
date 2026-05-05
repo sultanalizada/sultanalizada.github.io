@@ -1785,3 +1785,45 @@ html {
     width: 22px;   /* əvvəl 18 idi */
     height: 22px;
 }
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+}
+
+/* Dropdown menu (gizli vəziyyət) */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0d1b2a;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: none;
+    min-width: 180px;
+    border-radius: 8px;
+    z-index: 999;
+}
+
+/* Dropdown iç linklər */
+.dropdown-menu li {
+    padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+}
+
+/* Hover effekti */
+.dropdown-menu li a:hover {
+    background-color: #1b263b;
+}
+
+/* Hover edəndə açılır */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
