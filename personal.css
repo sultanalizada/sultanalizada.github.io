@@ -100,7 +100,7 @@ font-weight: bold;
     color: white !important;
     text-decoration: none;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 10px;
     transition: 0.3s;
 }
 
@@ -1215,7 +1215,7 @@ html, body {
     color: #ffffff !important; /* Mütləq ağ rəng */
     text-decoration: none;
     font-weight: 500;
-    font-size: 11px; /* 30% kiçik şrift (hər şeyin sığması üçün) */
+    font-size: 10px; /* 30% kiçik şrift (hər şeyin sığması üçün) */
     white-space: nowrap; /* Yazıların aşağı düşməsini önləyir */
     transition: 0.3s;
 }
