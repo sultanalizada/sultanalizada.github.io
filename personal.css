@@ -1317,10 +1317,10 @@ html, body {
 
 /* Həm köhnə, həm yeni təqvim üçün mərkəzləmə */
 .calendar-container, #my-cal-inline-60 {
-    max-width: 1000px; /* Bir az daha geniş etmək təqvimi daha oxunaqlı edir */
+    max-width: 1400px; /* Bir az daha geniş etmək təqvimi daha oxunaqlı edir */
     margin: 50px auto;
     border-radius: 10px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .pricing-button {
