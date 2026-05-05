@@ -1188,7 +1188,7 @@ html, body {
     position: fixed; /* Yuxarıda sabit qalsın */
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 9999;
     box-sizing: border-box;
 }
 
