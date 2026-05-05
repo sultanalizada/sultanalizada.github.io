@@ -1201,6 +1201,7 @@ html, body {
 
 .nav-list li {
     margin: 0 8px; /* Düymələr arası məsafəni optimallaşdırdıq */
+    position: relative;
 }
 
 /* PC-də Ağ Rəngli Yazılar */
