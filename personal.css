@@ -1822,3 +1822,7 @@ html {
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+
+.navbar {
+    background: red !important;
+}
