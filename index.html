@@ -668,7 +668,6 @@ window.addEventListener("load", function() {
       config: {
         "layout":"week_view",
         "useSlotsViewOnSmallScreen":"true",
-        "focus": false // 👈 Bax bu kod səhifənin ora tullanmasının qarşısını alır
       },
       calLink: "sultan-academy-ybzcao/60",
     });
@@ -837,6 +836,14 @@ navLinks.forEach(link => {
   });
 });
 
+});
+</script>  
+
+  <script>
+window.addEventListener("load", function () {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 1500); // cal-dan bir az gec
 });
 </script>  
 
