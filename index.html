@@ -825,59 +825,66 @@ WhatsApp
             e.stopPropagation(); // Klikin wrapper-ə yayılmasını dayandır
             wechatPopup.classList.toggle('active');
         });
-
-        // Səhifənin istənilən yerinə (popupdan kənar) klikləyəndə popupu bağla
-        document.addEventListener('click', function(e) {
-            if (!wechatPopup.contains(e.target) && wechatPopup.classList.contains('active')) {
-                wechatPopup.classList.remove('active');
-            }
-        });
     });
 </script>
 
-<script>
-
-document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
-  toggle.addEventListener("click", function(e) {
-    e.preventDefault();
-
-    const parent = this.parentElement;
-    parent.classList.toggle("open");
-  });
-});
-
-</script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.getElementById("mobile-menu");
-        const navList = document.getElementById("nav-list");
-        const navLinks = document.querySelectorAll("#nav-list a");
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById("mobile-menu");
+    const navList = document.getElementById("nav-list");
+    const dropdowns = document.querySelectorAll(".dropdown");
 
-        // Hamburger menyunu aç/bağla
-        menuToggle.addEventListener("click", () => {
+    // 1. Hamburger menyunu aç/bağla
+    if (menuToggle) {
+        menuToggle.addEventListener("click", function(e) {
+            e.stopPropagation(); // Klikin sənədə yayılmasını önləyir
             navList.classList.toggle("active");
+            document.body.style.overflow = navList.classList.contains("active") ? "hidden" : "";
+        });
+    }
+
+    // 2. Dropdown-u aç/bağla (Mobil və PC üçün)
+    document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+        toggle.addEventListener("click", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const parent = this.parentElement;
             
-            // Arxa fonun sürüşməsini (scroll) dayandır
-            if (navList.classList.contains("active")) {
-                document.body.style.overflow = "hidden";
-            } else {
-                document.body.style.overflow = "";
+            // Digər açıq dropdown-ları bağla
+            dropdowns.forEach(d => {
+                if (d !== parent) d.classList.remove("open");
+            });
+
+            parent.classList.toggle("open");
+        });
+    });
+
+    // 3. Kənara klik edəndə HƏM menyunu, HƏM dropdown-u bağla
+    document.addEventListener("click", function(e) {
+        // Dropdown-u bağla
+        dropdowns.forEach(drop => {
+            if (!drop.contains(e.target)) {
+                drop.classList.remove("open");
             }
         });
 
-        // Linkə klikləyəndə menyunu bağla
-        navLinks.forEach(link => {
-            link.addEventListener("click", (e) => {
-                // Əgər dropdown-dırsa, menyunu bağlama (çünki alt menyu açılmalıdır)
-                if (link.classList.contains("dropdown-toggle")) {
-                    return;
-                }
-                navList.classList.remove("active");
-                document.body.style.overflow = "";
-            });
+        // Hamburger menyunu bağla (əgər klik menyu daxilində deyilsə)
+        if (navList.classList.contains("active") && !navList.contains(e.target) && !menuToggle.contains(e.target)) {
+            navList.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+    });
+
+    // 4. Menyu daxilindəki adi linklərə klikləyəndə menyunu bağla
+    const navLinks = document.querySelectorAll("#nav-list a:not(.dropdown-toggle)");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            navList.classList.remove("active");
+            document.body.style.overflow = "";
         });
     });
+});
 </script>
 
 </body>
