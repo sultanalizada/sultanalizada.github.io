@@ -1820,4 +1820,10 @@ html {
     background-color: #1b263b;
 }
 
+.dropdown-menu {
+    display: none;
+}
 
+.dropdown.open .dropdown-menu {
+    display: block;
+}
