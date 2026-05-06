@@ -855,8 +855,18 @@ navLinks.forEach(link => {
 });
 
 });
-</script>  
+</script> 
   
+<script>
+document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const parent = this.parentElement;
+    parent.classList.toggle("open");
+  });
+});
+</script>  
 
 </body>
 
