@@ -1820,8 +1820,4 @@ html {
     background-color: #1b263b;
 }
 
-/* Hover edəndə açılır */
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
 
