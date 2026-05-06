@@ -833,29 +833,41 @@ WhatsApp
         });
     });
 </script>
+  
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const menuToggle = document.getElementById("mobile-menu");
-  const navList = document.getElementById("nav-list");
-
-  // Hamburger klikləyəndə menyunu aç / bağla
-  menuToggle.addEventListener("click", function () {
-    navList.classList.toggle("active");
-  });
-
-  // Menyuda linkə klikləyəndə avtomatik bağlansın
 const navLinks = document.querySelectorAll("#nav-list a");
 
 navLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    navList.classList.remove("active");
+  link.addEventListener("click", (e) => {
+
+    // Əgər dropdown toggle-dırsa → bağlama!
+    if (link.classList.contains("dropdown-toggle")) {
+      e.preventDefault();
+      return;
+    }
+
+navList.classList.remove("active");
+document.body.style.overflow = "";
   });
 });
+</script>
 
+<script>
+const menuToggle = document.getElementById("menu-toggle");
+const navList = document.getElementById("nav-list");
+
+menuToggle.addEventListener("click", () => {
+  navList.classList.toggle("active");
+
+  // body scroll lock
+  if (navList.classList.contains("active")) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
 });
-</script> 
+</script>
   
 <script>
 document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
@@ -867,6 +879,17 @@ document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
   });
 });
 </script>  
+
+<script>
+// Kənara klik edəndə dropdown bağlansın
+document.addEventListener("click", function(e) {
+  document.querySelectorAll(".dropdown").forEach(drop => {
+    if (!drop.contains(e.target)) {
+      drop.classList.remove("open");
+    }
+  });
+});
+</script>
 
 </body>
 
