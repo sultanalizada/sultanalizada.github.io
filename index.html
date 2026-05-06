@@ -19,6 +19,7 @@
 <body>
 
 <!-- NAVIGATION -->
+
 <header>
   <nav class="navbar">
         <div class="logo">Sultan Alizada</div>
@@ -836,8 +837,8 @@ WhatsApp
   
 
 <script>
-const navLinks = document.querySelectorAll("#nav-list a");
 
+const navLinks = document.querySelectorAll("#nav-list a");
 navLinks.forEach(link => {
   link.addEventListener("click", (e) => {
 
@@ -851,9 +852,11 @@ navList.classList.remove("active");
 document.body.style.overflow = "";
   });
 });
+
 </script>
 
 <script>
+
 const menuToggle = document.getElementById("menu-toggle");
 const navList = document.getElementById("nav-list");
 
@@ -867,9 +870,11 @@ menuToggle.addEventListener("click", () => {
     document.body.style.overflow = "";
   }
 });
+  
 </script>
   
 <script>
+
 document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
   toggle.addEventListener("click", function(e) {
     e.preventDefault();
@@ -878,9 +883,11 @@ document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
     parent.classList.toggle("open");
   });
 });
+
 </script>  
 
 <script>
+
 // Kənara klik edəndə dropdown bağlansın
 document.addEventListener("click", function(e) {
   document.querySelectorAll(".dropdown").forEach(drop => {
@@ -889,6 +896,7 @@ document.addEventListener("click", function(e) {
     }
   });
 });
+
 </script>
 
 </body>
