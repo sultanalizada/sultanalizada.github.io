@@ -630,54 +630,51 @@ View on Superprof
   
   <div style="width:100%; min-height:1100px;" id="my-cal-inline-60"></div>
   
-  <script>
+ <script>
 window.addEventListener("load", function() {
+  // Təqvimi 1 saniyə gecikmə ilə yükləyirik ki, səhifə atılmasın
+  setTimeout(function() {
+    (function (C, A, L) { 
+      let p = function (a, ar) { a.q.push(ar); }; 
+      let d = C.document; 
+      C.Cal = C.Cal || function () { 
+        let cal = C.Cal; 
+        let ar = arguments; 
+        if (!cal.loaded) { 
+          cal.ns = {}; 
+          cal.q = cal.q || []; 
+          d.head.appendChild(d.createElement("script")).src = A; 
+          cal.loaded = true; 
+        } 
+        if (ar[0] === L) { 
+          const api = function () { p(api, arguments); }; 
+          const namespace = ar[1]; 
+          api.q = api.q || []; 
+          if(typeof namespace === "string"){
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar); 
+          return;
+        } 
+        p(cal, ar); 
+      }; 
+    })(window, "https://app.cal.com/embed/embed.js", "init");
 
-  (function (C, A, L) { 
-    let p = function (a, ar) { a.q.push(ar); }; 
-    let d = C.document; 
-    C.Cal = C.Cal || function () { 
-      let cal = C.Cal; 
-      let ar = arguments; 
-      if (!cal.loaded) { 
-        cal.ns = {}; 
-        cal.q = cal.q || []; 
-        d.head.appendChild(d.createElement("script")).src = A; 
-        cal.loaded = true; 
-      } 
-      if (ar[0] === L) { 
-        const api = function () { p(api, arguments); }; 
-        const namespace = ar[1]; 
-        api.q = api.q || []; 
-        if(typeof namespace === "string"){
-          cal.ns[namespace] = cal.ns[namespace] || api;
-          p(cal.ns[namespace], ar);
-          p(cal, ["initNamespace", namespace]);
-        } else p(cal, ar); 
-        return;
-      } 
-      p(cal, ar); 
-    }; 
-  })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "60", {origin:"https://app.cal.com"});
 
-  Cal("init", "60", {origin:"https://app.cal.com"});
+    Cal.ns["60"]("inline", {
+      elementOrSelector:"#my-cal-inline-60",
+      config: {
+        "layout":"week_view",
+        "useSlotsViewOnSmallScreen":"true",
+        "focus": false // 👈 Bax bu kod səhifənin ora tullanmasının qarşısını alır
+      },
+      calLink: "sultan-academy-ybzcao/60",
+    });
 
-  Cal.ns["60"]("inline", {
-    elementOrSelector:"#my-cal-inline-60",
-    config: {"layout":"week_view","useSlotsViewOnSmallScreen":"true"},
-    calLink: "sultan-academy-ybzcao/60",
-  });
-
-  Cal.ns["60"]("ui", {"hideEventTypeDetails":false,"layout":"week_view"});
-
-});
-</script>
-
-  <script>
-window.addEventListener("load", function () {
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-  }, 300);
+    Cal.ns["60"]("ui", {"hideEventTypeDetails":false,"layout":"week_view"});
+  }, 1000); // 1000 millissaniyə = 1 saniyə gecikmə
 });
 </script>
   
