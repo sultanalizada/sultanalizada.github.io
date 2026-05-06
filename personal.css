@@ -288,11 +288,19 @@ transform: scale(1.05);
     margin-top: 80px;
   }
 
-#my-cal-inline-60 {
-        padding: 0 50px; /* Kənarlardan XXXXpx "scroll zonası" buraxır */
-        min-height: 800px; /* Mobildə hündürlüyü bir az azaltmaq kömək edə bilər */
+@media (max-width: 768px) {
+    #my-cal-inline-60 {
+        /* Yanlardan boşluğu artırırıq (Scroll üçün təhlükəsiz zona) */
+        padding-left: 25px !important; 
+        padding-right: 25px !important;
+        
+        /* Təqvimin özünü bir qədər daraldırıq ki, kənarlar genişlənsin */
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
-
+}
+    
+    
 }
 
 /* TESTIMONIALS - bigger visible area */
