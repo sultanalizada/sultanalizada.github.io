@@ -102,27 +102,6 @@ font-weight: bold;
     text-decoration: underline;
 }
 
-/* HERO */
-
-.hero {
-    padding-top: 140px !important; /* Navbarın hündürlüyündən daha çox boşluq */
-    text-align: center;
-    padding-bottom: 60px;
-}
-
-.profile-photo {
-
-width: 220px;
-
-height: auto;
-
-border-radius: 50%;
-
-margin-bottom: 20px;
-
-box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-
-}
 
 .tagline {
 
@@ -1394,10 +1373,6 @@ img {
     height: auto;
 }
 
-.hero-content {
-    text-align: center;
-}
-
 .navbar {
 
     max-width: 1200px;
@@ -1844,5 +1819,82 @@ html {
 #my-cal-inline-60 {
     touch-action: auto !important; /* Brauzerin təbii scrolluna icazə verir */
     overflow: hidden; /* İframe daxilindəki artıq scrollu kəsir */
+}
+
+/* HERO */
+
+.hero {
+    padding-top: 110px;
+    padding-left: 60px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+}
+
+/* SOL YUXARI BLOK */
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 600px;
+}
+
+/* ŞƏKİL */
+
+.profile-photo {
+    width: 140px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* LOGO */
+
+.hero-logo {
+    width: 320px;
+    max-width: 90%;
+    margin-bottom: 20px;
+
+    /* navbar arxasına bir az girə bilər */
+    margin-top: -30px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 12px;
+}
+
+.tagline {
+    font-size: 20px;
+    max-width: 500px;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 120px;
+    }
+
+    .profile-photo {
+        width: 110px;
+    }
+
+    .hero-logo {
+        width: 220px;
+        margin-top: -15px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .tagline {
+        font-size: 17px;
+    }
 }
 
