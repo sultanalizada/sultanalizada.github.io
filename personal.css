@@ -1891,11 +1891,10 @@ html {
         padding-left: 25px;
         padding-right: 25px;
         padding-top: 70px;
-        padding-bottom: 20px
         
         /* Əsas düzəliş bura əlavə olunur: */
         background-size: contain !important;      /* Loqonun dartılmasının qarşısını alır, orijinal nisbəti qoruyur */
-        background-position: center top    }
+        }
 
     .profile-photo {
         width: 110px;
