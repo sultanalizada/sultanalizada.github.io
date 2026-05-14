@@ -1844,6 +1844,7 @@ html {
 .profile-photo {
         width: 110px !important;
         height: auto !important;
+        border-radius: 50%
     }
 
 @media (max-width: 768px) {
