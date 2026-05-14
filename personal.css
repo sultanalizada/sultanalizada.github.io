@@ -1891,6 +1891,10 @@ html {
         padding-left: 25px;
         padding-right: 25px;
         padding-top: 120px;
+        
+        /* Əsas düzəliş bura əlavə olunur: */
+        background-size: contain !important;      /* Loqonun dartılmasının qarşısını alır, orijinal nisbəti qoruyur */
+        background-position: center center !important; /* Loqonu mobil ekranda tam mərkəzə qoyur */
     }
 
     .profile-photo {
@@ -1910,4 +1914,3 @@ html {
         font-size: 17px;
     }
 }
-
