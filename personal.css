@@ -1850,6 +1850,7 @@ html {
    align-items: center;
     text-align: center;
     max-width: 600px;
+    margin: 0 auto;
 }
 
 
@@ -1857,14 +1858,9 @@ html {
 
 .profile-photo {
     width: 140px;
-
     border-radius: 50%;
-
-
     display: block;
-    
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 /* LOGO */
