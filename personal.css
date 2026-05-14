@@ -1890,7 +1890,7 @@ html {
     .hero {
         padding-left: 25px;
         padding-right: 25px;
-        padding-top: 70px;
+        padding-top: 30px;
         
         /* Dartılmanı tamamilə öldürən və arxa fonu sıfırlayan kodlar: */
         background-size: contain !important;        /* Orijinal nisbəti həm en, həm hündürlük üçün məcburi qoruyur */
