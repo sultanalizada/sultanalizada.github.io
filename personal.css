@@ -1891,6 +1891,7 @@ html {
         padding-left: 25px;
         padding-right: 25px;
         padding-top: 30px;
+        min-height: auto;
         
         /* Dartılmanı tamamilə öldürən və arxa fonu sıfırlayan kodlar: */
         background-size: contain !important;        /* Orijinal nisbəti həm en, həm hündürlük üçün məcburi qoruyur */
