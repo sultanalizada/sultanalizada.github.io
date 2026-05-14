@@ -83,7 +83,7 @@ font-weight: bold;
 .nav-list {
     list-style: none;
     display: flex;
-    gap: 3px; /* Düymələr arası məsafə */
+    gap: 1px; /* Düymələr arası məsafə */
     margin: 0;
     padding: 0;
     margin-left: auto; /* MENYUNU SAĞA İTƏLƏYƏN ƏSAS KOD */
