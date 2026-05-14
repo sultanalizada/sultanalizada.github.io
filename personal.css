@@ -1855,13 +1855,4 @@ html {
         margin-bottom: 10px !important; /* Loqo ilə profil şəkli arasındakı məsafə */
     }
 
-    .profile-photo {
-        width: 110px !important;
-        height: 110px !important;
-    }
-
-    .hero h1 {
-        font-size: 30px !important;
-        margin-top: 10px !important;
-    }
 }
