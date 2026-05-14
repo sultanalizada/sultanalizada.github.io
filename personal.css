@@ -1887,46 +1887,44 @@ html {
 
 @media (max-width: 768px) {
 
-    /* 1. Əsas blokun məcburi hündürlüyünü və boşluqlarını sıfırlayırıq */
     .hero {
-        padding-top: 50px !important;    /* Navbardan aşağı olan məsafə - tam sənə tabedir */
-        padding-bottom: 5px !important;  /* Növbəti section-la olan məsafə - tam sıxdıq */
+        /* 1. Yuxarı və aşağı boşluqları TAM SƏNİN nəzarətinə veririk */
+        padding-top: 60px !important;    /* Navbardan (yuxarı xətdən) aşağı olan məsafə */
+        padding-bottom: 20px !important; /* Logonun altındakı, növbəti elementə qədər olan boşluq */
+        
+        padding-left: 25px;
+        padding-right: 25px;
         min-height: auto !important;     /* Brauzerin özündən boşluq uydurmasını əngəllədik */
+
+        /* 2. ARXA FONU NORMAL BİR ŞƏKİL KİMİ DAVRANMAĞA MƏCBUR EDİRİK */
+        background-image: url("logo.png") !important;
+        background-repeat: no-repeat !important;
+        background-position: top center !important; /* Şəkli lap yuxarı mərkəzə qoyur */
         
-        background-size: cover !important; /* Arxa fondakı göy şəkil ekranı təmiz örtsün */
+        /* Bura Diqqət: Bu ölçü şəkli ekrana yaymır, onu 240px ölçüsündə normal şəkil edir! */
+        background-size: 240px auto !important; 
     }
 
-    /* 2. DAŞAN VƏ DARTILAN ƏSAS LOQONU BURADAN İDARƏ EDİRİK */
-    .hero-logo {
-        width: 100% !important;
-        max-width: 240px !important; /* Bu rəqəmlə oynayaraq loqonu böyüdüb kiçildə bilərsən */
-        height: auto !important;     /* YANLARA DARTILMANI ÖLDÜRƏN SEHRLİ KOD! Orijinal nisbəti qoruyur */
-        
-        margin-top: 10px !important;    /* Profil şəkli ilə loqo arasındakı məsafə */
-        margin-bottom: 5px !important; /* Loqonun altındakı boşluq (bunu azaltsan altdakı elementlər yuxarı qalxacaq) */
-        
-        display: block !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    /* 3. Profil şəklinin ölçüsü */
+    /* 3. Profil şəklinin ölçüsü və yerləşməsi */
     .profile-photo {
         width: 110px !important;
         height: 110px !important;
         object-fit: cover;
+        
+        /* Şəkli loqonun daxilində tam mərkəzə oturtmaq üçün yuxarı boşluq (eyni zamanda loqonun yuxarısını tənzimləyir) */
+        margin-top: 40px !important; 
     }
 
-    /* 4. Loqonun altındakı yazıların boşluqlarını da sıxırıq ki, növbəti hissəyə məsafə qalmasın */
+    /* 4. Yazıların ölçüləri və sıxlığı */
     .hero h1 {
-        font-size: 28px !important;
-        margin-top: 5px !important;
+        font-size: 32px !important;
+        margin-top: 15px !important;
         margin-bottom: 5px !important;
     }
 
     .tagline {
-        font-size: 15px !important;
+        font-size: 16px !important;
         margin-top: 0 !important;
-        margin-bottom: 10px !important; /* Əgər altdakı bölmə lap yaxın olsun istəyirsənsə, bunu 0 et */
+        margin-bottom: 0 !important; /* Altdakı hissəyə olan məsafəni sıfırladıq */
     }
 }
