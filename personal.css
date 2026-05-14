@@ -1821,8 +1821,6 @@ html {
     overflow: hidden; /* İframe daxilindəki artıq scrollu kəsir */
 }
 
-/* HERO */
-
 /* HERO - PC */
 .hero {
     position: relative;
@@ -1842,6 +1840,11 @@ html {
     display: block;
     margin: 0 auto 20px auto;
 }
+
+.profile-photo {
+        width: 110px !important;
+        height: auto !important;
+    }
 
 @media (max-width: 768px) {
     .hero {
