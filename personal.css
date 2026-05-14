@@ -1895,7 +1895,7 @@ html {
         /* Dartılmanı tamamilə öldürən və arxa fonu sıfırlayan kodlar: */
         background-size: contain !important;        /* Orijinal nisbəti həm en, həm hündürlük üçün məcburi qoruyur */
         background-repeat: no-repeat !important;    /* Şəklin təkrarlanmasını qəti şəkildə kəsir */
-        background-position: center center !important; /* Loqonu tam mərkəzə oturdur */
+        background-position: center top
     }
 
     .profile-photo {
