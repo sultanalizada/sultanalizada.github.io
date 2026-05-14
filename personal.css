@@ -1894,8 +1894,7 @@ html {
         
         /* Əsas düzəliş bura əlavə olunur: */
         background-size: contain !important;      /* Loqonun dartılmasının qarşısını alır, orijinal nisbəti qoruyur */
-        background-position: center center !important; /* Loqonu mobil ekranda tam mərkəzə qoyur */
-    }
+        background-position: center top    }
 
     .profile-photo {
         width: 110px;
