@@ -1885,46 +1885,33 @@ html {
     margin: 0;
 }
 
+.hero-logo-img {
+    width: 100%;
+    max-width: 450px; /* PC-də loqonun eni */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
 @media (max-width: 768px) {
-
     .hero {
-        /* 1. Yuxarı və aşağı boşluqları TAM SƏNİN nəzarətinə veririk */
-        padding-top: 60px !important;    /* Navbardan (yuxarı xətdən) aşağı olan məsafə */
-        padding-bottom: 20px !important; /* Logonun altındakı, növbəti elementə qədər olan boşluq */
-        
-        padding-left: 25px;
-        padding-right: 25px;
-        min-height: auto !important;     /* Brauzerin özündən boşluq uydurmasını əngəllədik */
-
-        /* 2. ARXA FONU NORMAL BİR ŞƏKİL KİMİ DAVRANMAĞA MƏCBUR EDİRİK */
-        background-image: url("logo.png") !important;
-        background-repeat: no-repeat !important;
-        background-position: top center !important; /* Şəkli lap yuxarı mərkəzə qoyur */
-        
-        /* Bura Diqqət: Bu ölçü şəkli ekrana yaymır, onu 240px ölçüsündə normal şəkil edir! */
-        background-size: 240px auto !important; 
+        min-height: auto !important; /* Məcburi ekran boyu hündürlüyü ləğv etdik */
+        padding-top: 50px !important;    /* Navbardan loqoya qədər boşluq */
+        padding-bottom: 0px !important;  /* Logonun altındakı bölməyə qədər boşluq */
     }
 
-    /* 3. Profil şəklinin ölçüsü və yerləşməsi */
+    .hero-logo-img {
+        max-width: 260px !important; /* Mobildə loqonun ölçüsü. Dartılma olmayacaq! */
+        margin-bottom: 10px !important; /* Loqo ilə profil şəkli arasındakı məsafə */
+    }
+
     .profile-photo {
         width: 110px !important;
         height: 110px !important;
-        object-fit: cover;
-        
-        /* Şəkli loqonun daxilində tam mərkəzə oturtmaq üçün yuxarı boşluq (eyni zamanda loqonun yuxarısını tənzimləyir) */
-        margin-top: 40px !important; 
     }
 
-    /* 4. Yazıların ölçüləri və sıxlığı */
     .hero h1 {
-        font-size: 32px !important;
-        margin-top: 15px !important;
-        margin-bottom: 5px !important;
-    }
-
-    .tagline {
-        font-size: 16px !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important; /* Altdakı hissəyə olan məsafəni sıfırladıq */
+        font-size: 30px !important;
+        margin-top: 10px !important;
     }
 }
