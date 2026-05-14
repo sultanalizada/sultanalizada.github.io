@@ -1890,7 +1890,9 @@ html {
     .hero {
         padding-left: 25px;
         padding-right: 25px;
-        padding-top: 30px;
+/* 2. Yuxarı və aşağı boşluqları TAM SƏNİN nəzarətinə veririk */
+        padding-top: 50px !important;    /* Navbardan aşağı olan məsafə (azaldıb-çoxalda bilərsən) */
+        padding-bottom: 10px !important; /* Loqonun altındakı boşluq (artıq tamamilə sənə tabedir) */
         min-height: auto;
         
         /* Dartılmanı tamamilə öldürən və arxa fonu sıfırlayan kodlar: */
