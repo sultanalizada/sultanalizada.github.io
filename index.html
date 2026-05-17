@@ -1648,6 +1648,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const calContainers = ["#my-cal-inline-60", "#my-cal-inline-let-s-talk"];
+    
+    calContainers.forEach(selector => {
+        const element = document.querySelector(selector);
+        if (element) {
+            // Barmaq hərəkətini izləyirik
+            element.addEventListener("touchmove", function(e) {
+                // Təqvimin daxili skriptinin səhifə sürüşməsini bloklamasına İCAZƏ VERMİRİK
+                e.stopPropagation(); 
+            }, { passive: true });
+        }
+    });
+});
+</script>
+
+  
 </body>
 
 </html>
