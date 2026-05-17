@@ -69,7 +69,7 @@ font-weight: bold;
 .nav-list {
     list-style: none;
     display: flex;
-    gap: 0.3px; /* Düymələr arası məsafə */
+    gap: 1px; /* Düymələr arası məsafə */
     margin: 0;
     padding: 0;
     margin-left: auto; /* MENYUNU SAĞA İTƏLƏYƏN ƏSAS KOD */
@@ -313,33 +313,6 @@ html {
   scroll-padding-top: 90px;
 }
 
-/* 2. Navbarı incəltmək və elementləri düzgün yerləşdirmək */
-.navbar {
-  padding: 8px 3%; /* Kənarlardan xəfif boşluq */
-  background-color: rgba(13, 27, 42, 0.98);
-  display: flex;
-  overflow: visible;
-  justify-content: space-between; /* Loqo solda, menyu sağda qalsın */
-  align-items: center;
-}
-
-/* NAV-MENU ƏVƏZİNƏ NAV-LIST İSTİFADƏ EDİRİK */
-.nav-list {
-  display: flex;
-  overflow: visible;
-  gap: 6px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  margin-left: auto; /* MENYUNU SAĞA İTƏLƏYƏN ƏSAS KOD */
-}
-
-.nav-list a {
-  font-size: 14px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
 
 /* 3. Mobil mərkəzləşdirmə və Hero (Şəkil) tənzimləməsi */
 @media (max-width: 768px) {
@@ -1156,45 +1129,6 @@ html, body {
 }
 
 
-/* --- NAVIGATION STRUCTURE --- */
-.navbar {
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 3%; /* Kənarlardan boşluğu azaltdıq ki, yer çoxalsın */
-    background-color: #0d1b2a;
-    position: fixed; /* Yuxarıda sabit qalsın */
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-    box-sizing: border-box;
-}
-
-.nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    align-items: center;
-}
-
-.nav-list li {
-    margin: 0 8px; /* Düymələr arası məsafəni optimallaşdırdıq */
-    position: relative;
-}
-
-/* PC-də Ağ Rəngli Yazılar */
-.nav-list li a {
-    color: #ffffff !important; /* Mütləq ağ rəng */
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 10px; /* 30% kiçik şrift (hər şeyin sığması üçün) */
-    white-space: nowrap; /* Yazıların aşağı düşməsini önləyir */
-    transition: 0.3s;
-}
-
-.nav-list li a:hover {
-    color: #3498db !important; /* Üstünə gələndə göyümtül rəng */
-}
-
 /* PC-də Hamburgeri Gizlət */
 @media (min-width: 769px) {
     .menu-toggle {
@@ -1358,15 +1292,6 @@ img {
     height: auto;
 }
 
-.navbar {
-
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    padding: 13px 18px;
-
-}
 
 .footer {
     text-align: center;
@@ -1850,23 +1775,63 @@ body {
     zoom: 80%;
 }
 
-/* 1. Navbar hər şeydən müstəqil və 100% ekrana yayılır */
+
+/* ==================== NAVBAR GLOBAL CLEAN CONFIG ==================== */
+
+/* 1. Əsas Göy Lent - Heç bir max-width maneəsi olmadan tam ekrana yayılır */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
-    background-color: #0d1b2a;
-    padding: 10px 5%; 
-    z-index: 99999;    
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
+    background-color: #0d1b2a !important;
+    padding: 10px 3% !important; /* Kənarlardan incə boşluq */
+    z-index: 99999 !important;    
+    display: flex !important;
+    justify-content: space-between !important; 
+    align-items: center !important;
     box-sizing: border-box !important;
+    overflow: visible !important;
 }
 
-/* 2. Saytın digər bütün hissələrini (Hero, Packages və s.) 80% zoom edirik */
-/* Beləcə navbar 100% qalır, amma aşağıdakı hər şey istədiyiniz kimi 80%-ə kiçilir */
+/* 2. Düymələrin Siyahı Qutusu */
+.nav-list {
+    display: flex !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-left: auto !important; /* Menyunun hamısını sağa itələyir */
+    gap: 2px !important;         /* Düymələr arasındakı məsafə (bunu istədiyin kimi dəyiş) */
+    overflow: visible !important;
+}
+
+/* 3. Düymə elementinin özü (li) - Əlavə marginləri sıfırlayırıq ki, gap-i korlamasın */
+.nav-list li {
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+}
+
+/* 4. Düymələrin daxilindəki linklər və mətnlər */
+.nav-list li a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 10px !important;       /* Kiçik və qıvraq şrift */
+    white-space: nowrap !important;   /* Yazının aşağı sətirə düşməsini önləyir */
+    padding: 6px 8px !important;      /* Düymələrin daxili yaxınlıq boşluğu */
+    transition: 0.3s !important;
+    display: block !important;
+}
+
+/* Hover effekti */
+.nav-list li a:hover {
+    color: #3498db !important;
+}
+
+/* ==================== BODY ZOOM CONTROL ==================== */
+/* Saytın digər elementləri 80% kiçilir, navbar isə yuxarıda 100% sərbəst qalır */
 .hero, .section, #my-cal-inline-60, footer, main {
     zoom: 80% !important;
 }
