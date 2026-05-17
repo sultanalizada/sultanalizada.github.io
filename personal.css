@@ -1864,3 +1864,12 @@ html {
 body {
     zoom: 80%;
 }
+
+/* Yalnız ekran eni 768px-dən böyük olan cihazlarda (Kompüter və planşetlərdə) işləsin */
+@media (min-width: 769px) {
+    body {
+        transform: scale(0.8);
+        transform-origin: top center;
+        width: 125% !important;
+    }
+}
