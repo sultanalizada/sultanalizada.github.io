@@ -1835,18 +1835,3 @@ html {
 }
 }
 
-
-@media (max-width: 768px) {
-    
-    #my-cal-inline-60,
-    #my-cal-inline-let-s-talk,
-    #my-cal-inline-60 iframe,
-    #my-cal-inline-let-s-talk iframe {
-        /* 💥 ƏSAS KOD: Daxili scroll bitsə də, hərəkəti ana səhifəyə ötürməyə məcbur edir */
-        overscroll-behavior: contain !important; 
-        
-        /* Toxunuş və sürüşdürmə rəvanlığını maksimuma çatdırır */
-        touch-action: auto !important; 
-        -webkit-overflow-scrolling: touch !important;
-    }
-}
