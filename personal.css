@@ -38,22 +38,8 @@ color: #222;
 
 }
 
-/* NAVBAR */
+/* NAVB */
 
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100% !important; /* Artıq tam 100% işləyəcək */
-    background-color: #0d1b2a;
-    padding: 10px 5%; 
-    z-index: 99999;    
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    box-sizing: border-box !important;
-}
 .nav-container {
 
 display: flex;
@@ -1864,3 +1850,23 @@ body {
     zoom: 80%;
 }
 
+/* 1. Navbar hər şeydən müstəqil və 100% ekrana yayılır */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    background-color: #0d1b2a;
+    padding: 10px 5%; 
+    z-index: 99999;    
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    box-sizing: border-box !important;
+}
+
+/* 2. Saytın digər bütün hissələrini (Hero, Packages və s.) 80% zoom edirik */
+/* Beləcə navbar 100% qalır, amma aşağıdakı hər şey istədiyiniz kimi 80%-ə kiçilir */
+.hero, .section, #my-cal-inline-60, footer, main {
+    zoom: 80% !important;
+}
