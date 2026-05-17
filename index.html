@@ -46,6 +46,7 @@
        </li>
             <li><a href="#coaching">Coaching</a></li>
             <li><a href="#booking">Book a Lesson</a></li>
+            <li><a href="#speaking">Let's talk</a></li>
             <li><a href="#coming-soon" style="color: #ffdd00;">Coming soon!</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1397,9 +1398,11 @@ Time management
 
 </div> 
 
-    
-
 </section>
+
+
+speaking
+  
 
 <!-- BOOKING / Cal -->
 
@@ -1475,6 +1478,33 @@ window.addEventListener("scroll", function() {
 </script>
   
 </section>
+
+
+
+
+<section id="booking" style="padding: 50px 0;">
+  
+<h2 style="text-align: center;">Let's talk!</h2>
+
+  
+<!-- Cal inline embed code begins -->
+<div style="width:90%;height:100%;overflow:scroll" id="my-cal-inline-let-s-talk"></div>
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "let-s-talk", {origin:"https://app.cal.com"});
+
+  Cal.ns["let-s-talk"]("inline", {
+    elementOrSelector:"#my-cal-inline-let-s-talk",
+    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+    calLink: "sultan-academy-ybzcao/let-s-talk",
+  });
+
+  Cal.ns["let-s-talk"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#dd1616"},"dark":{"cal-brand":"#0e1d81"}},"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+  <!-- Cal inline embed code ends -->
+
+  </section>
+
 
 <section id="coming-soon" class="section">
 
