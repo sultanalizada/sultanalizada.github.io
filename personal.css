@@ -40,19 +40,22 @@ color: #222;
 
 /* NAVBAR */
 
+
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100% !important; /* Ekranın enini tam 100% tutmasını məcbur edirik */
+    right: 0;                /* Sağ tərəfə tam yapışmasını təmin edir */
     background-color: #0d1b2a;
-    padding: 10px 5%; /* Kənarlardan boşluq */
-    z-index: 99999;    /* Həmişə ən üstdə qalması üçün */
+    padding: 10px 5%;        /* Kənarlardan daxili boşluq */
+    z-index: 99999;    
     display: flex;
-    justify-content: space-between; /* Loqo solda, menyu sağda */
+    justify-content: space-between; 
     align-items: center;
-    box-sizing: border-box; /* Enin kənara daşmaması üçün */
+    box-sizing: border-box !important; /* Çox önəmli: padding-in eni aşmasının qarşısını alır */
 }
+
 
 .nav-container {
 
