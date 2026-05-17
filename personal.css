@@ -83,7 +83,7 @@ font-weight: bold;
 .nav-list {
     list-style: none;
     display: flex;
-    gap: 0,3px; /* Düymələr arası məsafə */
+    gap: 0.3px; /* Düymələr arası məsafə */
     margin: 0;
     padding: 0;
     margin-left: auto; /* MENYUNU SAĞA İTƏLƏYƏN ƏSAS KOD */
@@ -93,13 +93,12 @@ font-weight: bold;
     color: white !important;
     text-decoration: none;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 8px;
     transition: 0.3s;
 }
 
 .nav-list li a:hover {
     color: #ffdd00 !important; /* Üstünə gələndə rəng dəyişsin */
-    text-decoration: underline;
 }
 
 
