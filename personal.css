@@ -45,17 +45,16 @@ color: #222;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100% !important; /* Ekranın enini tam 100% tutmasını məcbur edirik */
-    right: 0;                /* Sağ tərəfə tam yapışmasını təmin edir */
+    width: 100vw !important; /* Faiz yox, məhz 100vw yazırıq ki, ekranı tam bürüsün */
+    right: 0;
     background-color: #0d1b2a;
-    padding: 10px 5%;        /* Kənarlardan daxili boşluq */
+    padding: 10px 5%; 
     z-index: 99999;    
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    box-sizing: border-box !important; /* Çox önəmli: padding-in eni aşmasının qarşısını alır */
+    box-sizing: border-box !important; /* Sağ tərəfdən daşmanın qarşısını tam kəsir */
 }
-
 
 .nav-container {
 
