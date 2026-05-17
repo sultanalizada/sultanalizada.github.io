@@ -1169,16 +1169,6 @@ html, body {
 .telegram { background-color: #0088cc; }
 .xiaohongshu { background-color: #ff2442; } /* Xiaohongshu-nun xarakterik qırmızı rəngi */
 
-/* Həm köhnə, həm yeni təqvim üçün mərkəzləmə */
-.calendar-container, #my-cal-inline-60 {
-    max-width: 1400px; /* Bir az daha geniş etmək təqvimi daha oxunaqlı edir */
-    margin: 50px auto;
-    border-radius: 10px;
-    overflow: visible;
-    position: relative;
-    z-index: 1;
-    touch-action: pan-y;
-}
 
 .pricing-button {
     display: inline-block;
