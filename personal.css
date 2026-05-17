@@ -1771,9 +1771,6 @@ html {
 
 }
 
-body {
-    zoom: 80%;
-}
 
 
 /* ==================== NAVBAR GLOBAL CLEAN CONFIG ==================== */
@@ -1830,11 +1827,8 @@ body {
     color: #3498db !important;
 }
 
-/* ==================== BODY ZOOM CONTROL ==================== */
-/* Saytın digər elementləri 80% kiçilir, navbar isə yuxarıda 100% sərbəst qalır */
-.hero, .section, #my-cal-inline-60, footer, main {
-    zoom: 80% !important;
-}
+
+
 
 /* Yeni Cal.com instansiyasının daxili və xarici scrollarını tamamilə öldürürük */
 #my-cal-inline-let-s-talk,
