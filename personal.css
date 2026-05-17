@@ -1836,24 +1836,6 @@ html {
 }
 
 
-/* --- MOBİL CAL.COM TOXUNUŞ VƏ SCROLL AYARLARI --- */
-@media (max-width: 768px) {
-    
-    #my-cal-inline-60,
-    #my-cal-inline-let-s-talk {
-        /* Brauzerə deyirik ki, bu qutunun daxilindəki şaquli sürüşdürmələri birbaşa ana səhifəyə ötürsün */
-        touch-action: pan-y !important; 
-        -webkit-overflow-scrolling: touch !important; /* iOS (Safari) üçün rəvan scroll effekti */
-    }
-
-    #my-cal-inline-60 iframe,
-    #my-cal-inline-let-s-talk iframe {
-        /* Saat seçimi gələndə brauzerin fokusu itirməməsi üçün klik və toxunuşları məcburi aktiv edirik */
-        pointer-events: auto !important;
-        touch-action: pan-y !important;
-    }
-}
-
 @media (max-width: 768px) {
     
     #my-cal-inline-60,
