@@ -45,15 +45,21 @@ color: #222;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw !important; /* Faiz yox, məhz 100vw yazırıq ki, ekranı tam bürüsün */
-    right: 0;
+    
+    /* Body-dəki zoom: 80%-i navbar üçün ləğv edirik və onu 100% ekran ölçüsünə kilidləyirik */
+    width: 100% !important;
+    
     background-color: #0d1b2a;
     padding: 10px 5%; 
     z-index: 99999;    
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    box-sizing: border-box !important; /* Sağ tərəfdən daşmanın qarşısını tam kəsir */
+    box-sizing: border-box !important;
+    
+    /* 💥 ƏSAS HƏLL: Zoom-un navbarı korlamasının qarşısını alan qoruyucu kod */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .nav-container {
