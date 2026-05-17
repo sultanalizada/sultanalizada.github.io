@@ -45,9 +45,14 @@ color: #222;
     position: fixed;
     top: 0;
     left: 0;
-    width: 125% !important; /* 100 / 0.8 = 125% -> İtirilmiş 20%-i navbarın özünə qaytarırıq */
+    
+    /* 💥 80% ZOOM KONFLİKTİNİ HƏLL EDƏN ƏSAS KODLAR: */
+    width: 125% !important;        /* 100 / 0.8 = 125%. Zoom-un itirdiyi eni bərpa edir */
+    transform: scale(0.8);         /* Navbarın özünü də eyni nisbətdə kiçildir ki, düymələr böyük qalmasın */
+    transform-origin: top left;    /* Kiçilmə nöqtəsini sol küncə kilidləyir */
+    
     background-color: #0d1b2a;
-    padding: 10px 5%; 
+    padding: 10px 5%;              /* Kənarlardan daxili boşluq */
     z-index: 99999;    
     display: flex;
     justify-content: space-between; 
