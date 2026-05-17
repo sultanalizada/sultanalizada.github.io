@@ -38,8 +38,6 @@ color: #222;
 
 }
 
-/* NAVB */
-
 .nav-container {
 
 display: flex;
@@ -324,15 +322,7 @@ html {
     text-align: center;
   }
 
-  /* Mobildə nav-list-in alt-alta və mərkəzdə durması üçün */
-  .nav-list {
-    flex-direction: column;
-    justify-content: center;
-    gap: 11px;
-    padding: 5px 0;
-    margin-left: 0; /* Mobildə sağa yapışmasın, mərkəzləşsin */
-  }
-
+ 
   .hero {
     padding-top: 130px; /* Navbarın altına girməməsi üçün */
   }
@@ -1138,9 +1128,6 @@ html, body {
 
 /* --- MOBİL ÜÇÜN DÜZƏLİŞLƏR --- */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 8px 15px;
-    }
 
     .menu-toggle {
         display: block;
@@ -1156,31 +1143,6 @@ html, body {
         display: block;
     }
 
-    .nav-list {
-        display: none; /* İndi bu SADECE mobildə gizlənəcək */
-        position: fixed;
-        right: 0;
-        top: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: #0d1b2a;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1500;
-    }
-
-    .nav-list.active {
-        display: flex !important;
-    }
-
-    .nav-list li {
-        margin: 6px 0;
-    }
-
-    .nav-list li a {
-        font-size: 1rem;
-    }
 } /* <--- Media query burada bağlanmalıdır! */
 
 .social-container {
@@ -1840,4 +1802,47 @@ html {
 /* Chrome, Safari və Edge brauzerləri üçün scrollbar-ı görünməz edir */
 #my-cal-inline-let-s-talk iframe::-webkit-scrollbar {
     display: none !important;
+}
+
+
+
+@media (max-width: 768px) {
+    /* Navbarın özü normal hündürlükdə qalır, ekranı örtmür */
+    .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important; /* Ekranı örtməsinin qarşısını alan qəti kod */
+        padding: 15px 20px !important;
+        box-sizing: border-box !important;
+        z-index: 99999 !important;
+    }
+
+    /* Düymələrin siyahısı - YALNIZ bu hissə aktiv olanda ekranı örtməlidir */
+    .nav-list {
+        display: none !important; /* Normalda gizli qalır */
+        flex-direction: column !important;
+        position: fixed !important;
+        top: 60px !important; /* Navbarın hündürlüyü qədər yuxarıdan boşluq */
+        left: 0 !important;
+        width: 100% !important;
+        height: calc(100vh - 60px) !important; /* Ekranın qalan hissəsini tutur */
+        background-color: #0d1b2a !important;
+        padding: 40px 0 !important;
+        gap: 25px !important; /* Mobildə düymələr arası rahat məsafə */
+        z-index: 99998 !important;
+    }
+
+    /* JavaScript "active" sinfini artıranda menyu peydə olur */
+    .nav-list.active {
+        display: flex !important;
+    }
+
+    .nav-list li a {
+        font-size: 18px !important; /* Mobildə rahat klikləmək üçün böyük şrif */
+        text-align: center !important;
+        width: 100% !important;
+        padding: 12px 0 !important;
+    }
 }
