@@ -1768,21 +1768,6 @@ html {
 
 
 
-
-/* Yeni Cal.com instansiyasının daxili və xarici scrollarını tamamilə öldürürük */
-#my-cal-inline-let-s-talk,
-#my-cal-inline-let-s-talk iframe {
-    overflow: hidden !important;
-    scrollbar-width: none !important; /* Firefox üçün sürüşdürmə çubuğunu gizlədir */
-}
-
-/* Chrome, Safari və Edge brauzerləri üçün scrollbar-ı görünməz edir */
-#my-cal-inline-let-s-talk iframe::-webkit-scrollbar {
-    display: none !important;
-}
-
-
-
 @media (max-width: 768px) {
     /* Navbarın özü normal hündürlükdə qalır, ekranı örtmür */
     .navbar {
