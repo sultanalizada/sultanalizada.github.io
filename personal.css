@@ -1846,35 +1846,4 @@ html {
 }
 
 
-        @media (max-width: 768px) {
-    
-    /* 1. Köhnə kalendarın yerləşdiyi bölmənin (section) daxili boşluqlarını azaldırıq */
-    #lessons.section {
-        padding-top: 20px !important;    /* Başlığın yuxarıdakı elementlə məsafəsi */
-        padding-bottom: 10px !important; /* Altdakı boşluğu minimuma endiririk */
-    }
 
-    /* 2. Başlığın (h2) altındakı boşluğu tamamilə sıxırıq */
-    #lessons h2 {
-        margin-bottom: 5px !important;  /* Başlıq təqvimə tam yapışsın */
-    }
-
-    /* 3. Köhnə təqvimin xarici qutusunun mobil hündürlüyünü tənzimləyirik */
-    #my-cal-inline-60 {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        
-        /* Hündürlüyü max-content və ya Let's talk kimi ideal ölçüyə salırıq */
-        height: 520px !important; 
-        min-height: auto !important;
-        overflow: hidden !important;
-    }
-
-    /* 4. Təqvimin içindəki iframe-in də hündürlüyünü eyni edirik ki, boşluq itsin */
-    #my-cal-inline-60 iframe {
-        height: 100% !important;
-        min-height: auto !important;
-    }
-}
