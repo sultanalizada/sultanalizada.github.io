@@ -1688,3 +1688,26 @@ section:has(> .pricing-grid),
         width: 150px;
     }
 }
+
+
+
+/* PC Ekranı üçün Discord Banner Stili */
+.discord-poster-img {
+    width: 100%;
+    max-width: 500px; /* 💥 PC-də şəklin nə qədər böyük durmasını istəyirsənsə, bu rəqəmi artırıb-azalda bilərsən (məsələn: 550px və ya 600px) */
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 6px;
+}
+
+
+
+/* Mobil Ekran üçün Discord Banner Tənzimləməsi */
+    .discord-poster-img {
+        width: 100% !important;
+        max-width: 90% !important; /* 💥 Ekrana yapışmasın deyə enini 90% edirik, qalan 10% kənarlarda boşluq qalır */
+        height: auto !important;
+        display: block !important;
+        margin: 10px auto !important; /* Üst və altdan boşluq verir, sağ-solu mərkəzləşdirir */
+    }
