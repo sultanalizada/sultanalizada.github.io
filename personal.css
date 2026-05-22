@@ -1453,62 +1453,6 @@ html {
 }
 
 
-/* ==================== NAVBAR MOBİL OPTİMİZASİYA (FİX) ==================== */
-@media (max-width: 768px) {
-    
-    .navbar {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: auto !important;
-        padding: 15px 20px !important;
-        box-sizing: border-box !important;
-        z-index: 99999 !important;
-        
-        /* Ortalamadan çıxarıb, elementləri künclərə paylayırıq */
-        display: flex !important;
-        justify-content: space-between !important; 
-        align-items: center !important;
-    }
-
-    /* Loqo və ya Brend adı həmişə solda qalsın */
-    .logo {
-        display: block !important;
-        text-align: left !important;
-        margin-right: auto !important; /* Düyməni sağa itələmək üçün */
-    }
-
-    /* Hamburger menyu işarəsinin sağ küncə sıxılması */
-    .menu-toggle {
-        display: block !important;
-        cursor: pointer !important;
-        z-index: 2100 !important;
-        margin-left: auto !important; /* Sola boşluq verərək sağa sıxır */
-    }
-
-    /* Menyu açılan zaman düymələrin düzülüşü */
-    .nav-list {
-        display: none !important;
-        flex-direction: column !important;
-        position: fixed !important;
-        top: 60px !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: calc(100vh - 60px) !important;
-        background-color: #0d1b2a !important;
-        padding-top: 50px !important; 
-        gap: 15px !important;        
-        align-items: center !important; 
-        z-index: 99998 !important;
-    }
-
-    .nav-list.active {
-        display: flex !important;
-    }
-}
-
-
 /* ==========================================================
    PRICING SECTION - TAM ALT-ALTA DÜZÜLÜŞ (YENİLƏNDİ)
    ========================================================== */
@@ -1629,4 +1573,107 @@ section:has(> .pricing-grid),
 
 .pricing-button:hover {
     background-color: #1b263b !important;
+}
+
+/* ==========================================================
+   MOBİL NAVBAR VƏ HAMBURGER TAM BİRLƏŞMİŞ KODLAR (768px)
+   ========================================================== */
+@media (max-width: 768px) {
+
+    /* 1. Navbarın əsas xarici qutusu (Həm də .navbar yazmısansa hər ikisini sığortalayırıq) */
+    .navbar, .nav-container {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 15px 20px !important;
+        box-sizing: border-box !important;
+        z-index: 99999 !important;
+        
+        /* Ortalamanı ləğv edib elementləri künclərə paylayır */
+        display: flex !important;
+        justify-content: space-between !important; 
+        align-items: center !important;
+        background-color: #0d1b2a !important; /* Göy lent fonu */
+    }
+
+    /* 2. Loqo və ya Brend adı (Sultan Academy) həmişə tam solda qalsın */
+    .logo {
+        display: block !important;
+        text-align: left !important;
+        margin: 0 !important;
+    }
+
+    /* 3. Hamburger Menyusu (Üç xətt) tam sağ küncə sıxılsın */
+    .menu-toggle {
+        display: block !important;
+        cursor: pointer !important;
+        z-index: 2100 !important;
+        margin-left: auto !important; /* Sola boşluq verərək sağa itələyir */
+    }
+
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        display: block;
+    }
+
+    /* 4. Menyunun ümumi açılan qutusu (Düymələrin yığıldığı panel) */
+    .nav-list {
+        display: none !important;
+        flex-direction: column !important;
+        position: fixed !important;
+        top: 60px !important; /* Navbarın hündürlüyünə uyğun */
+        left: 0 !important;
+        width: 100% !important;
+        height: calc(100vh - 60px) !important;
+        background-color: #0d1b2a !important;
+        padding-top: 50px !important; 
+        gap: 15px !important;        
+        align-items: center !important; /* Düymələri panelin ortasına yığır */
+        z-index: 99998 !important;
+    }
+
+    /* Menyu aktiv olanda (JavaScript kliklənəndə) */
+    .nav-list.active {
+        display: flex !important;
+    }
+
+    /* 5. Açılan menyudakı düymələrin öz stilləri */
+    .nav-list li a {
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        text-align: center !important;
+        width: max-content !important; 
+        padding: 8px 20px !important;  
+        border-radius: 4px !important; 
+        transition: 0.2s !important;
+    }
+
+    /* 6. Hero və Seksiyaların mobil tənzimləmələri */
+    .section {
+        padding: 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero {
+        min-height: auto !important;
+        padding-top: 130px !important; /* Navbarın altına girməməsi üçün */
+        padding-bottom: 0px !important;
+    }
+
+    .hero-logo-img {
+        max-width: 260px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .profile-photo {
+        width: 150px;
+    }
 }
