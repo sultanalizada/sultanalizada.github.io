@@ -1530,8 +1530,8 @@ html {
 
 /* Hər bir fərdi kartın özü */
 .pricing-card {
-    flex: 1 1 320px !important; /* Kartların ekrana sığması üçün dinamik ölçü (Zoom tələb etmir!) */
-    max-width: 400px !important;  /* Kartların çox böyüyüb eybəcər olmasını önləyir */
+    flex: 1 1 350px !important; /* Kartların ekrana sığması üçün dinamik ölçü (Zoom tələb etmir!) */
+    max-width: 450px !important;  /* Kartların çox böyüyüb eybəcər olmasını önləyir */
     background: #ffffff !important;
     padding: 28px 24px !important;
     border-radius: 16px !important; 
@@ -1602,7 +1602,7 @@ html {
 .pricing-button {
     display: block !important;
     text-align: center !important;
-    padding: 12px 22px !important;
+    padding: 9px 18px !important;
     background-color: #0d1b2a !important;
     color: white !important;
     text-decoration: none !important;
