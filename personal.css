@@ -1527,11 +1527,13 @@ section:has(> .pricing-grid),
     padding-right: 0 !important;
 }
 
+
+/* Əsas Böyük Konteyner - Yan-yana duran 3 bloku eyni hündürlükdə saxlayır */
 .pricing-grid {
     display: flex !important;
     flex-direction: row !important;
     justify-content: space-between !important;
-    align-items: stretch !important; /* Kartların hündürlüklərini yenidən bərabərləşdiririk ki, yan-yana qəşəng dursunlar */
+    align-items: stretch !important; /* 💥 KƏNARDAN İKİ BÖYÜK KARTIN BOYUNU MƏCBURİ BƏRABƏR EDİR */
     gap: 25px !important;
     width: 100% !important;
     max-width: 95% !important;
@@ -1540,52 +1542,39 @@ section:has(> .pricing-grid),
     box-sizing: border-box !important;
 }
 
-/* 💥 YENİ: Ortadakı 4 kartı səliqəli şəkildə alt-alta yığan xüsusi qutu */
+
+
+/* Ortadakı 4 kartı alt-alta yığan xüsusi qutu */
 .middle-packages-box {
     display: flex !important;
-    flex-direction: column !important; /* Kartları bir-birinin altına düzür */
-    justify-content: space-between !important; /* Kartlar arasında bərabər məsafə buraxır */
-    gap: 15px !important; /* Alt-alta duran kartların arasındakı incə boşluq */
-    flex: 1 1 350px !important; /* Bu qutunun ümumi eni */
+    flex-direction: column !important; 
+    justify-content: space-between !important; 
+    gap: 15px !important; 
+    flex: 1 1 350px !important; 
 }
 
-/* Kartların fərdi ölçüləri */
+/* Hər bir fərdi kartın daxili nizamı */
 .pricing-card {
     flex: 1 1 380px !important;
     background: #ffffff !important;
-    padding: 24px !important;
+    padding: 28px 24px !important;
     border-radius: 16px !important; 
     border: 1px solid #e5e7eb !important; 
     box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
     text-align: left !important; 
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important; 
+    justify-content: space-between !important; /* 💥 DÜYMƏLƏRİ VƏ QİYMƏTLƏRİ HƏMİŞƏ KARTIN ƏN ALTINA SIXIR */
     box-sizing: border-box !important;
 }
 
-/* Ortadakı kiçik kartların hündürlüyünün nəhəng olmasını önləmək üçün */
+/* Ortadakı kiçik kartların hündürlüyünü sıxmaq üçün xüsusi əlavə */
 .middle-packages-box .pricing-card {
-    padding: 15px 20px !important; /* Daxili boşluğu sıxdıq ki, balaca qalsınlar */
+    padding: 15px 20px !important; 
     flex: 1 !important;
+    justify-content: center !important; /* Kiçik kartların içindəki yazıları mərkəzləşdirir */
 }
 
-/* Hər bir fərdi kartın özü - ENLİ VƏ AZAD */
-.pricing-card {
-    flex: 1 1 450px !important; /* Sənin istədiyin kimi böyük və enli baza */
-    max-width: none !important; /* Heç bir en məhdudiyyəti yoxdur, sağa-sola tam açılır */
-    background: #ffffff !important;
-    padding: 18px 24px !important;
-    border-radius: 16px !important; 
-    border: 1px solid #e5e7eb !important; 
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
-    text-align: left !important; 
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    transition: all 0.25s ease !important;
-    box-sizing: border-box !important;
-}
 
 /* Hover effekti */
 .pricing-card:hover {
@@ -1618,6 +1607,7 @@ section:has(> .pricing-grid),
     font-weight: bold !important;
     margin: 10px 0 18px 0 !important;
     color: #0d1b2a !important;
+    margin-top: auto !important;
 }
 
 .pricing-card ul {
@@ -1647,7 +1637,7 @@ section:has(> .pricing-grid),
     border-radius: 8px !important;
     font-weight: bold !important;
     transition: 0.25s !important;
-    margin-top: 15px !important; 
+    margin-top: auto !important;
 }
 
 .pricing-button:hover {
