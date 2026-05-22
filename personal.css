@@ -1507,30 +1507,44 @@ html {
 
 
 /* ==========================================================
-   PRICING SECTION - KÖKÜNDƏN YAN-YANA DÜZÜLÜŞ FIX
+   PRICING SECTION - KÖKÜNDƏN YAN-YANA DÜZÜLÜŞ FIX (YEKUN)
    ========================================================== */
 
 #packages {
     background-color: #f4f7fb;
     padding: 60px 0;
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
-/* Kartları bir yerdə saxlayan ana konteyner */
+/* Kartları bürüyən bütün mümkün xarici qəfəsləri dərhal dağıdırıq */
+div:has(> .pricing-grid), 
+section:has(> .pricing-grid),
+.section:has(.pricing-grid) {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Kartları bir yerdə saxlayan ana konteyner - TAM EKRAZ AZADLIQ */
 .pricing-grid {
     display: flex !important;
-    flex-direction: row !important; /* PC-də kartları yan-yana düzür */
-    justify-content: space-between !important;    align-items: stretch !important; /* Bütün kartların hündürlüklərini bərabər edir */
-    gap: 15px !important; /* Kartlar arasındakı professional boşluq */
-    max-width: 1500px !important; /* Ekrandan daşmağı önləyən sərhəd */
+    flex-direction: row !important; 
+    justify-content: space-between !important; 
+    align-items: stretch !important; 
+    gap: 20px !important; 
+    width: 100% !important;
+    max-width: 95% !important; /* Ekranın tam kənarlarına yapışmasın, amma maksimum geniş olsun */
     margin: 40px auto !important;
-    padding: 0 35px !important;
+    padding: 0 20px !important;
     box-sizing: border-box !important;
 }
 
-/* Hər bir fərdi kartın özü */
+/* Hər bir fərdi kartın özü - ENLİ VƏ AZAD */
 .pricing-card {
-    flex: 1 1 450px !important; /* Kartların ekrana sığması üçün dinamik ölçü (Zoom tələb etmir!) */
-    max-width: none !important;
+    flex: 1 1 450px !important; /* Sənin istədiyin kimi böyük və enli baza */
+    max-width: none !important; /* Heç bir en məhdudiyyəti yoxdur, sağa-sola tam açılır */
     background: #ffffff !important;
     padding: 28px 24px !important;
     border-radius: 16px !important; 
@@ -1539,7 +1553,7 @@ html {
     text-align: left !important; 
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important; /* Düymələri həmişə ən alta bərabər sıxır */
+    justify-content: space-between !important; 
     transition: all 0.25s ease !important;
     box-sizing: border-box !important;
 }
@@ -1552,13 +1566,10 @@ html {
 }
 
 /* ÖZƏL KART EFFEKTLƏRİ */
-
-/* Trial Lesson / Sınaq Dərsi kartı */
 .pricing-card.highlight {
     border: 2px solid #FF5959 !important;
 }
 
-/* Premium Paket kartı */
 .premium-highlight {
     border: 2px solid #FFD700 !important;
     box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2) !important;
@@ -1566,7 +1577,6 @@ html {
 }
 
 /* KART DAXİLİ ELEMENTLƏRİN STİLİ */
-
 .pricing-card h3 strong {
     background: linear-gradient(90deg, #ff6363, #ff0000);
     -webkit-background-clip: text;
@@ -1608,36 +1618,21 @@ html {
     border-radius: 8px !important;
     font-weight: bold !important;
     transition: 0.25s !important;
-    margin-top: auto !important; /* Düyməni kartın ən altına yapışdırır */
+    margin-top: auto !important; 
 }
 
 .pricing-button:hover {
     background-color: #1b263b !important;
 }
 
-/* MOBİL REJİM (Ekran kiçiləndə kartların səliqəli şəkildə alta düşməsi üçün) */
-@media (max-width: 768px) {
+/* MOBİL REJİM */
+@media (max-width: 992px) {
     .pricing-grid {
-        flex-direction: column !important; /* Mobildə alt-alta düzülürlər */
+        flex-direction: column !important; 
         align-items: center !important;
     }
     .pricing-card {
         width: 100% !important;
-        max-width: 400px !important;
+        max-width: 500px !important;
     }
-}
-
-/* Pricing qəfəsini tamamilə dağıdan universal kod */
-.pricing-grid {
-    max-width: 100% !important; /* Divarları tamamilə sıfırlayır */
-    width: 100% !important;
-}
-
-/* Əgər pricing-grid hər hansı bir section içindədirsə, onun da divarını sındırırıq */
-div:has(> .pricing-grid), 
-section:has(> .pricing-grid) {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
 }
