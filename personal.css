@@ -1625,7 +1625,7 @@ section:has(> .pricing-grid),
         height: calc(100vh - 60px) !important;
         background-color: #0d1b2a !important;
         padding-top: 40px !important; 
-        gap: 20px !important;        
+        gap: 10px !important;        
         align-items: center !important; /* Düymələri panelin ortasına yığır */
         z-index: 99998 !important;
         margin: 0 !important;
