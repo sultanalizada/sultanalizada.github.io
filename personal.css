@@ -1527,18 +1527,47 @@ section:has(> .pricing-grid),
     padding-right: 0 !important;
 }
 
-/* Kartları bir yerdə saxlayan ana konteyner - TAM EKRAZ AZADLIQ */
 .pricing-grid {
     display: flex !important;
-    flex-direction: row !important; 
-    justify-content: space-between !important; 
-    align-items: start !important;
-    gap: 20px !important; 
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: stretch !important; /* Kartların hündürlüklərini yenidən bərabərləşdiririk ki, yan-yana qəşəng dursunlar */
+    gap: 25px !important;
     width: 100% !important;
-    max-width: 95% !important; /* Ekranın tam kənarlarına yapışmasın, amma maksimum geniş olsun */
+    max-width: 95% !important;
     margin: 40px auto !important;
     padding: 0 20px !important;
     box-sizing: border-box !important;
+}
+
+/* 💥 YENİ: Ortadakı 4 kartı səliqəli şəkildə alt-alta yığan xüsusi qutu */
+.middle-packages-box {
+    display: flex !important;
+    flex-direction: column !important; /* Kartları bir-birinin altına düzür */
+    justify-content: space-between !important; /* Kartlar arasında bərabər məsafə buraxır */
+    gap: 15px !important; /* Alt-alta duran kartların arasındakı incə boşluq */
+    flex: 1 1 350px !important; /* Bu qutunun ümumi eni */
+}
+
+/* Kartların fərdi ölçüləri */
+.pricing-card {
+    flex: 1 1 380px !important;
+    background: #ffffff !important;
+    padding: 24px !important;
+    border-radius: 16px !important; 
+    border: 1px solid #e5e7eb !important; 
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+    text-align: left !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important; 
+    box-sizing: border-box !important;
+}
+
+/* Ortadakı kiçik kartların hündürlüyünün nəhəng olmasını önləmək üçün */
+.middle-packages-box .pricing-card {
+    padding: 15px 20px !important; /* Daxili boşluğu sıxdıq ki, balaca qalsınlar */
+    flex: 1 !important;
 }
 
 /* Hər bir fərdi kartın özü - ENLİ VƏ AZAD */
