@@ -1652,15 +1652,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 4. Menyu daxilindəki adi linklərə klikləyəndə menyunu bağla
-    const navLinks = document.querySelectorAll("#nav-list a:not(.dropdown-toggle)");
+// 4. Menyu daxilindəki adi linklərə və ya dildən birini seçəndə hər şeyi bağla
+    const navLinks = document.querySelectorAll(".nav-list a:not(.dropdown-toggle)");
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
+            // 1. Hamburger menyunu bağla
             navList.classList.remove("active");
             document.body.style.overflow = "";
+            
+            // 2. Açıq qalan dropdown menyunu da avtomatik bağla (🔥 PROBLEM BURADA HƏLL OLUNDU)
+            dropdowns.forEach(drop => {
+                drop.classList.remove("open");
+            });
         });
     });
 });
+
 </script>
 
   
