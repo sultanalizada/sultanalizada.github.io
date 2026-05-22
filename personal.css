@@ -62,29 +62,6 @@ font-weight: bold;
 
 }
 
-/* HTML-DƏ NAV-LIST YAZMISAN, ONA GÖRƏ BURADA DA EYNİ OLMALIDIR */
-
-.nav-list {
-    list-style: none;
-    display: flex;
-    gap: 1px; /* Düymələr arası məsafə */
-    margin: 0;
-    padding: 0;
-    margin-left: auto; /* MENYUNU SAĞA İTƏLƏYƏN ƏSAS KOD */
-}
-
-.nav-list li a {
-    color: white !important;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 5px;
-    transition: 0.3s;
-}
-
-.nav-list li a:hover {
-    color: #ffdd00 !important; /* Üstünə gələndə rəng dəyişsin */
-}
-
 
 .tagline {
 
@@ -1738,7 +1715,7 @@ html {
     margin: 0 !important;
     padding: 0 !important;
     margin-left: auto !important; /* Menyunun hamısını sağa itələyir */
-    gap: 2px !important;         /* Düymələr arasındakı məsafə (bunu istədiyin kimi dəyiş) */
+    gap: 1px !important;         /* Düymələr arasındakı məsafə (bunu istədiyin kimi dəyiş) */
     overflow: visible !important;
 }
 
@@ -1754,9 +1731,9 @@ html {
     color: #ffffff !important;
     text-decoration: none !important;
     font-weight: bold !important;
-    font-size: 10px !important;       /* Kiçik və qıvraq şrift */
+    font-size: 5px !important;       /* Kiçik və qıvraq şrift */
     white-space: nowrap !important;   /* Yazının aşağı sətirə düşməsini önləyir */
-    padding: 6px 8px !important;      /* Düymələrin daxili yaxınlıq boşluğu */
+    padding: 3px 5px !important;      /* Düymələrin daxili yaxınlıq boşluğu */
     transition: 0.3s !important;
     display: block !important;
 }
