@@ -1534,7 +1534,7 @@ section:has(> .pricing-grid),
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: stretch !important; /* 💥 KƏNARDAN İKİ BÖYÜK KARTIN BOYUNU MƏCBURİ BƏRABƏR EDİR */
-    gap: 25px !important;
+    gap: 19px !important;
     width: 100% !important;
     max-width: 95% !important;
     margin: 40px auto !important;
@@ -1555,9 +1555,9 @@ section:has(> .pricing-grid),
 
 /* Hər bir fərdi kartın daxili nizamı */
 .pricing-card {
-    flex: 1 1 380px !important;
+    flex: 1 1 300px !important;
     background: #ffffff !important;
-    padding: 28px 24px !important;
+    padding: 10px 17px !important;
     border-radius: 16px !important; 
     border: 1px solid #e5e7eb !important; 
     box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
