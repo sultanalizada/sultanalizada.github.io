@@ -1507,7 +1507,7 @@ html {
 
 
 /* ==========================================================
-   PRICING SECTION - KÖKÜNDƏN YAN-YANA DÜZÜLÜŞ FIX (YEKUN)
+   PRICING SECTION - TAM ALT-ALTA DÜZÜLÜŞ (YENİLƏNDİ)
    ========================================================== */
 
 #packages {
@@ -1527,59 +1527,40 @@ section:has(> .pricing-grid),
     padding-right: 0 !important;
 }
 
-
-/* Əsas Böyük Konteyner - Yan-yana duran 3 bloku eyni hündürlükdə saxlayır */
+/* Əsas Konteyner - İndi bütün kartları tək sütunda alt-alta nizamlayır */
 .pricing-grid {
     display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: stretch !important; /* 💥 KƏNARDAN İKİ BÖYÜK KARTIN BOYUNU MƏCBURİ BƏRABƏR EDİR */
-    gap: 19px !important;
+    flex-direction: column !important; /* 💥 Kartlar şaquli ox üzrə alt-alta düzülür */
+    align-items: center !important; /* Kartları ekranın ortasında mərkəzləşdirir */
+    gap: 20px !important; /* Kartların arasındakı şaquli boşluq */
     width: 100% !important;
-    max-width: 95% !important;
+    max-width: 800px !important; /* 💥 Alt-alta düzüldüyü üçün çox yayılmasın deyə eni optimallaşdırdıq */
     margin: 40px auto !important;
     padding: 0 20px !important;
     box-sizing: border-box !important;
 }
 
-
-
-/* Ortadakı 4 kartı alt-alta yığan xüsusi qutu */
-.middle-packages-box {
-    display: flex !important;
-    flex-direction: column !important; 
-    justify-content: space-between !important; 
-    gap: 15px !important; 
-    flex: 1 1 350px !important; 
-}
-
 /* Hər bir fərdi kartın daxili nizamı */
 .pricing-card {
-    flex: 1 1 300px !important;
+    width: 100% !important; /* Konteynerin bütün enini tutur */
+    max-width: 100% !important;
     background: #ffffff !important;
-    padding: 10px 17px !important;
+    padding: 24px 28px !important; /* Boşluqları normal formaya gətirdik */
     border-radius: 16px !important; 
     border: 1px solid #e5e7eb !important; 
     box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
     text-align: left !important; 
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important; /* 💥 DÜYMƏLƏRİ VƏ QİYMƏTLƏRİ HƏMİŞƏ KARTIN ƏN ALTINA SIXIR */
+    justify-content: flex-start !important; /* Yazıları təbii şəkildə yuxarıdan aşağı yığır, boşluq buraxmır */
     box-sizing: border-box !important;
+    transition: all 0.25s ease !important;
 }
-
-/* Ortadakı kiçik kartların hündürlüyünü sıxmaq üçün xüsusi əlavə */
-.middle-packages-box .pricing-card {
-    padding: 15px 20px !important; 
-    flex: 1 !important;
-    justify-content: center !important; /* Kiçik kartların içindəki yazıları mərkəzləşdirir */
-}
-
 
 /* Hover effekti */
 .pricing-card:hover {
-    transform: translateY(-6px) !important;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12) !important;
+    transform: translateY(-4px) !important; /* Alt-alta düzülüşdə çox yuxarı tullanmasın */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1) !important;
     border-color: #d1d5db !important;
 }
 
@@ -1590,7 +1571,7 @@ section:has(> .pricing-grid),
 
 .premium-highlight {
     border: 2px solid #FFD700 !important;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2) !important;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15) !important;
     background: linear-gradient(180deg, #ffffff 0%, #fffdf5 100%) !important;
 }
 
@@ -1599,15 +1580,14 @@ section:has(> .pricing-grid),
     background: linear-gradient(90deg, #ff6363, #ff0000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 17px !important;
+    font-size: 19px !important; /* Başlığı bir tık böyütdük */
 }
 
 .price {
     font-size: 20px !important;
     font-weight: bold !important;
-    margin: 10px 0 18px 0 !important;
+    margin: 12px 0 !important; /* Aşağıdakı artıq boşluğu sildik */
     color: #0d1b2a !important;
-    margin-top: auto !important;
 }
 
 .pricing-card ul {
@@ -1628,30 +1608,19 @@ section:has(> .pricing-grid),
 
 /* Düymələr */
 .pricing-button {
-    display: block !important;
+    display: inline-block !important; /* Tam eni tutub kobud durmasın deyə inline-block etdik */
+    align-self: flex-start !important; /* Düyməni sola söykəyir */
     text-align: center !important;
-    padding: 9px 18px !important;
+    padding: 10px 24px !important;
     background-color: #0d1b2a !important;
     color: white !important;
     text-decoration: none !important;
     border-radius: 8px !important;
     font-weight: bold !important;
     transition: 0.25s !important;
-    margin-top: auto !important;
+    margin-top: 15px !important; /* Süni dartılmanı ləğv edib sabit məsafə qoyduq */
 }
 
 .pricing-button:hover {
     background-color: #1b263b !important;
-}
-
-/* MOBİL REJİM */
-@media (max-width: 992px) {
-    .pricing-grid {
-        flex-direction: column !important; 
-        align-items: center !important;
-    }
-    .pricing-card {
-        width: 100% !important;
-        max-width: 500px !important;
-    }
 }
