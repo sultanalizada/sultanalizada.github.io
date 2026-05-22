@@ -1453,21 +1453,41 @@ html {
 }
 
 
+/* ==================== NAVBAR MOBİL OPTİMİZASİYA (FİX) ==================== */
 @media (max-width: 768px) {
-    /* Navbarın özü normal hündürlükdə qalır, ekranı örtmür */
+    
     .navbar {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        height: auto !important; /* Ekranı örtməsinin qarşısını alan qəti kod */
+        height: auto !important;
         padding: 15px 20px !important;
         box-sizing: border-box !important;
         z-index: 99999 !important;
+        
+        /* Ortalamadan çıxarıb, elementləri künclərə paylayırıq */
+        display: flex !important;
+        justify-content: space-between !important; 
+        align-items: center !important;
     }
 
-@media (max-width: 768px) {
-    /* Menyunun ümumi qutusu (arxa fon) */
+    /* Loqo və ya Brend adı həmişə solda qalsın */
+    .logo {
+        display: block !important;
+        text-align: left !important;
+        margin-right: auto !important; /* Düyməni sağa itələmək üçün */
+    }
+
+    /* Hamburger menyu işarəsinin sağ küncə sıxılması */
+    .menu-toggle {
+        display: block !important;
+        cursor: pointer !important;
+        z-index: 2100 !important;
+        margin-left: auto !important; /* Sola boşluq verərək sağa sıxır */
+    }
+
+    /* Menyu açılan zaman düymələrin düzülüşü */
     .nav-list {
         display: none !important;
         flex-direction: column !important;
@@ -1477,32 +1497,15 @@ html {
         width: 100% !important;
         height: calc(100vh - 60px) !important;
         background-color: #0d1b2a !important;
-        padding-top: 50px !important; /* Düymələri yuxarıdan bir az aşağı salır */
-        gap: 15px !important;        /* Düymələrin bir-biri ilə olan şaquli məsafəsi */
-        align-items: center !important; /* 💥 Düymələri ekranın TAM ORTASINA yığır */
+        padding-top: 50px !important; 
+        gap: 15px !important;        
+        align-items: center !important; 
         z-index: 99998 !important;
     }
 
     .nav-list.active {
         display: flex !important;
     }
-
-    /* 💥 DÜYMƏLƏRİ SIXAN VƏ YIĞCAM EDƏN ƏSAS HİSSƏ */
-    .nav-list li a {
-        font-size: 14px !important;    /* Şrifti bir az kiçiltdik ki, qaba görünməsin */
-        font-weight: 500 !important;
-        text-align: center !important;
-        
-        /* Eni 100% yox, max-content edirik ki, sadəcə yazı boyda yer tutsunlar */
-        width: max-content !important; 
-        
-        /* Düymənin daxili toxunma sahəsi */
-        padding: 8px 20px !important;  
-        
-        border-radius: 4px !important; /* İstəsəniz kənarlarını xəfif yuvarlaq edə bilərsiniz */
-        transition: 0.2s !important;
-    }
-}
 }
 
 
