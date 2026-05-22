@@ -1613,23 +1613,24 @@ document.addEventListener('DOMContentLoaded', function() {
             parent.classList.toggle("open");
         });
     });
-
-    // 3. Kənara klik edəndə HƏM menyunu, HƏM dropdown-u bağla
+// 3. Kənara və ya menyu daxilindəki boşluqlara klik edəndə menyunu bağla
     document.addEventListener("click", function(e) {
         // Dropdown-u bağla
         dropdowns.forEach(drop => {
             if (!drop.contains(e.target)) {
-                drop.classList.remove("open");
+                drop.classList.remove(\"open\");
             }
         });
 
-        // Hamburger menyunu bağla (əgər klik menyu daxilində deyilsə)
-        if (navList.classList.contains("active") && !navList.contains(e.target) && !menuToggle.contains(e.target)) {
-            navList.classList.remove("active");
-            document.body.style.overflow = "";
+        // YENİ MƏNTİQ: Klik `.nav-list`-in özünə (boşluğa) edilibsə VƏ link deyilsə - BAĞLA
+        if (navList.classList.contains("active")) {
+            // Əgər klik navbarın özünə, menyu siyahısının boşluğuna edilibsə və linkə dəyməyibsə
+            if (e.target === navList || (!navList.contains(e.target) && !menuToggle.contains(e.target))) {
+                navList.classList.remove("active");
+                document.body.style.overflow = "";
+            }
         }
     });
-
 // 4. Menyu daxilindəki adi linklərə və ya dildən birini seçəndə hər şeyi bağla
     const navLinks = document.querySelectorAll(".nav-list a:not(.dropdown-toggle)");
     navLinks.forEach(link => {
