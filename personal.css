@@ -1435,17 +1435,28 @@ html {
     position: relative !important;
 }
 
-/* 4. Düymələrin daxilindəki linklər və mətnlər */
-.nav-list li a {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: bold !important;
-    font-size: 12px !important;       /* 💥 5px NOUTƏ KİMİ İDİ, ARTIQ 14px EDƏRƏK RAHAT OXUNUR */
-    white-space: nowrap !important;   /* Yazının aşağı sətirə düşməsini önləyir */
-    padding: 7px 10px !important;     /* 💥 DÜYMƏLƏRƏ NORMAL KLİKLƏNMƏ BOŞLUĞU VERDİK */
-    transition: 0.3s !important;
-    display: block !important;
-}
+/* 4. Siyahı elementləri (li) - Klik hadisəsini arxadakı fona keçirməyə icazə verir */
+    .nav-list li {
+        width: max-content !important; /* 💥 100% idisə max-content etdik ki, sağı-solu boş qalsın */
+        text-align: center !important;
+        margin: 0 !important;
+        padding: 6px 0 !important; 
+        pointer-events: none !important; /* 💥 Öz klik oxunmasını söndürür, klik birbaşa a-ya və ya fon-a keçir */
+    }
+
+    /* 5. Düymələrin (a) kliklərini bərpa edirik */
+    .nav-list li a {
+        pointer-events: auto !important; /* 💥 Düymələrin özünün kliklənməsini aktiv saxlayırıq */
+        font-size: 15px !important;
+        font-weight: 500 !important;
+        text-align: center !important;
+        display: inline-block !important;
+        width: max-content !important; 
+        padding: 6px 20px !important;  
+        border-radius: 4px !important; 
+        transition: 0.2s !important;
+        margin: 0 !important;
+    }
 
 /* Hover effekti */
 .nav-list li a:hover {
@@ -1701,8 +1712,6 @@ section:has(> .pricing-grid),
     border-radius: 6px;
 }
 
-
-
 /* Mobil Ekran üçün Discord Banner Tənzimləməsi */
     .discord-poster-img {
         width: 100% !important;
@@ -1711,3 +1720,4 @@ section:has(> .pricing-grid),
         display: block !important;
         margin: 10px auto !important; /* Üst və altdan boşluq verir, sağ-solu mərkəzləşdirir */
     }
+
