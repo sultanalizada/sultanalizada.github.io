@@ -1716,7 +1716,7 @@ html {
     margin: 0 !important;
     padding: 0 !important;
     width: auto !important; /* Sağa itələmə ləğv olunduğu üçün auto-da qalır */
-    gap: 15px !important;    /* 💥 ARTIQ YERİMİZ BOL OLDUĞU ÜÇÜN 1px-dən 15px-ə QALDIRDIQ */
+    gap: 8px !important;    /* 💥 ARTIQ YERİMİZ BOL OLDUĞU ÜÇÜN 1px-dən 15px-ə QALDIRDIQ */
     overflow: visible !important;
 }
 
@@ -1732,9 +1732,9 @@ html {
     color: #ffffff !important;
     text-decoration: none !important;
     font-weight: bold !important;
-    font-size: 14px !important;       /* 💥 5px NOUTƏ KİMİ İDİ, ARTIQ 14px EDƏRƏK RAHAT OXUNUR */
+    font-size: 12px !important;       /* 💥 5px NOUTƏ KİMİ İDİ, ARTIQ 14px EDƏRƏK RAHAT OXUNUR */
     white-space: nowrap !important;   /* Yazının aşağı sətirə düşməsini önləyir */
-    padding: 8px 12px !important;     /* 💥 DÜYMƏLƏRƏ NORMAL KLİKLƏNMƏ BOŞLUĞU VERDİK */
+    padding: 7px 10px !important;     /* 💥 DÜYMƏLƏRƏ NORMAL KLİKLƏNMƏ BOŞLUĞU VERDİK */
     transition: 0.3s !important;
     display: block !important;
 }
