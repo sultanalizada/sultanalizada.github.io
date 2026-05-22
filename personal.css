@@ -1594,7 +1594,7 @@ section:has(> .pricing-grid),
         z-index: 99999 !important;
     }
 
-    /* 2. Hamburger Menyusu */
+    /* 2. Hamburger Menyusu (Tam sağ küncdə sabit) */
     .menu-toggle {
         display: block !important;
         position: absolute !important;
@@ -1614,23 +1614,25 @@ section:has(> .pricing-grid),
         display: block !important;
     }
 
-    /* 3. Menyunun ümumi açılan qutusu (Sıxlaşdırıldı) */
+    /* 3. Menyunun ümumi açılan qutusu (YENİLƏNDİ: Tam ekran fon və mərkəzləmə) */
     .nav-list {
         display: none !important;
         flex-direction: column !important;
         position: fixed !important;
-        top: 60px !important;
+        top: 60px !important; 
         left: 0 !important;
         width: 100% !important;
-        height: auto !important; /* 💥 Bütün ekranı tutub düymələri yaymasın deyə auto etdik */
-        background-color: #0d1b2a !important;
-        padding-top: 20px !important;    /* Yuxarıdan olan boşluq */
-        padding-bottom: 30px !important; /* Aşağıdan olan bitiş boşluğu */
-        gap: 0 !important;               /* Elementlər arası default boşluğu sıfırladıq */
+        height: calc(100vh - 60px) !important; /* Fon bütün ekranı örtür */
+        background-color: #0d1b2a !important;   /* Arxa fon rəngi tam oturur */
+        
+        /* Düymələri şaquli olaraq ekranın ortasına yığır, amma bir-birindən ayırmır */
+        justify-content: center !important; 
         align-items: center !important;
-        justify-content: flex-start !important; /* Düymələri yuxarıya doğru sıxır */
-        z-index: 99998 !important;
+        gap: 0 !important; /* Aralarındakı lazımsız boşluğu sıfırlayır */
+        
+        padding: 0 !important;
         margin: 0 !important;
+        z-index: 99998 !important;
     }
 
     /* Menyu aktiv olanda */
@@ -1638,22 +1640,22 @@ section:has(> .pricing-grid),
         display: flex !important;
     }
 
-    /* 4. Siyahı elementlərinin (li) boşluqlarının məcburi sıfırlanması */
+    /* 4. Siyahı elementlərinin (li) boşluqları (Düymələrin sıxlığı buradan tənzimlənir) */
     .nav-list li {
         width: 100% !important;
         text-align: center !important;
-        margin: 0 !important;        /* 💥 Köhnə margin-ləri tamamilə sildik */
-        padding: 2px 0 !important;   /* 💥 Düymələr arasındakı məsafəni birbaşa bura idarə edir (cəmi 2px) */
+        margin: 0 !important;
+        padding: 5px 0 !important; /* 💥 Əgər düymələr çox yapışıq olsa, bu 5px-i bir az artıra bilərsən */
     }
 
-    /* 5. Düymələrin (a) öz stilləri və daxili boşluqları */
+    /* 5. Düymələrin (a) öz daxili relyefi */
     .nav-list li a {
-        font-size: 14px !important;
+        font-size: 15px !important;
         font-weight: 500 !important;
         text-align: center !important;
         display: inline-block !important;
         width: max-content !important; 
-        padding: 6px 15px !important;  /* Düymənin öz daxili relyefi */
+        padding: 6px 20px !important;  
         border-radius: 4px !important; 
         transition: 0.2s !important;
         margin: 0 !important;
