@@ -1716,7 +1716,7 @@ html {
     margin: 0 !important;
     padding: 0 !important;
     width: auto !important; /* Sağa itələmə ləğv olunduğu üçün auto-da qalır */
-    gap: 8px !important;    /* 💥 ARTIQ YERİMİZ BOL OLDUĞU ÜÇÜN 1px-dən 15px-ə QALDIRDIQ */
+    gap: 1px !important;    /* 💥 ARTIQ YERİMİZ BOL OLDUĞU ÜÇÜN 1px-dən 15px-ə QALDIRDIQ */
     overflow: visible !important;
 }
 
