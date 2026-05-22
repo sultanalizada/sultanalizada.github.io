@@ -1627,14 +1627,17 @@ html {
     }
 }
 
-
-/* Pricing qəfəsini qıran və kartları tam sərbəst buraxan xüsusi düzəliş */
-#packages .section, 
-#packages .container {
-    max-width: 100% !important; /* Xarici qəfəsin divarlarını tamamilə dağıdır */
+/* Pricing qəfəsini tamamilə dağıdan universal kod */
+.pricing-grid {
+    max-width: 100% !important; /* Divarları tamamilə sıfırlayır */
     width: 100% !important;
 }
 
-.pricing-grid {
-    max-width: 1600px !important; /* İndi bu kod real işləyəcək və kartlar sağa-sola tam sərbəst açılacaq */
+/* Əgər pricing-grid hər hansı bir section içindədirsə, onun da divarını sındırırıq */
+div:has(> .pricing-grid), 
+section:has(> .pricing-grid) {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
