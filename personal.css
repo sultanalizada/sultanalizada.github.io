@@ -1522,9 +1522,9 @@ html {
     justify-content: center !important; /* Kartları ekranın ortasına nizamlayır */
     align-items: stretch !important; /* Bütün kartların hündürlüklərini bərabər edir */
     gap: 15px !important; /* Kartlar arasındakı professional boşluq */
-    max-width: 1200px !important; /* Ekrandan daşmağı önləyən sərhəd */
+    max-width: 1500px !important; /* Ekrandan daşmağı önləyən sərhəd */
     margin: 40px auto !important;
-    padding: 0 20px !important;
+    padding: 0 35px !important;
     box-sizing: border-box !important;
 }
 
