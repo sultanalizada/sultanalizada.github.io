@@ -1626,3 +1626,15 @@ html {
         max-width: 400px !important;
     }
 }
+
+
+/* Pricing qəfəsini qıran və kartları tam sərbəst buraxan xüsusi düzəliş */
+#packages .section, 
+#packages .container {
+    max-width: 100% !important; /* Xarici qəfəsin divarlarını tamamilə dağıdır */
+    width: 100% !important;
+}
+
+.pricing-grid {
+    max-width: 1600px !important; /* İndi bu kod real işləyəcək və kartlar sağa-sola tam sərbəst açılacaq */
+}
