@@ -1529,8 +1529,8 @@ html {
 
 /* Hər bir fərdi kartın özü */
 .pricing-card {
-    flex: 1 1 400px !important; /* Kartların ekrana sığması üçün dinamik ölçü (Zoom tələb etmir!) */
-    max-width: 500px !important;  /* Kartların çox böyüyüb eybəcər olmasını önləyir */
+    flex: 1 1 450px !important; /* Kartların ekrana sığması üçün dinamik ölçü (Zoom tələb etmir!) */
+    max-width: none !important;
     background: #ffffff !important;
     padding: 28px 24px !important;
     border-radius: 16px !important; 
