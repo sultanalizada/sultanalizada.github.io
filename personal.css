@@ -1642,8 +1642,7 @@ section:has(> .pricing-grid),
         font-weight: 500 !important;
         text-align: center !important;
         width: max-content !important; 
-        padding: 8px 20px !important;  
-        border-radius: 4px !important; 
+        padding: 6px 15!important; 
         transition: 0.2s !important;
     }
 
