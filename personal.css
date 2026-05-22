@@ -1580,27 +1580,27 @@ section:has(> .pricing-grid),
    ========================================================== */
 @media (max-width: 768px) {
 
-    /* 1. Əsas navbar zolağı (Hər şeyi blok edib ortalamadan çıxarırıq) */
+    /* 1. Əsas navbar zolağı */
     .navbar {
         display: block !important;
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        height: 60px !important; /* Düymə və zolaq üçün sabit hündürlük */
-        background-color: #0d1b2a !important; /* Göy lent fonu */
+        height: 60px !important;
+        background-color: #0d1b2a !important;
         padding: 0 !important;
         box-sizing: border-box !important;
         z-index: 99999 !important;
     }
 
-    /* 2. Hamburger Menyusu (Üç xətt) - Məcburi tam sağ küncə kilidlənmə */
+    /* 2. Hamburger Menyusu */
     .menu-toggle {
         display: block !important;
         position: absolute !important;
-        right: 20px !important;  /* Sağ divardan məsafə */
-        top: 50% !important;     /* Yuxarıdan tən ortada durması üçün */
-        transform: translateY(-50%) !important; /* Şaquli mərkəzləmə tamlığı */
+        right: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
         cursor: pointer !important;
         z-index: 100000 !important;
         margin: 0 !important;
@@ -1614,40 +1614,52 @@ section:has(> .pricing-grid),
         display: block !important;
     }
 
-    /* 3. Menyunun ümumi açılan qutusu (Düymələrin yığıldığı panel) */
+    /* 3. Menyunun ümumi açılan qutusu (Sıxlaşdırıldı) */
     .nav-list {
         display: none !important;
         flex-direction: column !important;
         position: fixed !important;
-        top: 60px !important; /* Navbarın hündürlüyündən dərhal sonra başlasın */
+        top: 60px !important;
         left: 0 !important;
         width: 100% !important;
-        height: calc(100vh - 60px) !important;
+        height: auto !important; /* 💥 Bütün ekranı tutub düymələri yaymasın deyə auto etdik */
         background-color: #0d1b2a !important;
-        padding-top: 20px !important; 
-        gap: 5px !important;        
-        align-items: center !important; /* Düymələri panelin ortasına yığır */
+        padding-top: 20px !important;    /* Yuxarıdan olan boşluq */
+        padding-bottom: 30px !important; /* Aşağıdan olan bitiş boşluğu */
+        gap: 0 !important;               /* Elementlər arası default boşluğu sıfırladıq */
+        align-items: center !important;
+        justify-content: flex-start !important; /* Düymələri yuxarıya doğru sıxır */
         z-index: 99998 !important;
         margin: 0 !important;
     }
 
-    /* Menyu aktiv olanda (JavaScript kliklənəndə) */
+    /* Menyu aktiv olanda */
     .nav-list.active {
         display: flex !important;
     }
 
-    /* 4. Açılan menyudakı düymələrin öz stilləri */
+    /* 4. Siyahı elementlərinin (li) boşluqlarının məcburi sıfırlanması */
+    .nav-list li {
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 !important;        /* 💥 Köhnə margin-ləri tamamilə sildik */
+        padding: 2px 0 !important;   /* 💥 Düymələr arasındakı məsafəni birbaşa bura idarə edir (cəmi 2px) */
+    }
+
+    /* 5. Düymələrin (a) öz stilləri və daxili boşluqları */
     .nav-list li a {
         font-size: 14px !important;
         font-weight: 500 !important;
         text-align: center !important;
+        display: inline-block !important;
         width: max-content !important; 
-        padding: 4px 15px !important;  /* 💥 Yuxarı-aşağı daxili boşluğu 8px-dən 4px-ə saldıq */
+        padding: 6px 15px !important;  /* Düymənin öz daxili relyefi */
         border-radius: 4px !important; 
         transition: 0.2s !important;
+        margin: 0 !important;
     }
 
-    /* 5. Ümumi Seksiyalar və Hero (Profil, Loqo şəkli və s.) mobil tənzimləmələri */
+    /* 6. Ümumi Seksiyalar və Hero mobil tənzimləmələri */
     .section {
         padding: 60px 20px;
         display: flex;
@@ -1658,7 +1670,7 @@ section:has(> .pricing-grid),
 
     .hero {
         min-height: auto !important;
-        padding-top: 130px !important; /* Səhifə kontentinin sabit navbarın altında qalmaması üçün */
+        padding-top: 130px !important;
         padding-bottom: 0px !important;
     }
 
