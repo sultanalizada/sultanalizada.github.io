@@ -1549,12 +1549,13 @@ section:has(> .pricing-grid),
     border-radius: 16px !important; 
     border: 1px solid #e5e7eb !important; 
     box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
-    text-align: left !important; 
+    text-align: center !important; 
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important; /* Yazıları təbii şəkildə yuxarıdan aşağı yığır, boşluq buraxmır */
     box-sizing: border-box !important;
     transition: all 0.25s ease !important;
+    align-items: center !important;
 }
 
 /* Hover effekti */
@@ -1591,13 +1592,14 @@ section:has(> .pricing-grid),
 }
 
 .pricing-card ul {
-    list-style: none !important;
+    list-style-position: inside !important; /* İşarələri içəri qatır */
+    text-align: center !important;
     padding: 0 !important;
     margin: 10px 0 20px 0 !important;
 }
 
 .pricing-card li {
-    margin-bottom: 8px !important;
+    text-align: center !important;
 }
 
 .pricing-card li::before {
@@ -1609,7 +1611,7 @@ section:has(> .pricing-grid),
 /* Düymələr */
 .pricing-button {
     display: inline-block !important; /* Tam eni tutub kobud durmasın deyə inline-block etdik */
-    align-self: flex-start !important; /* Düyməni sola söykəyir */
+    align-self: center !important;
     text-align: center !important;
     padding: 10px 24px !important;
     background-color: #0d1b2a !important;
