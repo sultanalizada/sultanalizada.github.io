@@ -1642,7 +1642,8 @@ section:has(> .pricing-grid),
         font-weight: 500 !important;
         text-align: center !important;
         width: max-content !important; 
-        padding: 6px 15!important; 
+        padding: 4px 15px !important;  /* 💥 Yuxarı-aşağı daxili boşluğu 8px-dən 4px-ə saldıq */
+        border-radius: 4px !important; 
         transition: 0.2s !important;
     }
 
