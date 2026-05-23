@@ -1570,78 +1570,93 @@ WhatsApp
 </a>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const wechatBtn = document.getElementById('wechatBtn');
-        const wechatPopup = document.getElementById('wechatPopup');
-
-        // İkona klikləyəndə popupu aç/bağla
-        wechatBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Klikin wrapper-ə yayılmasını dayandır
-            wechatPopup.classList.toggle('active');
-        });
-    });
-</script>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
+    // 1. Elementləri seçirik
     const menuToggle = document.getElementById("mobile-menu");
     const navList = document.getElementById("nav-list");
     const dropdowns = document.querySelectorAll(".dropdown");
+    
+    // WeChat elementləri (əgər HTML-də id və ya class fərqlidirsə, özünüzə uyğun tənzimləyin)
+    const wechatToggle = document.getElementById("wechat-toggle") || document.querySelector(".wechat-link");
+    const wechatQrModal = document.getElementById("wechat-qr-modal") || document.querySelector(".wechat-dropdown-menu");
 
-    // 1. Hamburger menyunu aç/bağla
-    if (menuToggle) {
+    // 2. Mobil Hamburger menyunun açılıb-bağlanması
+    if (menuToggle && navList) {
         menuToggle.addEventListener("click", function(e) {
-            e.stopPropagation(); // Klikin sənədə yayılmasını önləyir
+            e.stopPropagation(); // Klik hadisəsinin document-ə ötürülməsini dayandırır
             navList.classList.toggle("active");
-            document.body.style.overflow = navList.classList.contains("active") ? "hidden" : "";
+            menuToggle.classList.toggle("open"); // Üç xəttin X formasına düşməsi üçün
+            
+            // Menyu açılanda arxa fonun sürüşməsini idarə etmək üçün
+            if (navList.classList.contains("active")) {
+                document.body.style.overflow = "hidden";
+            } else {
+                document.body.style.overflow = "";
+            }
         });
     }
 
-    // 2. Dropdown-u aç/bağla (Mobil və PC üçün)
-    document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
-        toggle.addEventListener("click", function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const parent = this.parentElement;
-            
-            // Digər açıq dropdown-ları bağla
-            dropdowns.forEach(d => {
-                if (d !== parent) d.classList.remove("open");
-            });
+    // 3. Dropdown menyuların (Dillər və s.) idarə olunması
+    dropdowns.forEach(parent => {
+        const toggle = parent.querySelector(".dropdown-toggle");
+        if (toggle) {
+            toggle.addEventListener("click", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Digər bütün açıq dropdown-ları bağla
+                dropdowns.forEach(d => {
+                    if (d !== parent) d.classList.remove("open");
+                });
 
-            parent.classList.toggle("open");
-        });
+                parent.classList.toggle("open");
+            });
+        }
     });
- // 3. Kənara klik edəndə HƏM menyunu, HƏM dropdown-u bağla
+
+    // 4. Kənara (boşluğa) klik edəndə HƏM mobil menyunu, HƏM dropdown-ları, HƏM DƏ WeChat QR kodunu bağla
     document.addEventListener("click", function(e) {
-        // Dropdown-u bağla
+        // Dropdown-ları bağla
         dropdowns.forEach(drop => {
             if (!drop.contains(e.target)) {
                 drop.classList.remove("open");
             }
         });
 
-        // Hamburger menyunu bağla (əgər klik menyu daxilində deyilsə)
-        if (navList.classList.contains("active") && !navList.contains(e.target) && !menuToggle.contains(e.target)) {
-            navList.classList.remove("active");
-            document.body.style.overflow = "";
-// 4. Menyu daxilindəki adi linklərə və ya dildən birini seçəndə hər şeyi bağla
+        // Hamburger mobil menyunu bağla (əgər klik menyudan və düymədən kənara edilibsə)
+        if (navList && navList.classList.contains("active")) {
+            if (!navList.contains(e.target) && !menuToggle.contains(e.target)) {
+                navList.classList.remove("active");
+                if (menuToggle) menuToggle.classList.remove("open");
+                document.body.style.overflow = "";
+            }
+        }
+
+        // WeChat QR kodunu / modalını bağla (əgər klik QR kodun özünə və ya onu açan düyməyə dəyməyibsə)
+        if (wechatQrModal && wechatQrModal.classList.contains("open") || (wechatQrModal && wechatQrModal.style.display === "block")) {
+            if (!wechatQrModal.contains(e.target) && (!wechatToggle || !wechatToggle.contains(e.target))) {
+                // Sizin kodlaşdırmanıza uyğun olaraq hansı metoddan istifadə edirsinizsə, ikisini də bura yazırıq:
+                wechatQrModal.classList.remove("open"); 
+                wechatQrModal.classList.remove("active");
+                // Əgər display bloku ilə edirsinizsə, aşağıdakı sətri aktiv edə bilərsiniz:
+                // wechatQrModal.style.display = "none";
+            }
+        }
+    });
+
+    // 5. Mobil menyu daxilindəki keçidlərə (linklərə) klik edəndə hər şeyi avtomatik bağla
     const navLinks = document.querySelectorAll(".nav-list a:not(.dropdown-toggle)");
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
-            // 1. Hamburger menyunu bağla
-            navList.classList.remove("active");
+            if (navList) navList.classList.remove("active");
+            if (menuToggle) menuToggle.classList.remove("open");
             document.body.style.overflow = "";
             
-            // 2. Açıq qalan dropdown menyunu da avtomatik bağla (🔥 PROBLEM BURADA HƏLL OLUNDU)
+            // Açıq qalan dropdown-ları da təmizlə
             dropdowns.forEach(drop => {
                 drop.classList.remove("open");
             });
         });
     });
-});
-
 </script>
 
   
