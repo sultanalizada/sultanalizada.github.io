@@ -1693,25 +1693,27 @@ WhatsApp
     });
 
 
-const wechatBtn = document.querySelector(".wechat-btn");
-    const wechatPopup = document.querySelector(".wechat-popup");
+// Sizin yuxarıda atdığınız HTML strukturu üçün dəqiq işləyən skript:
+    const wechatButton = document.querySelector(".wechat-btn");
+    const wechatImagePopup = document.querySelector(".wechat-popup");
 
-    if (wechatBtn && wechatPopup) {
-        // Düyməyə klik edəndə şəkli aç/bağla
-        wechatBtn.addEventListener("click", function(e) {
+    if (wechatButton && wechatImagePopup) {
+        // Loqoya klik edəndə link kimi davranmasın, qr kod şəkilli qutunu açsın/bağlasın
+        wechatButton.addEventListener("click", function(e) {
+            e.preventDefault(); // href="#" linkinin səhifəni yuxarı atmasının qarşısını alır
             e.stopPropagation(); // Klikin kənara sıçramasını əngəlləyir
             
-            if (wechatPopup.style.display === "block") {
-                wechatPopup.style.display = "none";
+            if (wechatImagePopup.style.display === "block") {
+                wechatImagePopup.style.display = "none";
             } else {
-                wechatPopup.style.display = "block";
+                wechatImagePopup.style.display = "block";
             }
         });
 
-        // Səhifədə kənara klik edəndə QR kod avtomatik bağlansın
+        // Saytda boş bir yerə klik edəndə WeChat şəkli avtomatik qapansın
         document.addEventListener("click", function(e) {
-            if (!wechatBtn.contains(e.target)) {
-                wechatPopup.style.display = "none";
+            if (!wechatButton.contains(e.target)) {
+                wechatImagePopup.style.display = "none";
             }
         });
     }
