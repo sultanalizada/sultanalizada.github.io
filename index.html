@@ -1508,7 +1508,7 @@ Thank you so much for visiting my personal website! Please feel free to share yo
     <i class="fab fa-instagram"></i>
   </a>
 
- <a href="#" class="social-icon wechat-btn" style="background-color: #07C160; position: relative;" title="WeChat">
+ <a class="social-icon wechat-btn" style="background-color: #07C160; position: relative;" title="WeChat">
             <i class="fab fa-weixin"></i>
             
             <span class="wechat-popup" style="display: none; position: absolute; bottom: 140%; left: 50%; transform: translateX(-50%); background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; text-align: center; width: 170px; cursor: default;" onclick="event.stopPropagation();">
@@ -1693,28 +1693,25 @@ WhatsApp
     });
 
 
+    const wechatBtn = document.querySelector(".wechat-btn");
+    const wechatPopup = document.querySelector(".wechat-popup");
 
-    // Sizin yuxarıda atdığınız HTML strukturu üçün dəqiq işləyən skript:
-    const wechatButton = document.querySelector(".wechat-btn");
-    const wechatImagePopup = document.querySelector(".wechat-popup");
-
-    if (wechatButton && wechatImagePopup) {
-        // Loqoya klik edəndə link kimi davranmasın, qr kod şəkilli qutunu açsın/bağlasın
-        wechatButton.addEventListener("click", function(e) {
-            e.preventDefault(); // href="#" linkinin səhifəni yuxarı atmasının qarşısını alır
+    if (wechatBtn && wechatPopup) {
+        // Düyməyə klik edəndə şəkli aç/bağla
+        wechatBtn.addEventListener("click", function(e) {
             e.stopPropagation(); // Klikin kənara sıçramasını əngəlləyir
             
-            if (wechatImagePopup.style.display === "block") {
-                wechatImagePopup.style.display = "none";
+            if (wechatPopup.style.display === "block") {
+                wechatPopup.style.display = "none";
             } else {
-                wechatImagePopup.style.display = "block";
+                wechatPopup.style.display = "block";
             }
         });
 
-        // Saytda boş bir yerə klik edəndə WeChat şəkli avtomatik qapansın
+        // Səhifədə kənara klik edəndə QR kod avtomatik bağlansın
         document.addEventListener("click", function(e) {
-            if (!wechatButton.contains(e.target)) {
-                wechatImagePopup.style.display = "none";
+            if (!wechatBtn.contains(e.target)) {
+                wechatPopup.style.display = "none";
             }
         });
     }
