@@ -1737,3 +1737,9 @@ body.menu-open {
         margin: 10px auto !important; /* Üst və altdan boşluq verir, sağ-solu mərkəzləşdirir */
     }
 
+/* WeChat düyməsini alt sətirə salıb tam mərkəzləşdirən bəsit kod */
+.social-links .wechat-btn {
+    flex-basis: 100% !important; /* Bütün sətri tutur və təkbaşına aşağı düşür */
+    max-width: 45px !important;   /* Aşağı düşəndə uzanmır, yumru ölçüsünü qoruyur */
+    margin: 15px auto 0 auto !important; /* Sağdan və soldan 'auto' sayəsində tam mərkəzə oturur */
+}
