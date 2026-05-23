@@ -302,6 +302,7 @@ html {
   justify-content: center;
   gap: 15px;
   margin: 20px 0;
+  flex-wrap: wrap;
 }
 
 .social-icon {
@@ -324,6 +325,12 @@ html {
 .whatsapp { background-color: #25D366; }
 .youtube { background-color: #FF0000; }
 .superprof { background-color: #FF5959; font-weight: bold; }
+
+    /* 👈 2-Cİ DƏYİŞİKLİK: TƏKCƏ WECHAT ÜÇÜN BƏSİT ORTALAMA KODU */
+.social-links .wechat-btn {
+  width: 100% !important; /* Maneəni qırdıq: WeChat bütün alt sətri təkbaşına tutur */
+  margin-top: 15px !important; /* Üstündəki ikonlardan aşağıya 15px məsafə qoyur */
+}
 
 /* 5. Calendly və Testimonials mərkəzləşdirmə */
 .calendly-full-container, #cusdis_thread {
@@ -1737,11 +1744,3 @@ body.menu-open {
         margin: 10px auto !important; /* Üst və altdan boşluq verir, sağ-solu mərkəzləşdirir */
     }
 
-/* WeChat düyməsini alt sətirə məcbur edib tam mərkəzləşdirən zəmanətli kod */
-.social-links .wechat-btn {
-    display: inline-flex !important;
-    width: 45px !important;
-    height: 45px !important;
-    clear: both !important;
-    margin: 15px calc(50% - 22.5px) 0 calc(50% - 22.5px) !important; /* Riyazi olaraq tam ekranda mərkəzə itələyir */
-}
