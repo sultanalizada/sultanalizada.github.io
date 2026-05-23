@@ -1677,6 +1677,36 @@ WhatsApp
     });
 </script>
 
+
+  <script>
+    const wechatBtn = document.querySelector(".wechat-link");
+    const wechatPopup = document.querySelector(".wechat-popup");
+
+    if (wechatBtn && wechatPopup) {
+        // İkona klik edəndə QR kod qutusunu aç/bağla
+        wechatBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            e.stopPropagation(); // Klik hadisəsinin kənara sıçrayıb anında bağlanmasını əngəlləyir
+            
+            if (wechatPopup.style.display === "block") {
+                wechatPopup.style.display = "none";
+                this.classList.remove("open");
+            } else {
+                wechatPopup.style.display = "block";
+                this.classList.add("open");
+            }
+        });
+
+        // Səhifədə WeChat düyməsindən və şəkildən kənar hər hansı bir yerə basanda bağla
+        document.addEventListener("click", function(e) {
+            if (!wechatPopup.contains(e.target) && !wechatBtn.contains(e.target)) {
+                wechatPopup.style.display = "none";
+                wechatBtn.classList.remove("open");
+            }
+        });
+    }
+</script>
+
   
 </body>
 
