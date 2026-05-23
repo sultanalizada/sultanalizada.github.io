@@ -1575,37 +1575,49 @@ WhatsApp
     const navList = document.getElementById("nav-list");
     const dropdowns = document.querySelectorAll(".dropdown");
     
-    // WeChat elementləri (əgər HTML-də id və ya class fərqlidirsə, özünüzə uyğun tənzimləyin)
-    const wechatToggle = document.getElementById("wechat-toggle") || document.querySelector(".wechat-link");
-    const wechatQrModal = document.getElementById("wechat-qr-modal") || document.querySelector(".wechat-dropdown-menu");
+    // WeChat elementləri
+    const wechatToggle = document.querySelector(".wechat-link") || document.getElementById("wechat-toggle");
+    const wechatQrModal = document.querySelector(".wechat-dropdown-menu") || document.getElementById("wechat-qr-modal");
 
-    // 2. Mobil Hamburger menyunun açılıb-bağlanması
+    // 2. Mobil Hamburger menyunun açılıb-bağlanması (Scroll Kilidi İlə)
     if (menuToggle && navList) {
         menuToggle.addEventListener("click", function(e) {
-            e.stopPropagation(); // Klik hadisəsinin document-ə ötürülməsini dayandırır
+            e.stopPropagation();
             navList.classList.toggle("active");
-            menuToggle.classList.toggle("open"); // Üç xəttin X formasına düşməsi üçün
+            menuToggle.classList.toggle("open");
             
-            // Menyu açılanda arxa fonun sürüşməsini idarə etmək üçün
+            // Menyu açılanda body-ni dondur, bağlananda burax
             if (navList.classList.contains("active")) {
-                document.body.style.overflow = "hidden";
+                document.body.classList.add("menu-open");
             } else {
-                document.body.style.overflow = "";
+                document.body.classList.remove("menu-open");
             }
         });
     }
 
-    // 3. Dropdown menyuların (Dillər və s.) idarə olunması
+    // 3. Dropdown-ların və WeChat-ın idarə olunması
     dropdowns.forEach(parent => {
-        const toggle = parent.querySelector(".dropdown-toggle");
+        const toggle = parent.querySelector(".dropdown-toggle, .wechat-link");
         if (toggle) {
             toggle.addEventListener("click", function(e) {
                 e.preventDefault();
-                e.stopPropagation();
+                e.stopPropagation(); // Klik hadisəsinin document-ə sıçramasını kəsir
                 
-                // Digər bütün açıq dropdown-ları bağla
+                // Kliklənən element WeChat-dırsa, həm düyməyə, həm QR qutuya 'open' ver/götür
+                if (this.classList.contains("wechat-link") || this.textContent.includes("WeChat")) {
+                    this.classList.toggle("open");
+                    if (wechatQrModal) {
+                        wechatQrModal.classList.toggle("open");
+                    }
+                }
+
+                // Digər bütün açıq dropdown-ları avtomatik bağla
                 dropdowns.forEach(d => {
-                    if (d !== parent) d.classList.remove("open");
+                    if (d !== parent) {
+                        d.classList.remove("open");
+                        const otherToggle = d.querySelector(".dropdown-toggle, .wechat-link");
+                        if (otherToggle) otherToggle.classList.remove("open");
+                    }
                 });
 
                 parent.classList.toggle("open");
@@ -1613,47 +1625,51 @@ WhatsApp
         }
     });
 
-    // 4. Kənara (boşluğa) klik edəndə HƏM mobil menyunu, HƏM dropdown-ları, HƏM DƏ WeChat QR kodunu bağla
+    // 4. Kənara və ya Menyunun Boş Fonuna Klik Edəndə Ağıllı Bağlanma
     document.addEventListener("click", function(e) {
-        // Dropdown-ları bağla
+        
+        // --- Hamburqer Menyunun Boş Arxa Fona Kliklə Bağlanması ---
+        if (navList && navList.classList.contains("active")) {
+            // Əgər klik üç xətt düyməsinə dəyməyibsə
+            if (!menuToggle.contains(e.target)) {
+                
+                // Menyu 100% enində olduğu üçün, əgər istifadəçi birbaşa nav-list-in özünə (boş fona) klikləyibsə,
+                // yaxud klik menyu elementlərinin (li, a, div) daxilində DEYİLSƏ, menyunu bağla.
+                if (e.target === navList || !navList.contains(e.target)) {
+                    navList.classList.remove("active");
+                    if (menuToggle) menuToggle.classList.remove("open");
+                    document.body.classList.remove("menu-open"); // Arxa fon scrollunu bərpa et
+                }
+            }
+        }
+
+        // --- Dropdown və WeChat QR-ın Kənara Kliklə Bağlanması ---
         dropdowns.forEach(drop => {
             if (!drop.contains(e.target)) {
                 drop.classList.remove("open");
+                const toggle = drop.querySelector(".dropdown-toggle, .wechat-link");
+                if (toggle) toggle.classList.remove("open");
             }
         });
 
-        // Hamburger mobil menyunu bağla (əgər klik menyudan və düymədən kənara edilibsə)
-        if (navList && navList.classList.contains("active")) {
-            if (!navList.contains(e.target) && !menuToggle.contains(e.target)) {
-                navList.classList.remove("active");
-                if (menuToggle) menuToggle.classList.remove("open");
-                document.body.style.overflow = "";
-            }
-        }
-
-        // WeChat QR kodunu / modalını bağla (əgər klik QR kodun özünə və ya onu açan düyməyə dəyməyibsə)
-        if (wechatQrModal && wechatQrModal.classList.contains("open") || (wechatQrModal && wechatQrModal.style.display === "block")) {
-            if (!wechatQrModal.contains(e.target) && (!wechatToggle || !wechatToggle.contains(e.target))) {
-                // Sizin kodlaşdırmanıza uyğun olaraq hansı metoddan istifadə edirsinizsə, ikisini də bura yazırıq:
-                wechatQrModal.classList.remove("open"); 
-                wechatQrModal.classList.remove("active");
-                // Əgər display bloku ilə edirsinizsə, aşağıdakı sətri aktiv edə bilərsiniz:
-                // wechatQrModal.style.display = "none";
-            }
+        if (wechatQrModal && !wechatQrModal.contains(e.target) && (wechatToggle && !wechatToggle.contains(e.target))) {
+            wechatQrModal.classList.remove("open");
+            if (wechatToggle) wechatToggle.classList.remove("open");
         }
     });
 
-    // 5. Mobil menyu daxilindəki keçidlərə (linklərə) klik edəndə hər şeyi avtomatik bağla
-    const navLinks = document.querySelectorAll(".nav-list a:not(.dropdown-toggle)");
+    // 5. Menyu daxilindəki normal (adi) linklərə klik edəndə hər şeyi bağla
+    const navLinks = document.querySelectorAll(".nav-list a:not(.dropdown-toggle):not(.wechat-link)");
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
             if (navList) navList.classList.remove("active");
             if (menuToggle) menuToggle.classList.remove("open");
-            document.body.style.overflow = "";
+            document.body.classList.remove("menu-open");
             
-            // Açıq qalan dropdown-ları da təmizlə
             dropdowns.forEach(drop => {
                 drop.classList.remove("open");
+                const t = drop.querySelector(".dropdown-toggle, .wechat-link");
+                if (t) t.classList.remove("open");
             });
         });
     });
