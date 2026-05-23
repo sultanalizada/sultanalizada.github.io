@@ -1691,6 +1691,33 @@ WhatsApp
             });
         });
     });
+
+
+
+    // Sizin yuxarıda atdığınız HTML strukturu üçün dəqiq işləyən skript:
+    const wechatButton = document.querySelector(".wechat-btn");
+    const wechatImagePopup = document.querySelector(".wechat-popup");
+
+    if (wechatButton && wechatImagePopup) {
+        // Loqoya klik edəndə link kimi davranmasın, qr kod şəkilli qutunu açsın/bağlasın
+        wechatButton.addEventListener("click", function(e) {
+            e.preventDefault(); // href="#" linkinin səhifəni yuxarı atmasının qarşısını alır
+            e.stopPropagation(); // Klikin kənara sıçramasını əngəlləyir
+            
+            if (wechatImagePopup.style.display === "block") {
+                wechatImagePopup.style.display = "none";
+            } else {
+                wechatImagePopup.style.display = "block";
+            }
+        });
+
+        // Saytda boş bir yerə klik edəndə WeChat şəkli avtomatik qapansın
+        document.addEventListener("click", function(e) {
+            if (!wechatButton.contains(e.target)) {
+                wechatImagePopup.style.display = "none";
+            }
+        });
+    }
 </script>
 
   
