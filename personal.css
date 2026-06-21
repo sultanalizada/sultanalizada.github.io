@@ -1752,3 +1752,8 @@ body.menu-open {
 #home {
     padding-top: 40px; /* Fon daxilində yuxarıdan boşluq yaradır */
 }
+
+#home img {
+    position: relative;
+    top: 25px; /* Şəkli cari mövqeyindən 25px aşağı sürüşdürür */
+}
