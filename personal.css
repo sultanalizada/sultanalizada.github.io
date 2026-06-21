@@ -1748,3 +1748,7 @@ body.menu-open {
 #home img {
     margin-top: 30px; /* Piksel dəyərini istəyinə görə dəyiş */
 }
+
+#home {
+    padding-top: 40px; /* Fon daxilində yuxarıdan boşluq yaradır */
+}
