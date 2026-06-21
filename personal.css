@@ -1744,3 +1744,7 @@ body.menu-open {
         margin: 10px auto !important; /* Üst və altdan boşluq verir, sağ-solu mərkəzləşdirir */
     }
 
+
+#home img {
+    margin-top: 30px; /* Piksel dəyərini istəyinə görə dəyiş */
+}
