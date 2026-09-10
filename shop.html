@@ -1,59 +1,66 @@
-﻿<!DOCTYPE html>
-<html lang="az">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sultan Academy - Rewards & Shop</title>
   <link rel="stylesheet" href="shop.css">
-  
-  <!-- Firebase Compatibility SDK-lar -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
-  <!-- Header & User Balance Banner -->
+  <!-- Navigation Header -->
   <header class="shop-header">
     <div class="header-container">
-      <h1>🎁 Sultan Academy Rewards</h1>
-      
-      <div class="user-card" id="userCard">
-        <div id="loginForm" class="login-box">
-          <input type="text" id="userInput" placeholder="Discord Adın və ya Email..." />
-          <button onclick="loginUser()">Daxil Ol</button>
-        </div>
-        
-        <div id="balanceDisplay" class="balance-box" style="display:none;">
-          <span class="welcome-text">Xoş gəldin, <b id="displayUsername"></b>!</span>
-          <div class="pts-badge">💰 <span id="userPoints">0</span> Sultan Points</div>
-        </div>
+      <a href="index.html" class="back-btn">← Back to Main Site</a>
+      <h1>🎓 Sultan Academy Rewards</h1>
+      <div class="balance-badge">
+        <span>Balance:</span>
+        <strong id="userPoints">0</strong>
+        <span>SP</span>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
   <main class="shop-container">
-    <div class="actions-bar">
-      <button class="earn-btn" onclick="openOfferwall()">⚡ Reklam İzlə / Xal Qazan</button>
-    </div>
+    
+    <!-- Top Section: Identification & Rewarded Ads -->
+    <section class="action-card">
+      <h2>1. Enter Your Identity & Complete Tasks</h2>
+      <p class="section-desc">Enter your Email or Discord username below to make sure your points are saved to your account!</p>
 
-    <h2 class="section-title">🛍️ Mükafatlar və Məhsullar</h2>
-    <div class="products-grid" id="productsGrid">
-      <p class="status-msg">Məhsullar yüklənir...</p>
-    </div>
+      <div class="login-box">
+        <input type="text" id="userInput" placeholder="Enter Email or Discord Username..." />
+        <button id="loginBtn" onclick="saveUser()">Save Identity</button>
+      </div>
+
+      <!-- Rewarded Ads Container (Large Screen Format) -->
+      <div class="offerwall-container">
+        <h3>Available Offers & Tasks</h3>
+        <div class="offerwall-wrapper">
+          <!-- AdGate Media Offerwall iframe -->
+          <iframe 
+            src="https://wall.adgatemedia.com/YOUR_OFFERWALL_ID" 
+            title="Sultan Academy Offerwall" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Bottom Section: Sultan Shop Items -->
+    <section class="shop-section">
+      <h2>2. Sultan Shop</h2>
+      <p class="shop-subtitle">Redeem your earned points for study materials and exclusive resources below!</p>
+
+      <div class="products-grid" id="productsGrid">
+        <p class="loading-text">Loading shop items...</p>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Modal for AdGate / Offerwall -->
-  <div id="offerwallModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeOfferwall()">&times;</span>
-      <h3>Reklamları İzlə / Tapşırıqları Et ➔ Xal Qazan</h3>
-      <div id="offerwallContainer">
-        <p>Offerwall yüklənir...</p>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/shop.js"></script>
+  <script type="module" src="js/shop.js"></script>
 </body>
 </html>
