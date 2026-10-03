@@ -6,8 +6,14 @@
   <title>Sultan Academy - Rewards & Shop</title>
   <link rel="stylesheet" href="shop.css">
 </head>
+
+
+
+
+
 <body>
 
+  
   <!-- Navigation Header -->
   <header class="shop-header">
     <div class="header-container">
@@ -21,50 +27,76 @@
     </div>
   </header>
 
-  <main class="shop-container">
+  <!-- Əsas Layout: Sol Reklam + Orta Məzmun + Sağ Reklam -->
+  <div class="layout-wrapper">
     
-    <!-- Top Section: Identification & Rewarded Ads -->
-    <section class="action-card">
-      <h2>1. Enter Your Identity & Complete Tasks</h2>
-      <p class="section-desc">Enter your Email or Discord username below to make sure your points are saved to your account!</p>
-
-      <div class="login-box">
-        <input type="text" id="userInput" placeholder="Enter Email or Discord Username..." />
-        <button id="loginBtn" onclick="saveUser()">Save Identity</button>
+    <!-- SOL REKLAM LÖVHƏSİ (Məs: 160x600 banner) -->
+    <aside class="ad-sidebar left-ad">
+      <div class="ad-placeholder">
+        <p>Adsterra Script Here</p>
+        <!-- Adsterra embed kodunu bura yapışdıracaqsan -->
       </div>
+    </aside>
 
-      <!-- Rewarded Ads Container (Adsterra Smartlink) -->
-      <div class="offerwall-container">
-        <h3>Watch Ads & Earn Points</h3>
-        <p style="margin-bottom: 15px; color: #666;">Click the button below, view the sponsor advertisement, and return to collect your SP points!</p>
-        
-        <div class="offerwall-wrapper" style="text-align: center; padding: 20px 0;">
-          <a href="https://www.profitableratecpmnetwork.com/fspm49jkm?key=88e5821febc3aed060a93ce3587926fc" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             id="watchAdBtn" 
-             class="back-btn" 
-             style="display: inline-block; padding: 15px 30px; font-size: 1.1rem; font-weight: bold; text-decoration: none; background-color: #4CAF50; color: white; border-radius: 8px; cursor: pointer;">
-             ▶ Watch Sponsor Ad (+SP)
-          </a>
+    <main class="shop-container">
+      
+      <!-- Top Section: Identification & Rewarded Ads -->
+      <section class="action-card">
+        <h2>1. Enter Your Identity & Complete Tasks</h2>
+        <p class="section-desc">Enter your Email or Discord username below to make sure your points are saved to your account!</p>
+
+        <div class="login-box">
+          <input type="text" id="userInput" placeholder="Enter Email or Discord Username..." />
+          <button id="loginBtn">Save Identity</button>
         </div>
+
+        <!-- Rewarded Ads Container -->
+        <div class="offerwall-container">
+          <h3>Watch Ads & Earn Points</h3>
+          <p style="margin-bottom: 15px; color: #94a3b8;">Click the button below, view the sponsor advertisement for at least 10 seconds, and collect your SP points!</p>
+          
+          <div class="offerwall-wrapper">
+            <!-- Adsterra Smartlink -->
+            <button id="watchAdBtn" class="watch-ad-btn">
+               ▶ Watch Sponsor Ad (+10 SP)
+            </button>
+            <p id="adStatus" style="color: #4CAF50; margin-top: 15px; display: none;">Watching... Please wait!</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- Bottom Section: Sultan Shop Items -->
+      <section class="shop-section">
+        <h2>2. Sultan Shop</h2>
+        <p class="shop-subtitle">Redeem your earned points for study materials and exclusive resources below!</p>
+
+        <div class="products-grid" id="productsGrid">
+          <p class="loading-text">Loading shop items...</p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- SAĞ REKLAM LÖVHƏSİ (Məs: 160x600 banner) -->
+    <aside class="ad-sidebar right-ad">
+      <div class="ad-placeholder">
+        <p>Adsterra Script Here</p>
+        <!-- Adsterra embed kodunu bura yapışdıracaqsan -->
       </div>
-    </section>
+    </aside>
 
-    <hr class="divider">
-
-    <!-- Bottom Section: Sultan Shop Items -->
-    <section class="shop-section">
-      <h2>2. Sultan Shop</h2>
-      <p class="shop-subtitle">Redeem your earned points for study materials and exclusive resources below!</p>
-
-      <div class="products-grid" id="productsGrid">
-        <p class="loading-text">Loading shop items...</p>
-      </div>
-    </section>
-
-  </main>
+  </div>
 
   <script type="module" src="js/shop.js"></script>
+
+  
 </body>
+
+  
+
+
+
+  
 </html>
