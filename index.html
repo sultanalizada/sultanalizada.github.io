@@ -885,18 +885,21 @@
             const toggle = parent.querySelector(".dropdown-toggle");
             if (toggle) {
                 toggle.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    e.stopPropagation(); 
-                    
-                    dropdowns.forEach(d => {
-                        if (d !== parent) {
-                            d.classList.remove("open");
-                            const otherToggle = d.querySelector(".dropdown-toggle");
-                            if (otherToggle) otherToggle.classList.remove("open");
-                        }
-                    });
+                    // Klikləmə yalnız mobil ekranlarda (768px və daha kiçik) işləsin
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        e.stopPropagation(); 
+                        
+                        dropdowns.forEach(d => {
+                            if (d !== parent) {
+                                d.classList.remove("open");
+                                const otherToggle = d.querySelector(".dropdown-toggle");
+                                if (otherToggle) otherToggle.classList.remove("open");
+                            }
+                        });
 
-                    parent.classList.toggle("open");
+                        parent.classList.toggle("open");
+                    }
                 });
             }
         });
