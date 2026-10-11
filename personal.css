@@ -1,582 +1,307 @@
-/* GLOBAL STABILITY FIX */
-
+/* ==========================================
+   1. GLOBAL & RESET STYLES
+   ========================================== */
 * {
     box-sizing: border-box;
-}
-
-html, body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* sola sürüşməni öldürür */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Arial, Helvetica, sans-serif;
 }
-
-/* Bütün section-ları mərkəzləşdirir */
-
-.section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 20px;
-}
-
-
 
 html {
-
-scroll-behavior: smooth;
-
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* Linkə klikləyəndə başlığın menyu altında qalmaması üçün */
+    overflow-x: hidden;
 }
 
 body {
-
-margin: 0;
-
-font-family: Arial, Helvetica, sans-serif;
-
-background-color: #e6f2ff;
-
-color: #222;
-
+    background-color: #f4f7fb;
+    color: #222;
+    overflow-x: hidden;
+    width: 100%;
 }
 
-.nav-container {
+img {
+    max-width: 100%;
+    height: auto;
+}
 
-display: flex;
+/* ==========================================
+   2. NAVBAR & DROPDOWN
+   ========================================== */
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background-color: #0d1b2a !important;
+    padding: 10px 3% !important;
+    z-index: 99999 !important;    
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+}
 
-justify-content: space-between;
+.nav-list {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    list-style: none !important;
+    width: auto !important;
+    gap: 15px !important;
+    overflow: visible !important;
+}
 
-align-items: center;
+.nav-list li {
+    position: relative !important;
+}
 
-width: 90%;
+.nav-list li a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+    padding: 7px 10px !important;
+    transition: 0.3s !important;
+    display: block !important;
+}
 
-margin: auto;
-
+.nav-list li a:hover {
+    color: #3498db !important;
 }
 
 .logo {
-
-color: white;
-
-font-size: 20px;
-
-font-weight: bold;
-
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
-
-.tagline {
-
-font-size: 18px;
-
-max-width: 600px;
-
-margin: auto;
-
+/* Dropdown Container */
+.dropdown {
+    position: relative;
 }
 
-/* SECTIONS */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0d1b2a;
+    list-style: none;
+    padding: 10px 0;
+    display: none;
+    min-width: 180px;
+    border-radius: 8px;
+    z-index: 999;
+}
 
+.dropdown-menu li {
+    padding: 8px 20px !important;
+}
+
+.dropdown-menu li a {
+    font-size: 13px !important;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #1b263b !important;
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+/* ==========================================
+   3. HERO SECTION
+   ========================================== */
+.hero, .hero-section {
+    position: relative !important;
+    padding-top: 150px !important;
+    padding-bottom: 40px !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1100px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.hero-logo-link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.hero-logo-link:hover {
+    transform: scale(1.03);
+}
+
+.hero-logo-img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 450px !important;
+    height: auto !important;
+    margin: 0 auto 20px auto !important;
+    opacity: 1 !important;              
+    visibility: visible !important;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.hero-discord-widget {
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    max-width: 100%;
+}
+
+.profile-photo {
+    width: 170px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   4. GENERAL SECTIONS
+   ========================================== */
 .section {
-
-padding: 80px 20px;
-
-text-align: center;
-
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    text-align: center;
 }
 
 .section:nth-child(even) {
-
-background-color: #ffffff;
-
+    background-color: #ffffff;
 }
 
 .section h2 {
-
-margin-bottom: 20px;
-
-}
-
-/* FOOTER */
-
-.footer {
-
-background-color: #0d1b2a;
-
-color: white;
-
-text-align: center;
-
-padding: 20px;
-
-}
-
-.whatsapp-button {
-
-position: fixed;
-
-bottom: 20px;
-
-right: 20px;
-
-background-color: #25D366;
-
-color: white;
-
-padding: 14px 18px;
-
-border-radius: 30px;
-
-font-weight: bold;
-
-text-decoration: none;
-
-box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-
-z-index: 1000;
-
-}
-
-.whatsapp-button:hover {
-
-background-color: #1ebe5d;
-
-}
-
-
-@media (max-width: 768px) {
-
-.profile-photo {
-
-width: 140px;
-
-}
-
-}
-
-.coffee-container {
-
-margin-top: 40px;
-
-padding: 25px;
-
-background-color: #ffffff;
-
-border-radius: 12px;
-
-box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-
-max-width: 500px;
-
-margin-left: auto;
-
-margin-right: auto;
-
-}
-
-.coffee-button {
-
-display: inline-block;
-
-margin-top: 15px;
-
-padding: 12px 22px;
-
-background-color: #0000ff;
-
-color: black;
-
-font-weight: bold;
-
-text-decoration: none;
-
-border-radius: 8px;
-
-transition: 0.2s;
-
-}
-
-.coffee-button:hover {
-
-background-color: #ffd000;
-
-transform: scale(1.05);
-
-}
-
-/* MOBILE FIX */
-@media (max-width: 768px) {
-
-  header {
-    position: relative;
-  }
-
-  .hero {
-    margin-top: 80px;
-  }
-     
-}
-
-
-}
-
-@media (max-width: 768px) {
-
-  #cusdis_thread {
-    min-height: 500px;
-    padding: 10px;
-  }
-
-
-/* --- YENİ OPTİMALLAŞDIRMA --- */
-
-/* 1. Klikləyəndə başlığın menyu altında qalmaması üçün */
-html {
-  scroll-padding-top: 90px;
-}
-
-
-/* 3. Mobil mərkəzləşdirmə və Hero (Şəkil) tənzimləməsi */
-@media (max-width: 768px) {
-  .section {
-    padding: 60px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
- 
-  .hero {
-    padding-top: 130px; /* Navbarın altına girməməsi üçün */
-  }
-
-  .profile-photo {
-    width: 150px;
-  }
-}
-
-/* 4. Kontakt bölməsi üçün loqolu linklərin stilləri */
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-  flex-wrap: wrap;
-}
-
-.social-icon {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.social-icon:hover {
-  transform: translateY(-5px);
-}
-
-.whatsapp { background-color: #25D366; }
-.youtube { background-color: #FF0000; }
-.superprof { background-color: #FF5959; font-weight: bold; }
-
-    /* 👈 2-Cİ DƏYİŞİKLİK: TƏKCƏ WECHAT ÜÇÜN BƏSİT ORTALAMA KODU */
-.social-links .wechat-btn {
-  width: 100% !important; /* Maneəni qırdıq: WeChat bütün alt sətri təkbaşına tutur */
-  margin-top: 15px !important; /* Üstündəki ikonlardan aşağıya 15px məsafə qoyur */
-}
-
-/* 5. Calendly və Testimonials mərkəzləşdirmə */
-.calendly-full-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-
-/* LESSON BUTTONS */
-
-.lesson-buttons {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.lesson-btn {
-  padding: 12px 22px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.25s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Packages button */
-
-.packages-btn {
-  background-color: #0d1b2a;
-  color: white;
-}
-
-.packages-btn:hover {
-  background-color: #1b263b;
-  transform: scale(1.05);
-}
-
-/* Superprof button */
-
-.superprof-btn {
-  background-color: #FF5959;
-  color: white;
-}
-
-.superprof-btn:hover {
-  background-color: #ff3b3b;
-  transform: scale(1.05);
-}
-
-/* SUPERPROF COUNTRY BUTTONS */
-
-.superprof-country-grid {
-
-display: grid;
-
-grid-template-columns:
-repeat(auto-fit, minmax(170px, 1fr));
-
-gap: 14px;
-
-margin-top: 18px;
-
-max-width: 850px;
-
-margin-left: auto;
-margin-right: auto;
-
-}
-
-/* BUTTON STYLE */
-
-.country-superprof-btn {
-
-display: flex;
-
-align-items: center;
-
-justify-content: center;
-
-gap: 10px;
-
-padding: 12px 16px;
-
-background: linear-gradient(
-135deg,
-#ff5959,
-#ff7a7a
-);
-
-color: white;
-
-font-weight: bold;
-
-border-radius: 10px;
-
-text-decoration: none;
-
-transition: 0.25s;
-
-box-shadow:
-0 4px 12px rgba(0,0,0,0.15);
-
-}
-
-/* FLAG */
-
-.flag {
-
-font-size: 18px;
-
-}
-
-/* HOVER EFFECT */
-
-.country-superprof-btn:hover {
-
-transform: translateY(-4px);
-
-box-shadow:
-0 8px 18px rgba(0,0,0,0.2);
-
-background: linear-gradient(
-135deg,
-#ff3b3b,
-#ff5959
-);
-
-}
-/* SUPERPROF COUNTRY BUTTONS - FIXED */
-
-/* SPACE BETWEEN MAIN BUTTONS AND COUNTRY BUTTONS */
-
-.superprof-buttons {
-
-display: flex;
-
-flex-wrap: wrap;
-
-justify-content: center;
-
-gap: 12px;
-
-margin-top: 36px;   /* əsas boşluq */
-
-}
-
-/* BUTTON */
-
-.superprof-country-btn {
-
-display: inline-block;
-
-padding: 12px 18px;
-
-background-color: #FF5959;
-
-color: white;
-
-font-weight: bold;
-
-text-decoration: none;
-
-border-radius: 8px;
-
-transition: 0.25s;
-
-box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-
-}
-
-/* HOVER */
-
-.superprof-country-btn:hover {
-
-background-color: #ff3b3b;
-
-transform: translateY(-3px);
-
-}
-
-.superprof-country-grid {
-  margin-bottom: 36px;
-}
-
-/* Düymələr arası məsafə və mobil optimizasiya */
-.packages-btn {
-    margin-top: 25px !important; /* Qırmızı düymələrdən aralı durması üçün */
-    display: inline-block;
-}
-
-.superprof-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
     margin-bottom: 20px;
 }
 
-/* Mobil telefonlar üçün xüsusi ayar */
-@media (max-width: 768px) {
-    .superprof-country-btn {
-        width: 45%; /* Mobil ekranda düymələr yan-yana 2-2 düzülsün */
-        font-size: 13px;
-        padding: 10px 5px;
-        text-align: center;
-    }
-    
-    .packages-btn {
-        width: 80%; /* Tünd düymə mobildə daha geniş görünsün */
-        text-align: center;
-    }
+/* ==========================================
+   5. PRICING & PACKAGES
+   ========================================== */
+#packages {
+    background-color: #f4f7fb;
+    padding: 60px 0;
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
-/* Səhifənin sağa qaçmasının qarşısını alırıq */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+div:has(> .pricing-grid), 
+section:has(> .pricing-grid),
+.section:has(.pricing-grid) {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
-
-.coffee-button {
-    display: inline-flex; /* Yazı və ikonun yan-yana və mərkəzdə durması üçün */
-    align-items: center;
-    justify-content: center;
-    margin-top: 15px;
-    padding: 14px 28px; /* Daxili boşluğu artırdıq ki, mətn nəfəs alsın */
-    background-color: #ffdd00;
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 10px; /* Daha müasir görünüş */
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    min-width: 220px; /* Düymənin daralmasının qarşısını alır */
-    box-shadow: 0 4px 0px #b39b00; /* Alt hissəsinə dərinlik verən kölgə */
+.pricing-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 40px auto !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
 }
 
-.coffee-button:hover {
-    background-color: #ffea00;
-    transform: translateY(-3px); /* Yuxarı qalxma effekti */
-    box-shadow: 0 6px 0px #b39b00;
+.pricing-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #ffffff !important;
+    padding: 24px 28px !important;
+    border-radius: 16px !important; 
+    border: 1px solid #e5e7eb !important; 
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+    text-align: center !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    transition: all 0.25s ease !important;
+    align-items: center !important;
 }
 
-.coffee-button:active {
-    transform: translateY(2px); /* Klikləyəndə basılma effekti */
-    box-shadow: 0 2px 0px #b39b00;
-}
-}
-
-
-/* Premium Paket Özəl Stili */
-.premium-highlight {
-    border: 2px solid #FFD700 !important; /* Qızılı rəng çərçivə */
-    background: linear-gradient(180deg, #ffffff 0%, #fffdf2 100%);
-    position: relative;
-    overflow: hidden;
+.pricing-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1) !important;
+    border-color: #d1d5db !important;
 }
 
-.premium-highlight .badge {
-    position: absolute;
-    top: 10px;
-    right: -30px;
-    background: #FFD700;
-    color: #000;
-    padding: 5px 40px;
-    transform: rotate(45deg);
-    font-size: 12px;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.pricing-card.highlight {
+    border: 2px solid #FF5959 !important;
 }
 
-.premium-btn {
-    background: linear-gradient(135deg, #FFD700, #ffcc00) !important;
-    color: black !important;
-    border: none;
+.pricing-card h3 strong {
+    background: linear-gradient(90deg, #ff6363, #ff0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 19px !important;
 }
 
-.premium-btn:hover {
-    background: #ffcc00 !important;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+.price {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    margin: 12px 0 !important;
+    color: #0d1b2a !important;
 }
 
-/* Premium Kartı Ümumi Mərkəzləmə */
+.pricing-card ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 10px 0 20px 0 !important;
+    text-align: center !important;
+}
+
+.pricing-card li {
+    text-align: center !important;
+    list-style-type: none !important;
+}
+
+.pricing-card li::before {
+    content: "✔" !important;
+    margin-right: 8px !important;
+    color: #0d6efd !important;
+}
+
+.pricing-button {
+    display: inline-block !important;
+    align-self: center !important;
+    text-align: center !important;
+    padding: 10px 24px !important;
+    background-color: #0d1b2a !important;
+    color: white !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    transition: 0.25s !important;
+    margin-top: 15px !important;
+}
+
+.pricing-button:hover {
+    background-color: #1b263b !important;
+}
+
+/* Premium Package */
 .premium-wrapper {
     display: flex;
     justify-content: center;
@@ -586,26 +311,28 @@ html, body {
 }
 
 .premium-highlight {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Daxili elementləri mərkəzləyir */
-    text-align: center;
-    max-width: 500px; /* Kartın enini məhdudlaşdırırıq ki, çox yayılmasın */
     border: 2px solid #FFD700 !important;
-    background: linear-gradient(180deg, #ffffff 0%, #fffdf2 100%);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15) !important;
+    background: linear-gradient(180deg, #ffffff 0%, #fffdf2 100%) !important;
     position: relative;
     overflow: hidden;
+    max-width: 500px;
 }
 
-/* Dekorativ Lent */
 .premium-highlight .badge {
     position: absolute;
     top: 15px;
     right: -35px;
     background: #FFD700;
+    color: #000;
     width: 120px;
     height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transform: rotate(45deg);
+    font-size: 12px;
+    font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 1;
 }
@@ -629,7 +356,6 @@ html, body {
     line-height: 1.6;
 }
 
-/* Bayraqların ölçüsü */
 .premium-features li br + text, 
 .premium-features li:nth-child(3) {
     font-size: 22px; 
@@ -639,7 +365,7 @@ html, body {
 
 .premium-btn {
     width: 100%;
-    max-width: 280px; /* Düyməni çox uzatmırıq */
+    max-width: 280px;
     background: linear-gradient(135deg, #FFD700, #ffcc00) !important;
     color: black !important;
     border: none;
@@ -649,217 +375,37 @@ html, body {
 .premium-btn:hover {
     transform: scale(1.05);
     background: #ffcc00 !important;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
 }
 
-/* Yeni Sosial Media Rəngləri */
-
-/* WhatsApp İkonu üçün Yaşıl Fon */
-.social-icon.whatsapp {
-    background-color: #25D366; /* WhatsApp-ın rəsmi yaşıl rəngi */
-    color: white;
-}
-
-/* Əgər ikon yenə kiçik və ya fərqli rəngdədirsə bu kömək edəcək */
-.social-icon.whatsapp i {
-    color: white !important;
-    font-size: 24px;
-    line-height: 50px; /* Dairənin mərkəzində durması üçün (əgər dairə 50px-dirsə) */
-}
-
-
-.social-icon.telegram {
-    background-color: #0088cc;
-    color: white;
-}
-
-.social-icon.instagram {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
-    color: white;
-}
-
-.social-icon.wechat {
-    background-color: #7bb32e;
-    color: white;
-}
-
-/* Hover effekti (hamısı üçün eyni qalsın) */
-.social-icon:hover {
-    transform: scale(1.1);
-    opacity: 0.9;
-}
-
-/* Yeni Sosial Media Rəngləri */
-.social-icon.telegram {
-    background-color: #0088cc;
-    color: white;
-}
-
-.social-icon.instagram {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
-    color: white;
-}
-
-.social-icon.wechat {
-    background-color: #7bb32e;
-    color: white;
-}
-
-/* Hover effekti (hamısı üçün eyni qalsın) */
-.social-icon:hover {
-    transform: scale(1.1);
-    opacity: 0.9;
-}
-
-
-.wechat-container {
-    position: relative;
-    display: inline-block;
-}
-
-.wechat-qr-popup {
-    position: absolute;
-    bottom: 60px; /* İkonun üstündə açılması üçün */
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: white;
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.3s ease;
-    z-index: 100;
-    width: 160px; /* QR kodun ölçüsü */
-    text-align: center;
-}
-
-.wechat-qr-popup img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-.wechat-qr-popup span {
-    display: block;
-    color: #333;
-    font-size: 12px;
-    margin-top: 5px;
-    font-weight: bold;
-}
-
-/* Üzərinə gələndə göstər */
-.wechat-container:hover .wechat-qr-popup {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* Mobil cihazlarda toxunanda görünməsi üçün */
-.wechat-container:active .wechat-qr-popup {
-    visibility: visible;
-    opacity: 1;
-}
-
-.wechat-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-/* WeChat İkonu üçün pointer kursoru */
-#wechatBtn {
-    cursor: pointer;
-}
-
-/* QR Kod Popup - Arxa fonsuz və təmiz */
-.wechat-qr-popup {
-    position: absolute;
-    bottom: 60px; /* İkonun üstündə açılması üçün */
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    
-    /* Arxa fon, kənarlıq və kölgələr silindi */
-    background: transparent; 
-    padding: 0;
-    border-radius: 0;
-
-    /* İlkin vəziyyətdə gizli */
-    visibility: hidden;
-    opacity: 0;
-    
-    /* Zərif açılış effekti */
-    transition: all 0.3s ease;
-    z-index: 100;
-    width: 160px; /* QR kodun ölçüsü */
-    text-align: center;
-}
-
-/* Popup aktiv olanda (JavaScript ilə əlavə ediləcək class) */
-.wechat-qr-popup.active {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-.wechat-qr-popup img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px; /* QR kodun künclərini bir az yumşaldaq */
-}
-
-.wechat-qr-popup span {
-    display: block;
-    color: #ffffff; /* Ağ rəng etdim, əgər contact fondu tünddürsə */
-    /* Əgər contact fondu açıqdırsa, rəngi tündləşdir: color: #333; */
-    font-size: 12px;
-    margin-top: 8px;
-    font-weight: bold;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Yazının oxunması üçün xəfif kölgə */
-}
-
-/* Contact bölməsindəki ikon üçün */
-.social-icon.coffee {
-    background-color: #FFDD00; /* Buy Me a Coffee-nin rəsmi rəngi */
-    color: #000000;
-}
-
-/* SOL aşağıda sabit duran düymə */
-.buy-coffee-fixed {
-    position: fixed;
-    bottom: 20px;
-    left: 20px; /* Sağı sola dəyişdik */
-    background-color: #FFDD00;
-    color: #000000;
-    padding: 10px 10px 10px 20px;
-    border-radius: 50px;
+/* ==========================================
+   6. BUTTONS & LINKS
+   ========================================== */
+.superprof-buttons {
     display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 999;
-    transition: all 0.3s ease;
-    border: 2px solid #000;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 36px;
+    margin-bottom: 20px;
 }
 
-/* Mobildə düzəliş */
-@media (max-width: 768px) {
-    .coffee-text {
-        display: none; /* Mobildə sadəcə ikon qalsın */
-    }
-    .buy-coffee-fixed {
-        padding: 0;
-        left: 15px; /* Mobildə də solda qalsın */
-        bottom: 15px;
-        width: 50px;
-        height: 50px;
-        justify-content: center;
-        border-radius: 50%; /* Mobildə tam dairəvi olsun */
-    }
-    .coffee-icon-circle {
-        margin-right: 0;
-        background: transparent; /* Mobildə artıq dairə daxilində dairəyə ehtiyac yoxdur */
-    }
+.superprof-country-btn {
+    display: inline-block;
+    padding: 12px 18px;
+    background-color: #FF5959;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.25s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin: 6px;
+}
+
+.superprof-country-btn:hover {
+    background-color: #ff3b3b;
+    transform: translateY(-3px);
 }
 
 .classroom-container {
@@ -869,20 +415,20 @@ html, body {
 .classroom-btn {
     display: inline-flex;
     align-items: center;
-    background-color: #127344; /* Google Classroom Yaşılı */
+    background-color: #127344;
     color: white;
     padding: 12px 25px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
-    border-bottom: 4px solid #0a4d2e; /* Düyməyə 3D effekti verir */
+    border-bottom: 4px solid #0a4d2e;
 }
 
 .classroom-btn i {
     font-size: 1.5em;
     margin-right: 15px;
-    color: #f4b400; /* Loqonun sarı detalı üçün */
+    color: #f4b400;
 }
 
 .classroom-btn:hover {
@@ -899,730 +445,27 @@ html, body {
     margin-bottom: 4px;
 }
 
-
-/* PC-də Hamburgeri Gizlət */
-@media (min-width: 769px) {
-    .menu-toggle {
-        display: none !important;
-    }
-}
-
-/* --- MOBİL ÜÇÜN DÜZƏLİŞLƏR --- */
-@media (max-width: 768px) {
-
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
-        z-index: 2100;
-    }
-
-    .bar {
-        width: 25px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
-        display: block;
-    }
-
-} /* <--- Media query burada bağlanmalıdır! */
-
-.social-container {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.social-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.social-icon:hover {
-    transform: scale(1.1);
-    opacity: 0.9;
-}
-
-/* Rənglər */
-.youtube { background-color: #FF0000; }
-.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
-.telegram { background-color: #0088cc; }
-.xiaohongshu { background-color: #ff2442; } /* Xiaohongshu-nun xarakterik qırmızı rəngi */
-
-
-.social-icon {
-    font-size: 26px;
-}
-
+/* Fixed Action Buttons */
 .whatsapp-button {
     position: fixed;
-
     bottom: 20px;
     right: 20px;
-
-    background: #25D366;
-
+    background-color: #25D366;
     color: white;
-
     padding: 14px 18px;
-
     border-radius: 50px;
-
     font-weight: bold;
-
     text-decoration: none;
-
-    z-index: 999;
-}
-
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-.footer {
-    text-align: center;
-}
-
-/* SUPERPROF BUTTONS — brand style */
-
-.superprof-country-btn {
-
-    display: inline-block;
-
-    background-color: #ff6363;
-
-    color: white;
-
-    padding: 12px 20px;
-
-    border-radius: 8px;
-
-    text-decoration: none;
-
-    font-weight: 600;
-
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
     transition: 0.3s;
-
-    margin: 6px;
-
 }
 
-.superprof-country-btn:hover {
-
-    background-color: #ff4b4b;
-
-    transform: translateY(-2px);
-
+.whatsapp-button:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.05);
 }
 
-/* container mərkəzdə */
-
-.superprof-buttons {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-top: 20px;
-
-}
-
-
-body {
-
-    overflow-x: hidden;
-
-}
-
-/* Hero hissəsinin menyu altında qalmaması üçün yuxarıdan boşluq */
-.hero {
-    padding-top: 150px !important; 
-}
-
-/* Linkə klikləyəndə başlığın menyu altında qalmaması üçün */
-html {
-    scroll-padding-top: 80px;
-}
-
-.social-icon.whatsapp i {
-    color: white !important; /* İkonun mütləq ağ görünməsi üçün */
-    font-size: 24px;         /* Ölçüsünü digərləri ilə eyniləşdir */
-}
-
-
-.logo {
-    white-space: nowrap;
-}
-
-.social-icon.patreon {
-    background: #000;        /* qara dairə */
-    color: #fff;
-    border-radius: 50%;
-
-    width: 44px;             /* əvvəl 38 idi → böyütdük */
-    height: 44px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: 0.3s ease;
-}
-
-.social-icon.patreon:hover {
-    background: #222;
-    transform: scale(1.12);
-}
-
-.social-icon.patreon svg {
-    width: 22px;   /* əvvəl 18 idi */
-    height: 22px;
-}
-
-/* Dropdown container */
-.dropdown {
-    position: relative;
-}
-
-/* Dropdown menu (gizli vəziyyət) */
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #0d1b2a;
-    list-style: none;
-    padding: 10px 0;
-    margin: 0;
-    display: none;
-    min-width: 180px;
-    border-radius: 8px;
-    z-index: 999;
-}
-
-/* Dropdown iç linklər */
-.dropdown-menu li {
-    padding: 8px 20px;
-}
-
-.dropdown-menu li a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    font-size: 13px;
-}
-
-/* Hover effekti */
-.dropdown-menu li a:hover {
-    background-color: #1b263b;
-}
-
-.dropdown-menu {
-    display: none;
-}
-
-.dropdown.open .dropdown-menu {
-    display: block;
-}
-
-#my-cal-inline-60 {
-    touch-action: auto !important; /* Brauzerin təbii scrolluna icazə verir */
-    overflow: hidden; /* İframe daxilindəki artıq scrollu kəsir */
-}
-
-.hero {
-    position: relative !important;
-    padding-top: 80px !important;
-    padding-bottom: 40px !important;
-    min-height: 100vh !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    overflow: hidden !important; /* Şəklin sağa-sola daşmasının qarşısını alır */
-}
-
-/* ƏSAS SAYT LOQOSU - PC (Sizin 450px ölçünüz və boşluqlarınız tam qorundu) */
-.hero-logo-img {
-    display: block !important;
-    width: 100% !important;
-    max-width: 450px !important; /* PC-də loqonuz əvvəlki kimi böyük və gözəl qalacaq */
-    height: auto !important;
-    margin: 0 auto 20px auto !important; /* Altındakı 20px boşluq saxlanıldı */
-    opacity: 1 !important;              
-    visibility: visible !important;      /* Şəklin itməməsini qarantiləyir */
-}
-
-.profile-photo {
-        width: 170px;
-        height: 180px;
-        border-radius: 50%
-    }
-
-@media (max-width: 768px) {
-    .hero {
-        min-height: auto !important; /* Məcburi ekran boyu hündürlüyü ləğv etdik */
-        padding-top: 50px !important;    /* Navbardan loqoya qədər boşluq */
-        padding-bottom: 0px !important;  /* Logonun altındakı bölməyə qədər boşluq */
-    }
-
-    .hero-logo-img {
-        max-width: 260px !important; /* Mobildə loqonun ölçüsü. Dartılma olmayacaq! */
-        margin-bottom: 10px !important; /* Loqo ilə profil şəkli arasındakı məsafə */
-    }
-
-}
-
-/* ==================== NAVBAR GLOBAL CLEAN CONFIG ==================== */
-
-/* 1. Əsas Göy Lent - Heç bir max-width maneəsi olmadan tam ekrana yayılır */
-.navbar {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    background-color: #0d1b2a !important;
-    padding: 10px 3% !important; /* Kənarlardan incə boşluq */
-    z-index: 99999 !important;    
-    display: flex !important;
-    justify-content: center !important; /* 💥 AD SİLİNDİYİ ÜÇÜN ARTIQ BÜTÜN NAVBARI ORTALAYIRIQ */
-    align-items: center !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-}
-
-/* 2. Düymələrin Siyahı Qutusu */
-.nav-list {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important; /* 💥 DÜYMƏLƏRİ EKRANIN TAM ORTASINA SƏLİQƏLİ DÜZÜR */
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    width: auto !important; /* Sağa itələmə ləğv olunduğu üçün auto-da qalır */
-    gap: 1px !important;    /* 💥 ARTIQ YERİMİZ BOL OLDUĞU ÜÇÜN 1px-dən 15px-ə QALDIRDIQ */
-    overflow: visible !important;
-}
-
-/* 3. Düymə elementinin özü (li) */
-.nav-list li {
-    margin: 0 !important;
-    padding: 0 !important;
-    position: relative !important;
-}
-
-/* 4. Düymələrin daxilindəki linklər və mətnlər */
-.nav-list li a {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: bold !important;
-    font-size: 12px !important;       /* 💥 5px NOUTƏ KİMİ İDİ, ARTIQ 14px EDƏRƏK RAHAT OXUNUR */
-    white-space: nowrap !important;   /* Yazının aşağı sətirə düşməsini önləyir */
-    padding: 7px 10px !important;     /* 💥 DÜYMƏLƏRƏ NORMAL KLİKLƏNMƏ BOŞLUĞU VERDİK */
-    transition: 0.3s !important;
-    display: block !important;
-}
-
-/* Hover effekti */
-.nav-list li a:hover {
-    color: #3498db !important;
-}
-
-
-/* ==========================================================
-   PRICING SECTION - TAM ALT-ALTA DÜZÜLÜŞ (YENİLƏNDİ)
-   ========================================================== */
-
-#packages {
-    background-color: #f4f7fb;
-    padding: 60px 0;
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-/* Kartları bürüyən bütün mümkün xarici qəfəsləri dərhal dağıdırıq */
-div:has(> .pricing-grid), 
-section:has(> .pricing-grid),
-.section:has(.pricing-grid) {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
-/* Əsas Konteyner - İndi bütün kartları tək sütunda alt-alta nizamlayır */
-.pricing-grid {
-    display: flex !important;
-    flex-direction: column !important; /* 💥 Kartlar şaquli ox üzrə alt-alta düzülür */
-    align-items: center !important; /* Kartları ekranın ortasında mərkəzləşdirir */
-    gap: 20px !important; /* Kartların arasındakı şaquli boşluq */
-    width: 100% !important;
-    max-width: 800px !important; /* 💥 Alt-alta düzüldüyü üçün çox yayılmasın deyə eni optimallaşdırdıq */
-    margin: 40px auto !important;
-    padding: 0 20px !important;
-    box-sizing: border-box !important;
-}
-
-/* Hər bir fərdi kartın daxili nizamı */
-.pricing-card {
-    width: 100% !important; /* Konteynerin bütün enini tutur */
-    max-width: 100% !important;
-    background: #ffffff !important;
-    padding: 24px 28px !important; /* Boşluqları normal formaya gətirdik */
-    border-radius: 16px !important; 
-    border: 1px solid #e5e7eb !important; 
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
-    text-align: center !important; 
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important; /* Yazıları təbii şəkildə yuxarıdan aşağı yığır, boşluq buraxmır */
-    box-sizing: border-box !important;
-    transition: all 0.25s ease !important;
-    align-items: center !important;
-}
-
-/* Hover effekti */
-.pricing-card:hover {
-    transform: translateY(-4px) !important; /* Alt-alta düzülüşdə çox yuxarı tullanmasın */
-    box-shadow: 0 12px 25px rgba(0,0,0,0.1) !important;
-    border-color: #d1d5db !important;
-}
-
-/* ÖZƏL KART EFFEKTLƏRİ */
-.pricing-card.highlight {
-    border: 2px solid #FF5959 !important;
-}
-
-.premium-highlight {
-    border: 2px solid #FFD700 !important;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15) !important;
-    background: linear-gradient(180deg, #ffffff 0%, #fffdf5 100%) !important;
-}
-
-/* KART DAXİLİ ELEMENTLƏRİN STİLİ */
-.pricing-card h3 strong {
-    background: linear-gradient(90deg, #ff6363, #ff0000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 19px !important; /* Başlığı bir tık böyütdük */
-}
-
-.price {
-    font-size: 20px !important;
-    font-weight: bold !important;
-    margin: 12px 0 !important; /* Aşağıdakı artıq boşluğu sildik */
-    color: #0d1b2a !important;
-}
-
-.pricing-card ul {
-    list-style: none !important; /* 💥 Qara nöqtələri kökündən silir */
-    padding: 0 !important;
-    margin: 10px 0 20px 0 !important;
-    text-align: center !important;
-}
-
-.pricing-card li {
-    text-align: center !important;
-    list-style-type: none !important; /* Hər ehtimala qarşı sətir nöqtələrini də bağlayır */
-}
-
-.pricing-card li::before {
-    content: "✔" !important;
-    margin-right: 8px !important;
-    color: #0d6efd !important;
-}
-
-/* Düymələr */
-.pricing-button {
-    display: inline-block !important; /* Tam eni tutub kobud durmasın deyə inline-block etdik */
-    align-self: center !important;
-    text-align: center !important;
-    padding: 10px 24px !important;
-    background-color: #0d1b2a !important;
-    color: white !important;
-    text-decoration: none !important;
-    border-radius: 8px !important;
-    font-weight: bold !important;
-    transition: 0.25s !important;
-    margin-top: 15px !important; /* Süni dartılmanı ləğv edib sabit məsafə qoyduq */
-}
-
-.pricing-button:hover {
-    background-color: #1b263b !important;
-}
-
-/* ==========================================================
-   BİRLƏŞMİŞ MOBİL NAVBAR VƏ HAMBURGER OPTİMİZASİYASI (768px)
-   ========================================================== */
-@media (max-width: 768px) {
-
-    /* 1. Əsas navbar zolağı */
-    .navbar {
-        display: block !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 60px !important;
-        background-color: #0d1b2a !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-        z-index: 99999 !important;
-    }
-
-    /* 2. Hamburger Menyusu */
-    .menu-toggle {
-        display: block !important;
-        position: absolute !important;
-        right: 20px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        cursor: pointer !important;
-        z-index: 100000 !important;
-        margin: 0 !important;
-    }
-
-    .bar {
-        width: 25px !important;
-        height: 3px !important;
-        background-color: white !important;
-        margin: 5px 0 !important;
-        display: block !important;
-    }
-
-   /* 3. Menyunun ümumi açılan qutusu (Sizin mövcud kodunuz qorundu) */
-.nav-list {
-    display: none !important;
-    flex-direction: column !important;
-    position: fixed !important;
-    top: 60px !important; 
-    left: 0 !important;
-    width: 100% !important;
-    height: calc(100vh - 60px) !important; /* Fon bütün ekranı göy rəngdə saxlayır */
-    background-color: #0d1b2a !important;   
-    
-    /* MƏRKƏZLƏMƏNİ SİLDİK: Düymələri yuxarıya doğru sıxırıq */
-    justify-content: flex-start !important; 
-    align-items: center !important;
-    
-    /* YUXARIDAN BOŞLUQ: Düymələrin navbarın altından nə qədər aşağıdan başlamasını bura idarə edir */
-    padding-top: 10px !important; 
-    padding-bottom: 0 !important;
-    
-    gap: 0 !important; /* Düymələr arası əlavə boşluqları sıfırlayırıq */
-    margin: 0 !important;
-    z-index: 99998 !important;
-}
-
-/* Menyu aktiv olanda */
-.nav-list.active {
-    display: flex !important;
-}
-
-/* 💥 ARXA FONUN SCROLL OLMASINI ƏNGƏLLƏMƏK ÜÇÜN */
-body.menu-open {
-    overflow: hidden !important;
-    position: fixed !important;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* 💥 MOBİLDƏ WECHAT QR KODUNUN GÖRÜNMƏSİ FIX-İ */
-.nav-list li.dropdown.open .wechat-dropdown-menu,
-.wechat-link.open + .wechat-dropdown-menu,
-.wechat-dropdown-menu.open {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: absolute !important;
-    top: 105% !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 100000 !important;
-    background: white !important;
-    padding: 10px !important;
-    border-radius: 8px !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
-}
-    /* 4. Siyahı elementlərinin (li) boşluqları */
-    .nav-list li {
-        width: 100% !important;
-        text-align: center !important;
-        margin: 0 !important;
-        padding: 3px 0 !important; /* Düymələrin bir-biri ilə olan şaquli məsafəsi */
-    }
-
-    /* 5. Düymələrin (a) öz daxili relyefi */
-    .nav-list li a {
-        font-size: 15px !important;
-        font-weight: 500 !important;
-        text-align: center !important;
-        display: inline-block !important;
-        width: max-content !important; 
-        padding: 6px 20px !important;  
-        border-radius: 4px !important; 
-        transition: 0.2s !important;
-        margin: 0 !important;
-    }
-
-    /* 6. Ümumi Seksiyalar və Hero mobil tənzimləmələri */
-    .section {
-        padding: 60px 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .hero {
-        min-height: auto !important;
-        padding-top: 130px !important;
-        padding-bottom: 0px !important;
-    }
-
-    .hero-logo-img {
-        max-width: 260px !important;
-        margin-bottom: 10px !important;
-    }
-
-    .profile-photo {
-        width: 150px;
-    }
-}
-
-
-
-/* PC Ekranı üçün Discord Banner Stili */
-.discord-poster-img {
-    width: 100%;
-    max-width: 500px; /* 💥 PC-də şəklin nə qədər böyük durmasını istəyirsənsə, bu rəqəmi artırıb-azalda bilərsən (məsələn: 550px və ya 600px) */
-    height: auto;
-    display: block;
-    margin: 15px auto;
-    border-radius: 6px;
-}
-
-/* Mobil Ekran üçün Discord Banner Tənzimləməsi */
-    .discord-poster-img {
-        width: 100% !important;
-        max-width: 90% !important; /* 💥 Ekrana yapışmasın deyə enini 90% edirik, qalan 10% kənarlarda boşluq qalır */
-        height: auto !important;
-        display: block !important;
-        margin: 10px auto !important; /* Üst və altdan boşluq verir, sağ-solu mərkəzləşdirir */
-    }
-
-
-
-.social-icon svg {
-    width: 24px;
-    height: 24px;
-}
-
-
-
-/* PAUZADADIR: Support kartının stilləri
-
-<div class="coffee-container" style="text-align: center; border: 2px dashed #ffdd00;">
-    <h3>Support My Work</h3>
-    <p>If you find my lessons helpful, you can support my work here.</p>
-    
-    <a href="https://buymeacoffee.com/YOURNAME" class="coffee-button" target="_blank">
-        Buy Me a Coffee ☕
-    </a>
-
-    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
-        <p style="font-size: 13px; color: #777; margin-bottom: 10px;">Scan QR to support quickly 👇</p>
-        <img src="qr-code.png" alt="Donate QR" style="width: 160px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-    </div>
-</div>
-
-*/
-
-
-/* ==========================================
-   HERO SECTION & DISCORD WIDGET STYLES
-   ========================================== */
-
-.hero-section {
-    width: 100%;
-    padding: 100px 20px 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1100px;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-.hero-logo-link {
-    display: block;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.hero-logo-img {
-    max-width: 320px;
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.hero-logo-link:hover {
-    transform: scale(1.03);
-}
-
-.hero-discord-widget {
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    max-width: 100%;
-}
-
-@media (max-width: 768px) {
-    .hero-section {
-        padding-top: 80px;
-    }
-
-    .hero-container {
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    .hero-logo-img {
-        max-width: 260px;
-    }
-}
-
-/* FIXED DISCORD BUTTON (Əgər HTML-də həmin düymə varsa, bu aşağıdakını saxlayın) */
 .discord-button {
     position: fixed;
     bottom: 20px;
@@ -1644,167 +487,446 @@ body.menu-open {
     transform: scale(1.05);
 }
 
-
-
-
-/* SHOP-SHOP-SHOP */
-
-
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* ==========================================
+   7. SOCIAL ICONS & WECHAT
+   ========================================== */
+.social-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
 }
 
-body {
-  background-color: #f4f7f6;
-  color: #333;
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
 }
 
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.social-icon:hover {
+    transform: scale(1.1) translateY(-3px);
+    opacity: 0.9;
+}
+
+/* Brand Colors */
+.whatsapp { background-color: #25D366; }
+.social-icon.whatsapp i { color: white !important; font-size: 24px; }
+.youtube { background-color: #FF0000; }
+.telegram { background-color: #0088cc; }
+.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+.wechat-btn { background-color: #07C160; cursor: pointer; }
+
+.social-icon.patreon {
+    background: #000;
+    width: 44px;
+    height: 44px;
+}
+
+.social-icon.patreon:hover {
+    background: #222;
+    transform: scale(1.12);
+}
+
+/* WeChat Specifics */
+.social-links .wechat-btn {
+    width: 100% !important; 
+    margin-top: 15px !important; 
+}
+
+.wechat-popup {
+    display: none;
+    position: absolute;
+    bottom: 140%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    text-align: center;
+    width: 170px;
+    cursor: default;
+}
+
+.wechat-popup img {
+    width: 150px;
+    height: 150px;
+    display: block;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+
+.wechat-popup b {
+    color: #333;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* ==========================================
+   8. SHOP STYLES
+   ========================================== */
 .shop-header {
-  background: linear-gradient(135deg, #4F46E5, #7C3AED);
-  color: white;
-  padding: 2rem 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+    color: white;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .login-box input {
-  padding: 0.6rem;
-  border-radius: 6px;
-  border: none;
-  outline: none;
-  margin-right: 0.5rem;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    margin-right: 0.5rem;
 }
 
 .login-box button, .earn-btn, .product-card button {
-  background-color: #10B981;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s;
+    background-color: #10B981;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
 }
 
 .login-box button:hover, .earn-btn:hover, .product-card button:hover {
-  background-color: #059669;
+    background-color: #059669;
 }
 
 .balance-box {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .pts-badge {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
 }
 
 .shop-container {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 .actions-bar {
-  text-align: center;
-  margin-bottom: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .earn-btn {
-  font-size: 1.1rem;
-  padding: 0.8rem 2rem;
-  background-color: #F59E0B;
+    font-size: 1.1rem;
+    padding: 0.8rem 2rem;
+    background-color: #F59E0B;
 }
 
 .earn-btn:hover {
-  background-color: #D97706;
+    background-color: #D97706;
 }
 
 .section-title {
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
 }
 
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
 }
 
 .product-card {
-  background: white;
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .product-card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 0.8rem;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
 }
 
 .product-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.4rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
 }
 
 .product-card .price {
-  color: #7C3AED;
-  font-weight: bold;
-  margin: 0.8rem 0;
+    color: #7C3AED;
+    font-weight: bold;
+    margin: 0.8rem 0;
 }
 
-/* Modal Styling */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.6);
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
 }
 
 .modal-content {
-  background-color: white;
-  margin: 5% auto;
-  padding: 1.5rem;
-  width: 90%;
-  max-width: 800px;
-  border-radius: 10px;
-  position: relative;
+    background-color: white;
+    margin: 5% auto;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+    position: relative;
 }
 
 .close-btn {
-  position: absolute;
-  right: 1rem;
-  top: 0.5rem;
-  font-size: 2rem;
-  cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ==========================================
+   9. MISC & FOOTER
+   ========================================== */
+.footer {
+    background-color: #0d1b2a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#my-cal-inline-60 {
+    touch-action: auto !important;
+    overflow: hidden;
+}
+
+.discord-poster-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 6px;
+}
+
+/* ==========================================
+   10. DESKTOP SPECIFIC (Hover Dropdown)
+   ========================================== */
+@media screen and (min-width: 769px) {
+    .menu-toggle {
+        display: none !important;
+    }
+    
+    /* Dropdown-un klikləmədən (hover ilə) açılması */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* ==========================================
+   11. MOBILE RESPONSIVE (max-width: 768px)
+   ========================================== */
+@media (max-width: 768px) {
+    
+    /* Navbar & Hamburger */
+    .navbar {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 60px !important;
+        background-color: #0d1b2a !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        z-index: 99999 !important;
+    }
+
+    .menu-toggle {
+        display: block !important;
+        position: absolute !important;
+        right: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        cursor: pointer !important;
+        z-index: 100000 !important;
+        margin: 0 !important;
+    }
+
+    .bar {
+        width: 25px !important;
+        height: 3px !important;
+        background-color: white !important;
+        margin: 5px 0 !important;
+        display: block !important;
+    }
+
+    .nav-list {
+        display: none !important;
+        flex-direction: column !important;
+        position: fixed !important;
+        top: 60px !important; 
+        left: 0 !important;
+        width: 100% !important;
+        height: calc(100vh - 60px) !important;
+        background-color: #0d1b2a !important;   
+        justify-content: flex-start !important; 
+        align-items: center !important;
+        padding-top: 10px !important; 
+        padding-bottom: 0 !important;
+        gap: 0 !important;
+        margin: 0 !important;
+        z-index: 99998 !important;
+    }
+
+    .nav-list.active {
+        display: flex !important;
+    }
+
+    body.menu-open {
+        overflow: hidden !important;
+        position: fixed !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .nav-list li {
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 !important;
+        padding: 3px 0 !important;
+    }
+
+    .nav-list li a {
+        font-size: 15px !important;
+        font-weight: 500 !important;
+        text-align: center !important;
+        display: inline-block !important;
+        width: max-content !important; 
+        padding: 6px 20px !important;  
+        border-radius: 4px !important; 
+        transition: 0.2s !important;
+        margin: 0 !important;
+    }
+
+    /* WeChat Mobile Fix */
+    .nav-list li.dropdown.open .wechat-dropdown-menu,
+    .wechat-link.open + .wechat-dropdown-menu,
+    .wechat-dropdown-menu.open {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: absolute !important;
+        top: 105% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 100000 !important;
+        background: white !important;
+        padding: 10px !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    }
+
+    /* Sections & Hero */
+    .section {
+        padding: 60px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero, .hero-section {
+        min-height: auto !important;
+        padding-top: 130px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .hero-logo-img {
+        max-width: 260px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 160px;
+    }
+
+    /* Buttons */
+    .superprof-country-btn {
+        width: 45%;
+        font-size: 13px;
+        padding: 10px 5px;
+        text-align: center;
+    }
+    
+    .packages-btn {
+        width: 80%;
+        text-align: center;
+    }
+
+    /* Discord Poster */
+    .discord-poster-img {
+        max-width: 90% !important;
+        margin: 10px auto !important;
+    }
+
+    /* Cusdis Comments */
+    #cusdis_thread {
+        min-height: 500px;
+        padding: 10px;
+    }
 }
