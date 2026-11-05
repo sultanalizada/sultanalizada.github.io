@@ -52,13 +52,54 @@ body {
   font-size: 20px;
 }
 
-/* Layout */
-.shop-container {
-  max-width: 1100px;
+/* --- YENİ LAYOUT: Reklamlar və Mərkəzi Hissə --- */
+.layout-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1400px;
   margin: 40px auto;
+  gap: 20px;
   padding: 0 20px;
 }
 
+.shop-container {
+  flex: 1; /* Ortadakı məzmun genişlənsin */
+  max-width: 900px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reklam Panelləri (Sağ və Sol) */
+.ad-sidebar {
+  width: 160px; /* Standart Skyscraper reklam ölçüsü */
+  height: 600px;
+  position: sticky;
+  top: 20px;
+  display: none; /* Mobildə yer dar olduğu üçün gizlədirik */
+}
+
+.ad-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #1e293b;
+  border: 1px dashed #475569;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  text-align: center;
+}
+
+/* Yalnız böyük ekranlarda (PC) reklamları göstər */
+@media (min-width: 1100px) {
+  .ad-sidebar {
+    display: block;
+  }
+}
+
+/* --- ƏSAS MƏZMUN (Kartlar və s.) --- */
 .action-card {
   background-color: #1e293b;
   border: 1px solid #334155;
@@ -119,7 +160,7 @@ body {
   background-color: #1d4ed8;
 }
 
-/* Offerwall Frame Container (Video Ekran Ölçüsündə) */
+/* Offerwall / Reklam Düyməsi */
 .offerwall-container h3 {
   color: #38bdf8;
   font-size: 20px;
@@ -129,17 +170,36 @@ body {
 .offerwall-wrapper {
   position: relative;
   width: 100%;
-  height: 650px; /* Tapşırıqlar rahat görünsün deyə geniş hündürlük */
+  padding: 30px 0;
   border-radius: 12px;
   border: 1px solid #334155;
-  overflow: hidden;
   background-color: #0f172a;
+  text-align: center;
 }
 
-.offerwall-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
+.watch-ad-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.watch-ad-btn:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+.watch-ad-btn:disabled {
+  background-color: #475569;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .divider {
@@ -149,7 +209,7 @@ body {
   margin: 40px 0;
 }
 
-/* Shop Grid */
+/* Shop Grid (Məhsullar) */
 .shop-section h2 {
   font-size: 28px;
   color: #ffffff;
