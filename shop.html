@@ -14,16 +14,24 @@
 <body>
 
   
-  <!-- Navigation Header -->
-  <header class="shop-header">
+ <header class="shop-header">
     <div class="header-container">
       <a href="index.html" class="back-btn">← Back to Main Site</a>
       <h1>🎓 Sultan Academy Rewards</h1>
-      <div class="balance-badge">
-        <span>Balance:</span>
-        <strong id="userPoints">0</strong>
-        <span>SP</span>
+      
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <!-- Bura istifadəçi adı gələcək (əvvəlcə gizlidir) -->
+        <div id="loggedInUser" style="display: none; color: #38bdf8; font-weight: bold; font-size: 16px;">
+          👤 <span id="userNameText"></span>
+        </div>
+        
+        <div class="balance-badge">
+          <span>Balance:</span>
+          <strong id="userPoints">0</strong>
+          <span>SP</span>
+        </div>
       </div>
+      
     </div>
   </header>
 
@@ -45,7 +53,7 @@
         <p class="section-desc">Enter your Email or Discord username below to make sure your points are saved to your account!</p>
 
         <div class="login-box">
-          <input type="text" id="userInput" placeholder="Enter Email or Discord Username..." />
+<input type="text" id="userInput" placeholder="Create or Enter your Username..." />
           <button id="loginBtn">Save Identity</button>
         </div>
 
