@@ -1,9 +1,8 @@
 // Supabase-i birbaşa brauzerə çağırmaq üçün CDN linki
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 // --- 1. SUPABASE AYARLARI ---
 // Bura öz Supabase URL və KEY-ini yapışdıracaqsan
-const supabaseUrl = 'https://ezccynahgubalainoqkf.supabase.co/rest/v1/';
+const supabaseUrl = 'https://ezccynahgubalainoqkf.supabase.co';
 const supabaseKey = 'sb_publishable_ipRtiX4xI1SYlMxU8YAWQw_D8txWLKX';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
