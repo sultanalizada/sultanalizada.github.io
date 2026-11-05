@@ -1,140 +1,194 @@
-// 1. Firebase Konfiqurasiyası
-const firebaseConfig = {
-  apiKey: "AIzaSyDiO9siqg8iGn4_PF_pUrRGgHqXYTNQ0ns",
-  authDomain: "sultan-academy-shop.firebaseapp.com",
-  projectId: "sultan-academy-shop",
-  storageBucket: "sultan-academy-shop.firebasestorage.app",
-  messagingSenderId: "119350956459",
-  appId: "1:119350956459:web:c6621856d99499a8a4c2ee",
-  measurementId: "G-5VNPMK56XY"
-};
+// Supabase-i birbaşa brauzerə çağırmaq üçün CDN linki
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+// --- 1. SUPABASE AYARLARI ---
+// Bura öz Supabase URL və KEY-ini yapışdıracaqsan
+const supabaseUrl = 'https://ezccynahgubalainoqkf.supabase.co/rest/v1/';
+const supabaseKey = 'sb_publishable_ipRtiX4xI1SYlMxU8YAWQw_D8txWLKX';
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+// --- 2. HTML ELEMENTLƏRİNİ SEÇİRİK ---
+const loginBtn = document.getElementById('loginBtn');
+const userInput = document.getElementById('userInput');
+const userPointsDisplay = document.getElementById('userPoints');
+const watchAdBtn = document.getElementById('watchAdBtn');
+const adStatus = document.getElementById('adStatus');
+const productsGrid = document.getElementById('productsGrid');
 
 let currentUser = null;
+let currentSP = 0; // İstifadəçinin anlıq xalı
 
-// Səhifə açılanda məhsulları yüklə
-document.addEventListener("DOMContentLoaded", () => {
-  loadProducts();
-});
-
-// 2. İstifadəçi Girişi və Balans Oxunması
-async function loginUser() {
-  const usernameInput = document.getElementById("userInput").value.trim().toLowerCase();
-  
-  if (!usernameInput) {
-    alert("Zəhmət olmasa istifadəçi adınızı daxil edin!");
-    return;
-  }
-
-  const userRef = db.collection("users").doc(usernameInput);
-  const doc = await userRef.get();
-
-  if (doc.exists) {
-    currentUser = { id: usernameInput, ...doc.data() };
-  } else {
-    // Yeni istifadəçi yaradılır
-    const newUser = { points_balance: 0, created_at: firebase.firestore.FieldValue.serverTimestamp() };
-    await userRef.set(newUser);
-    currentUser = { id: usernameInput, ...newUser };
-  }
-
-  // UI Yenilənməsi
-  document.getElementById("displayUsername").innerText = currentUser.id;
-  document.getElementById("userPoints").innerText = currentUser.points_balance;
-  document.getElementById("loginForm").style.display = "none";
-  document.getElementById("balanceDisplay").style.display = "flex";
-}
-
-// 3. Firestore-dan Məhsulları Yükləmək
-async function loadProducts() {
-  const grid = document.getElementById("productsGrid");
-
-  try {
-    const snapshot = await db.collection("products").get();
+// --- 3. İSTİFADƏÇİ GİRİŞİ VƏ XALIN ÇƏKİLMƏSİ ---
+loginBtn.addEventListener('click', async () => {
+    const username = userInput.value.trim().toLowerCase();
     
-    if (snapshot.empty) {
-      grid.innerHTML = "<p class='status-msg'>Hələ ki heç bir məhsul əlavə olunmayıb.</p>";
-      return;
+    if(!username) {
+        alert("Please enter a valid Email or Discord Username.");
+        return;
     }
 
-    grid.innerHTML = "";
-    snapshot.forEach(doc => {
-      const p = doc.data();
-      const pId = doc.id;
+    // Bazada bu istifadəçini axtarırıq
+    const { data, error } = await supabase
+        .from('users')
+        .select('*')
+        .eq('username', username)
+        .single();
 
-      grid.innerHTML += `
-        <div class="product-card">
-          <img src="${p.image_url || 'https://via.placeholder.com/150'}" alt="${p.title}">
-          <h3>${p.title}</h3>
-          <div class="price">💰 ${p.price_points} Points</div>
-          <button onclick="buyProduct('${pId}', ${p.price_points})">Satın Al</button>
-        </div>
-      `;
+    if (data) {
+        // Köhnə istifadəçi tapıldı
+        currentUser = username;
+        currentSP = data.sp;
+        userPointsDisplay.innerText = currentSP;
+        alert(`Welcome back, ${username}! Your balance is loaded.`);
+    } else {
+        // Yeni istifadəçidir, bazaya qeyd edirik
+        const { data: newData, error: insertError } = await supabase
+            .from('users')
+            .insert([{ username: username, sp: 0 }])
+            .select()
+            .single();
+            
+        if (!insertError) {
+            currentUser = username;
+            currentSP = 0;
+            userPointsDisplay.innerText = 0;
+            alert("Account created successfully!");
+        } else {
+            console.error(insertError);
+            alert("Database error!");
+        }
+    }
+});
+
+// --- 4. ANTI-CHEAT REKLAM SİSTEMİ (Brauzer izləmə) ---
+let adStartTime = 0;
+let isAdRunning = false;
+
+watchAdBtn.addEventListener('click', () => {
+    if(!currentUser) {
+        alert("Please save your identity first to earn points!");
+        return;
+    }
+
+    // Adsterra Linkin (Öz linkinlə dəyişə bilərsən)
+    const adUrl = "https://www.profitableratecpmnetwork.com/fspm49jkm?key=88e5821febc3aed060a93ce3587926fc";
+    window.open(adUrl, "_blank");
+
+    watchAdBtn.disabled = true;
+    adStatus.style.display = "block";
+    adStatus.innerText = "Ad is open... Stay on the ad tab for at least 10 seconds!";
+    adStatus.style.color = "#f59e0b"; // Narıncı rəng
+    
+    adStartTime = Date.now();
+    isAdRunning = true;
+});
+
+// İstifadəçi bizim səhifəyə qayıdanda (Focus olanda)
+window.addEventListener('focus', async () => {
+    if (isAdRunning) {
+        let timeSpentAway = (Date.now() - adStartTime) / 1000; 
+        isAdRunning = false; 
+
+        if (timeSpentAway >= 10) { // 10 saniyə qalıbsa
+            adStatus.innerText = "Verifying...";
+            
+            // Xalı artırırıq
+            currentSP += 10;
+            const { error } = await supabase
+                .from('users')
+                .update({ sp: currentSP })
+                .eq('username', currentUser);
+
+            if (!error) {
+                userPointsDisplay.innerText = currentSP;
+                adStatus.innerText = "🎉 Success! 10 SP Added to your account!";
+                adStatus.style.color = "#10b981";
+            }
+        } else {
+            // Tez qayıdıbsa fırıldaq!
+            adStatus.innerText = "❌ You closed the ad too early! No points awarded.";
+            adStatus.style.color = "#ef4444"; // Qırmızı
+        }
+
+        // 4 saniyə sonra düyməni bərpa et
+        setTimeout(() => {
+            watchAdBtn.disabled = false;
+            adStatus.style.display = "none";
+        }, 4000);
+    }
+});
+
+// --- 5. SHOP (MAĞAZA) MƏNTİQİ VƏ SIFIR YADDAŞ ---
+async function loadShopItems() {
+    // Bazadakı bütün məhsulları çəkirik
+    const { data: items, error } = await supabase
+        .from('shop_items')
+        .select('*');
+
+    if (error) {
+        productsGrid.innerHTML = "<p class='loading-text'>Error loading items.</p>";
+        return;
+    }
+
+    if (items.length === 0) {
+        productsGrid.innerHTML = "<p class='loading-text'>Shop is currently empty.</p>";
+        return;
+    }
+
+    productsGrid.innerHTML = ""; // Yüklənir yazısını təmizlə
+
+    // Məhsulları HTML-ə düzürük
+    items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        
+        card.innerHTML = `
+            <img src="${item.cover_img}" alt="Cover" class="product-image">
+            <h3 class="product-title">${item.title}</h3>
+            <p class="product-price">${item.price} SP</p>
+            <button class="buy-btn" data-id="${item.id}" data-price="${item.price}" data-link="${item.drive_link}">
+                Buy Item
+            </button>
+        `;
+        productsGrid.appendChild(card);
     });
-  } catch (error) {
-    console.error("Məhsullar yüklənərkən xəta:", error);
-    grid.innerHTML = "<p class='status-msg'>Məhsulları yükləmək mümkün olmadı.</p>";
-  }
-}
 
-// 4. Məhsul Satın Alma Məntiqi
-async function buyProduct(productId, price) {
-  if (!currentUser) {
-    alert("Əvvəlcə yuxarıdan daxil olun!");
-    return;
-  }
+    // Satın Alma düymələrinə klik funksiyası əlavə edirik
+    document.querySelectorAll('.buy-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            if (!currentUser) {
+                alert("Please identify yourself at the top first!");
+                return;
+            }
 
-  if (currentUser.points_balance < price) {
-    alert("Kifayət qədər Sultan Points-iniz yoxdur! Reklam izləyərək xal qazanın.");
-    return;
-  }
+            const price = parseInt(e.target.getAttribute('data-price'));
+            const driveLink = e.target.getAttribute('data-link');
 
-  const newBalance = currentUser.points_balance - price;
+            if (currentSP >= price) {
+                // Pulunu çıxırıq
+                currentSP -= price;
+                
+                const { error } = await supabase
+                    .from('users')
+                    .update({ sp: currentSP })
+                    .eq('username', currentUser);
 
-  try {
-    // Balansı bazada yeniləyirik
-    await db.collection("users").doc(currentUser.id).update({
-      points_balance: newBalance
+                if (!error) {
+                    userPointsDisplay.innerText = currentSP;
+                    // Əsl material linkini göstəririk
+                    alert("Purchase successful! The material will open in a new tab.");
+                    window.open(driveLink, "_blank");
+                    
+                    // İstəsən düyməni "Purchased" edə bilərik
+                    e.target.innerText = "Purchased (Open again)";
+                    e.target.style.backgroundColor = "#10b981";
+                }
+            } else {
+                alert(`Not enough SP! You need ${price - currentSP} more SP. Watch some ads!`);
+            }
+        });
     });
-
-    // Alış tarixçəsinə qeyd əlavə edirik
-    await db.collection("purchases").add({
-      user_id: currentUser.id,
-      product_id: productId,
-      purchased_at: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    currentUser.points_balance = newBalance;
-    document.getElementById("userPoints").innerText = newBalance;
-    alert("Təbriklər! Məhsul uğurla alındı.");
-  } catch (err) {
-    console.error("Tranzaksiya xətası:", err);
-    alert("Xəta baş verdi, yenidən cəhd edin.");
-  }
 }
 
-// 5. Offerwall (AdGate) Modal Funksiyaları
-function openOfferwall() {
-  if (!currentUser) {
-    alert("Xal qazanmaq üçün əvvəlcə istifadəçi adınızı daxil edin!");
-    return;
-  }
-
-  const container = document.getElementById("offerwallContainer");
-  // AdGate URL-nizi buraya qoyacaqsınız (s1 parametrində user.id gedir)
-  container.innerHTML = `
-    <iframe src="https://wall.adgatemedia.com/aff_c?s1=${currentUser.id}" 
-            width="100%" 
-            height="500px" 
-            frameborder="0">
-    </iframe>`;
-
-  document.getElementById("offerwallModal").style.display = "block";
-}
-
-function closeOfferwall() {
-  document.getElementById("offerwallModal").style.display = "none";
-}
+// Səhifə açılanda mağazanı yüklə
+window.addEventListener('DOMContentLoaded', loadShopItems);
