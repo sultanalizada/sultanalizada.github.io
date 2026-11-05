@@ -1,7 +1,7 @@
 // Supabase-i birbaşa brauzerə çağırmaq üçün CDN linki
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
 // --- 1. SUPABASE AYARLARI ---
-// Bura öz Supabase URL və KEY-ini yapışdıracaqsan
 const supabaseUrl = 'https://ezccynahgubalainoqkf.supabase.co';
 const supabaseKey = 'sb_publishable_ipRtiX4xI1SYlMxU8YAWQw_D8txWLKX';
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -14,6 +14,12 @@ const watchAdBtn = document.getElementById('watchAdBtn');
 const adStatus = document.getElementById('adStatus');
 const productsGrid = document.getElementById('productsGrid');
 
+// Yeni UI elementləri
+const loggedInUser = document.getElementById('loggedInUser');
+const userNameText = document.getElementById('userNameText');
+const loginBox = document.querySelector('.login-box');
+const sectionDesc = document.querySelector('.section-desc');
+
 let currentUser = null;
 let currentSP = 0; // İstifadəçinin anlıq xalı
 
@@ -22,7 +28,7 @@ loginBtn.addEventListener('click', async () => {
     const username = userInput.value.trim().toLowerCase();
     
     if(!username) {
-        alert("Please enter a valid Email or Discord Username.");
+        alert("Please enter a valid Username.");
         return;
     }
 
@@ -55,7 +61,16 @@ loginBtn.addEventListener('click', async () => {
         } else {
             console.error(insertError);
             alert("Database error!");
+            return;
         }
+    }
+
+    // --- UI DƏYİŞİKLİYİ (Giriş uğurlu olanda) ---
+    if (currentUser) {
+        loggedInUser.style.display = 'block'; // Yuxarıda adı göstər
+        userNameText.innerText = currentUser; // Adı yaz
+        loginBox.style.display = 'none'; // Login qutusunu gizlət
+        sectionDesc.innerText = "You are successfully logged in! Complete tasks below to earn SP."; // Mətni dəyiş
     }
 });
 
@@ -69,8 +84,8 @@ watchAdBtn.addEventListener('click', () => {
         return;
     }
 
-    // Adsterra Linkin (Öz linkinlə dəyişə bilərsən)
-    const adUrl = "https://www.profitableratecpmnetwork.com/jhvy5sad?key=f907035dcdac93e8ac9d29902c6def8d";
+    // Adsterra Linkin
+    const adUrl = "https://www.profitableratecpmnetwork.com/fspm49jkm?key=88e5821febc3aed060a93ce3587926fc";
     window.open(adUrl, "_blank");
 
     watchAdBtn.disabled = true;
