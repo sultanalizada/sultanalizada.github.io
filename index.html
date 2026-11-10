@@ -439,6 +439,34 @@
                 });
             });
         });
+
+
+
+
+
+        // Supporter Toast Notification Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const toast = document.getElementById("supporter-toast");
+    
+    // Sayt açılandan 3 saniyə sonra göstər
+    setTimeout(() => {
+        if(toast) {
+            toast.classList.add("show");
+            
+            // 5 saniyə ekranda qaldıqdan sonra gizlət
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 5000);
+        }
+    }, 3000);
+});
+
+
+
+
+
+
+        
     </script>
 
 <script src="books.js"></script>
