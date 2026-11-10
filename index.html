@@ -4,16 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sultan Alizada</title>
+    <title>Sultan Alizada | Productivity & Language Coach</title>
     <link rel="icon" href="favicon.ico">
     <link rel="shortcut icon" href="favicon.ico">
+    
+    <!-- Modern Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="personal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION (Glassmorphism) -->
     <header>
         <nav class="navbar">
             <div class="menu-toggle" id="mobile-menu">
@@ -34,33 +38,40 @@
 
     <!-- HERO SECTION -->
     <section id="home" class="hero-section">
+        <div class="hero-bg-glow"></div>
         <div class="hero-container">
-            <!-- Sol Tərəf: Loqo -->
-            <a href="https://discord.gg/rPbq3sWNCQ" target="_blank" class="hero-logo-link">
+            <!-- Sol Tərəf: Loqo (Floating Animation) -->
+            <a href="https://discord.gg/rPbq3sWNCQ" target="_blank" class="hero-logo-link floating">
                 <img src="logo.png" alt="Sultan Academy Logo" class="hero-logo-img">
             </a>
 
             <!-- Sağ Tərəf: Discord Widget -->
-            <iframe src="https://discord.com/widget?id=1506203530023931977&theme=dark" width="350" height="420"
-                allowtransparency="true" frameborder="0"
-                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-                class="hero-discord-widget">
-            </iframe>
+            <div class="discord-wrapper">
+                <iframe src="https://discord.com/widget?id=1506203530023931977&theme=dark" width="350" height="420"
+                    allowtransparency="true" frameborder="0"
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                    class="hero-discord-widget">
+                </iframe>
+            </div>
         </div>
     </section>
 
     <!-- BOOKS & CLASSROOM SECTION -->
     <section id="books" class="section">
-        <h2>Library & Virtual Classrooms</h2>
-        <p>Access our curated educational materials and join our interactive classrooms.</p>
+        <div class="section-header">
+            <h2>Library & Virtual Classrooms</h2>
+            <p>Access our curated educational materials and join our interactive classrooms.</p>
+        </div>
 
         <!-- BOOKS GRID -->
         <div class="books-grid">
             
             <!-- Book 1: ZFA -->
             <div class="book-card">
-                <img src="zfapdf.png" alt="Dental Assistant (ZFA) Communication Guide">
-                <h3>Dental Assistant (ZFA) Communication Guide + Audio Materials</h3>
+                <div class="book-img-wrapper">
+                    <img src="zfapdf.png" alt="Dental Assistant (ZFA) Communication Guide">
+                </div>
+                <h3>Dental Assistant (ZFA) Communication Guide + Audio</h3>
                 <div class="price-box">
                     <span class="old-price">$25.99</span>
                     <span class="new-price">$16.99</span>
@@ -72,7 +83,9 @@
 
             <!-- Book 2: Premium Material -->
             <div class="book-card">
-                <img src="book2.png" alt="Premium Study Material">
+                <div class="book-img-wrapper">
+                    <img src="book2.png" alt="Premium Study Material">
+                </div>
                 <h3>Premium Study Material</h3>
                 <div class="price-box">
                     <span class="old-price">$28.99</span>
@@ -85,12 +98,13 @@
 
             <!-- Book 3: RU PDF (ADSTERRA LOGIC) -->
             <div class="book-card">
-                <img src="rupdf.png" alt="Russian Language Guide">
+                <div class="book-img-wrapper">
+                    <img src="rupdf.png" alt="Russian Language Guide">
+                </div>
                 <h3>Russian Language Guide</h3>
                 <div class="price-box">
-                    <span class="new-price">Available Now</span>
+                    <span class="new-price highlight-price">Available Now</span>
                 </div>
-                <!-- href="#" qalır, əsl link data-link içinə yazılır -->
                 <a href="#" data-link="YOUR_RU_PDF_LINK_HERE" class="book-btn download-btn watch-ad-btn">
                     <i class="fas fa-play-circle"></i> Watch AD & Open
                 </a>
@@ -98,10 +112,12 @@
 
             <!-- Book 4: Application (ADSTERRA LOGIC) -->
             <div class="book-card">
-                <img src="appli.png" alt="Application & Interview Guide">
+                <div class="book-img-wrapper">
+                    <img src="appli.png" alt="Application & Interview Guide">
+                </div>
                 <h3>Application & Interview Guide</h3>
                 <div class="price-box">
-                    <span class="new-price">Available Now</span>
+                    <span class="new-price highlight-price">Available Now</span>
                 </div>
                 <a href="#" data-link="YOUR_APPLI_LINK_HERE" class="book-btn download-btn watch-ad-btn">
                     <i class="fas fa-play-circle"></i> Watch AD & Open
@@ -110,10 +126,12 @@
 
             <!-- Book 5: C1 Telc (Google Docs) (ADSTERRA LOGIC) -->
             <div class="book-card">
-                <img src="c1telc.png" alt="TELC C1 Preparation">
+                <div class="book-img-wrapper">
+                    <img src="c1telc.png" alt="TELC C1 Preparation">
+                </div>
                 <h3>TELC C1 Preparation Material</h3>
                 <div class="price-box">
-                    <span class="new-price">Google Docs</span>
+                    <span class="new-price docs-price">Google Docs</span>
                 </div>
                 <a href="#" data-link="YOUR_GOOGLE_DOCS_LINK_HERE" class="book-btn download-btn watch-ad-btn">
                     <i class="fas fa-play-circle"></i> Watch AD & Open
@@ -123,74 +141,73 @@
         </div>
 
         <!-- CLASSROOM LINKS (ADSTERRA LOGIC) -->
-        <h3 style="margin-top: 50px; margin-bottom: 20px;">Join Our Virtual Classrooms</h3>
+        <div class="section-header" style="margin-top: 60px;">
+            <h3>Join Our Virtual Classrooms</h3>
+        </div>
         <div class="classroom-grid">
-            <div class="classroom-container">
-                <a href="#" data-link="https://classroom.google.com/c/ODU3MjczNjAzMTAx?cjc=mqffl3y3" class="classroom-btn watch-ad-btn">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span>🇩🇪 Watch AD & Join</span>
-                </a>
-            </div>
-            <div class="classroom-container">
-                <a href="#" data-link="https://classroom.google.com/c/ODYyMTExODk2NTgw?cjc=22jfum7u" class="classroom-btn watch-ad-btn">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span>🇺🇸 🇬🇧 Watch AD & Join</span>
-                </a>
-            </div>
-            <div class="classroom-container">
-                <a href="#" data-link="https://classroom.google.com/c/ODYzODY2NjgxNDcy?cjc=gzjpavh3" class="classroom-btn watch-ad-btn">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span>🇹🇷 Watch AD & Join</span>
-                </a>
-            </div>
-            <div class="classroom-container">
-                <a href="#" data-link="https://classroom.google.com/c/ODYwODc2MTY5OTI4?cjc=xgyvfazo" class="classroom-btn watch-ad-btn">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span>🇦🇿 Watch AD & Join</span>
-                </a>
-            </div>
-            <div class="classroom-container">
-                <a href="#" data-link="https://classroom.google.com/c/ODY4NzE3ODA0NDA1?cjc=mawwihek" class="classroom-btn watch-ad-btn">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span>🧸 Watch AD & Join</span>
-                </a>
-            </div>
+            <a href="#" data-link="https://classroom.google.com/c/ODU3MjczNjAzMTAx?cjc=mqffl3y3" class="classroom-btn watch-ad-btn">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>🇩🇪 Watch AD & Join</span>
+            </a>
+            <a href="#" data-link="https://classroom.google.com/c/ODYyMTExODk2NTgw?cjc=22jfum7u" class="classroom-btn watch-ad-btn">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>🇺🇸 🇬🇧 Watch AD & Join</span>
+            </a>
+            <a href="#" data-link="https://classroom.google.com/c/ODYzODY2NjgxNDcy?cjc=gzjpavh3" class="classroom-btn watch-ad-btn">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>🇹🇷 Watch AD & Join</span>
+            </a>
+            <a href="#" data-link="https://classroom.google.com/c/ODYwODc2MTY5OTI4?cjc=xgyvfazo" class="classroom-btn watch-ad-btn">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>🇦🇿 Watch AD & Join</span>
+            </a>
+            <a href="#" data-link="https://classroom.google.com/c/ODY4NzE3ODA0NDA1?cjc=mawwihek" class="classroom-btn watch-ad-btn">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>🧸 Watch AD & Join</span>
+            </a>
         </div>
 
         <!-- FAIR USE DISCLAIMER -->
-        <div class="fair-use-notice" style="margin-top: 40px;">
-            <i class="fas fa-info-circle"></i>
-            <div>
-                <strong>Fair Use & Copyright Notice:</strong>
+        <div class="fair-use-notice">
+            <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+            <div class="notice-text">
+                <strong>Fair Use & Copyright Notice</strong>
                 <p>The materials provided in our virtual classrooms and library are strictly for educational purposes under the Fair Use policy. <b>Please ensure that you and your students own the physical copies of these books.</b> Sultan Academy does not claim ownership of copyrighted publications.</p>
             </div>
         </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section id="testimonials" class="section">
-        <h2>Testimonials</h2>
-        <p>Please feel free to share your opinions about our work! =)</p>
-        <script src="https://giscus.app/client.js"
-            data-repo="sultanalizada/sultanalizada.github.io"
-            data-repo-id="R_kgDOSLUnMw"
-            data-category="General"
-            data-category-id="DIC_kwDOSLUnM84DFKWL"
-            data-mapping="pathname"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="bottom"
-            data-theme="preferred_color_scheme"
-            data-lang="en"
-            crossorigin="anonymous"
-            async>
-        </script>
+    <section id="testimonials" class="section bg-light">
+        <div class="section-header">
+            <h2>Testimonials</h2>
+            <p>Please feel free to share your opinions about our work! =)</p>
+        </div>
+        <div class="giscus-wrapper">
+            <script src="https://giscus.app/client.js"
+                data-repo="sultanalizada/sultanalizada.github.io"
+                data-repo-id="R_kgDOSLUnMw"
+                data-category="General"
+                data-category-id="DIC_kwDOSLUnM84DFKWL"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="en"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="section">
-        <h2>Contact</h2>
+        <div class="section-header">
+            <h2>Contact</h2>
+            <p>Get in touch with us through our social channels.</p>
+        </div>
         <div class="social-links">
             <a href="https://wa.me/994515050607" class="social-icon whatsapp" target="_blank" rel="noopener">
                 <i class="fab fa-whatsapp"></i>
@@ -201,63 +218,62 @@
             <a href="https://www.instagram.com/sultan_alizada_official?utm_source=qr&igsh=eXVtNnZsYTY3bGJp" class="social-icon instagram" target="_blank" rel="noopener">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="javascript:void(0);" class="social-icon wechat-btn" style="background-color: #07C160; position: relative;" title="WeChat">
+            <a href="javascript:void(0);" class="social-icon wechat-btn" title="WeChat">
                 <i class="fab fa-weixin"></i>
-                <span class="wechat-popup" style="display: none; position: absolute; bottom: 140%; left: 50%; transform: translateX(-50%); background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; text-align: center; width: 170px; cursor: default;" onclick="event.stopPropagation();">
-                    <img src="wechat-qr.jpg" alt="WeChat QR" style="width: 150px; height: 150px; display: block; border-radius: 4px; margin: 0 auto;">
-                    <b style="color: #333; font-size: 12px; margin-top: 5px; display: block; font-family: Arial, sans-serif;">WeChat Scan</b>
+                <span class="wechat-popup" onclick="event.stopPropagation();">
+                    <img src="wechat-qr.jpg" alt="WeChat QR">
+                    <b>WeChat Scan</b>
                 </span>
             </a>
         </div>
-        <p>Email: sultanacademyinfo@gmail.com</p>
+        <p class="contact-email"><i class="fas fa-envelope"></i> sultanacademyinfo@gmail.com</p>
     </section>
 
     <!-- ABOUT (Developer Info) -->
-    <section id="about" class="section">
-        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; margin-top: 30px; text-align: left;">
+    <section id="about" class="section bg-light">
+        <div class="about-container">
             <!-- Şəkil (Sol tərəf) -->
-            <div style="flex-shrink: 0; text-align: center;">
-                <img src="your-photo.jpg" alt="Sultan Alizada" class="profile-photo" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 4px solid #ffffff;">
+            <div class="about-image-wrapper">
+                <div class="image-glow"></div>
+                <img src="your-photo.jpg" alt="Sultan Alizada" class="profile-photo">
             </div>
             
             <!-- Mətn (Sağ tərəf) -->
-            <div style="flex: 1; min-width: 300px; max-width: 600px;">
-                <h3 style="font-size: 28px; color: #0d1b2a; margin-bottom: 5px;">Sultan Alizada</h3>
-                <h4 style="font-size: 16px; color: #3498db; margin-bottom: 15px; font-weight: 600;">Productivity & Language Coach | Developer</h4>
+            <div class="about-text">
+                <h3>Sultan Alizada</h3>
+                <h4>Productivity & Language Coach | Developer</h4>
                 
-                <p style="margin-bottom: 12px; line-height: 1.6; font-size: 15px; color: #444;">Hi there! My name is Sultan, 24 years old, and a passionate polyglot with a deep interest in languages and cultures, currently learning my eighth language!</p>
-                <p style="margin-bottom: 12px; line-height: 1.6; font-size: 15px; color: #444;">Since my school years, careful planning has shaped all of my time with discipline and enthusiasm!</p>
-                <p style="margin-bottom: 12px; line-height: 1.6; font-size: 15px; color: #444;">I am dedicated to continuous learning and personal growth, and I love sharing my knowledge and strategies with others!</p>
-                <p style="margin-bottom: 12px; line-height: 1.6; font-size: 15px; color: #444;">I believe that learning is a lifelong journey, and I am excited to help you reach your goals and discover your full potential!</p>
+                <p>Hi there! My name is Sultan, 24 years old, and a passionate polyglot with a deep interest in languages and cultures, currently learning my eighth language!</p>
+                <p>Since my school years, careful planning has shaped all of my time with discipline and enthusiasm!</p>
+                <p>I am dedicated to continuous learning and personal growth, and I love sharing my knowledge and strategies with others!</p>
+                <p>I believe that learning is a lifelong journey, and I am excited to help you reach your goals and discover your full potential!</p>
                 
-                <p style="font-weight: bold; color: #e74c3c; font-size: 16px; margin-top: 15px;">I’m here to guide you and boost your skills!</p>
+                <p class="highlight-text">I’m here to guide you and boost your skills!</p>
+                
+                <!-- SOCIAL LINKS (Moved with About) -->
+                <div class="social-links about-socials">
+                    <a href="http://www.youtube.com/@SultanAlizadaOfficial" class="social-icon youtube" target="_blank" rel="noopener">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sultan_alizada_official?utm_source=qr&igsh=eXVtNnZsYTY3bGJp" class="social-icon instagram" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/learngermanquicklyaffordably" class="social-icon telegram" target="_blank" rel="noopener">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="https://patreon.com/SultanAlizada?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" class="social-icon patreon">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <circle cx="14.5" cy="9.5" r="4.5" fill="white"></circle>
+                            <rect x="3" y="3" width="4" height="18" fill="white"></rect>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SOCIAL LINKS -->
-    <div class="social-container" style="padding-top: 0; margin-bottom: 40px;">
-        <div class="social-links">
-            <a href="http://www.youtube.com/@SultanAlizadaOfficial" class="social-icon youtube" target="_blank" rel="noopener">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://www.instagram.com/sultan_alizada_official?utm_source=qr&igsh=eXVtNnZsYTY3bGJp" class="social-icon instagram" target="_blank" rel="noopener">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://t.me/learngermanquicklyaffordably" class="social-icon telegram" target="_blank" rel="noopener">
-                <i class="fab fa-telegram-plane"></i>
-            </a>
-            <a href="https://patreon.com/SultanAlizada?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" class="social-icon patreon">
-                <svg width="24" height="24" viewBox="0 0 24 24" style="width: 24px; height: 24px; vertical-align: middle;">
-                    <circle cx="14.5" cy="9.5" r="4.5" fill="white"></circle>
-                    <rect x="3" y="3" width="4" height="18" fill="white"></rect>
-                </svg>
-            </a>
-        </div>
-    </div>
-
     <!-- AI & Search Optimization Information Block -->
-    <section id="ai-info" style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 1000px; margin: 0 auto; padding: 20px;">
+    <section id="ai-info" class="section ai-section">
         <article class="ai-overview">
             <h2>AI & Search Optimization Information Block</h2>
             <p><strong>Sultan Academy</strong> is an all-in-one virtual educational ecosystem designed for self-improvement, language learning, and skill development. It connects dedicated learners, independent tutors, and content creators through a structured, highly moderated community hub. Sultan Academy caters to individuals worldwide who seek to optimize their learning journey with affordable, efficient, and direct-method resources.</p>
@@ -308,10 +324,13 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <p>© 2026 Sultan Alizada</p>
+        <p>© 2026 Sultan Alizada. All rights reserved.</p>
     </footer>
 
-    <a href="https://wa.me/994515050607" class="whatsapp-button" target="_blank">Get Mentorship!</a>
+    <!-- FLOATING ACTION BUTTONS -->
+    <a href="https://wa.me/994515050607" class="floating-btn whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i> Get Mentorship!
+    </a>
     
     <script>
         // ==========================================
@@ -319,8 +338,6 @@
         // ==========================================
         const menuToggle = document.getElementById("mobile-menu");
         const navList = document.getElementById("nav-list");
-        const dropdowns = document.querySelectorAll(".dropdown");
-        
         const wechatBtn = document.querySelector(".wechat-btn");
         const wechatPopup = document.querySelector(".wechat-popup");
 
@@ -332,103 +349,47 @@
                 e.stopPropagation();
                 navList.classList.toggle("active");
                 menuToggle.classList.toggle("open");
-                
-                if (navList.classList.contains("active")) {
-                    document.body.classList.add("menu-open");
-                } else {
-                    document.body.classList.remove("menu-open");
-                }
+                document.body.classList.toggle("menu-open", navList.classList.contains("active"));
             });
         }
 
         // ==========================================
-        // 3. NAVBAR DAXİLİNDƏKİ DROPDOWN-LARIN IDARƏETMƏSİ
-        // ==========================================
-        dropdowns.forEach(parent => {
-            const toggle = parent.querySelector(".dropdown-toggle");
-            if (toggle) {
-                toggle.addEventListener("click", function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        e.stopPropagation(); 
-                        
-                        dropdowns.forEach(d => {
-                            if (d !== parent) {
-                                d.classList.remove("open");
-                                const otherToggle = d.querySelector(".dropdown-toggle");
-                                if (otherToggle) otherToggle.classList.remove("open");
-                            }
-                        });
-
-                        parent.classList.toggle("open");
-                    }
-                });
-            }
-        });
-
-        // ==========================================
-        // 4. CONTACT BÖLMƏSİNDƏKİ WECHAT IDARƏETMƏSİ
+        // 3. CONTACT BÖLMƏSİNDƏKİ WECHAT IDARƏETMƏSİ
         // ==========================================
         if (wechatBtn && wechatPopup) {
             wechatBtn.addEventListener("click", function(e) {
                 e.preventDefault();
                 e.stopPropagation(); 
-                
-                if (wechatPopup.style.display === "block") {
-                    wechatPopup.style.display = "none";
-                    this.classList.remove("open"); 
-                } else {
-                    wechatPopup.style.display = "block";
-                    this.classList.add("open");
-                }
+                const isBlock = wechatPopup.style.display === "block";
+                wechatPopup.style.display = isBlock ? "none" : "block";
+                this.classList.toggle("open", !isBlock);
             });
         }
 
         // ==========================================
-        // 5. KƏNARA KLİK EDƏNDƏ AVTOMATİK BAĞLANMA MEXANİZMİ
+        // 4. KƏNARA KLİK EDƏNDƏ AVTOMATİK BAĞLANMA
         // ==========================================
         document.addEventListener("click", function(e) {
-            if (navList && navList.classList.contains("active")) {
-                if (!menuToggle.contains(e.target)) {
-                    if (e.target === navList || !navList.contains(e.target)) {
-                        navList.classList.remove("active");
-                        if (menuToggle) menuToggle.classList.remove("open");
-                        document.body.classList.remove("menu-open"); 
-                    }
-                }
+            if (navList && navList.classList.contains("active") && !menuToggle.contains(e.target) && !navList.contains(e.target)) {
+                navList.classList.remove("active");
+                menuToggle.classList.remove("open");
+                document.body.classList.remove("menu-open"); 
             }
-
-            dropdowns.forEach(drop => {
-                if (!drop.contains(e.target)) {
-                    drop.classList.remove("open");
-                    const toggle = drop.querySelector(".dropdown-toggle");
-                    if (toggle) toggle.classList.remove("open");
-                }
-            });
-
-            if (wechatPopup && wechatBtn) {
-                if (!wechatPopup.contains(e.target) && !wechatBtn.contains(e.target)) {
-                    wechatPopup.style.display = "none";
-                    wechatBtn.classList.remove("open");
-                }
+            if (wechatPopup && wechatBtn && !wechatPopup.contains(e.target) && !wechatBtn.contains(e.target)) {
+                wechatPopup.style.display = "none";
+                wechatBtn.classList.remove("open");
             }
         });
 
         // ==========================================
-        // 6. NAVBAR LINKLƏRİNƏ KLİK EDƏNDƏ MENYUNU BAĞLA
+        // 5. NAVBAR LINKLƏRİNƏ KLİK EDƏNDƏ MENYUNU BAĞLA
         // ==========================================
-        const navLinks = document.querySelectorAll(".nav-list a:not(.dropdown-toggle)");
+        const navLinks = document.querySelectorAll(".nav-list a");
         navLinks.forEach(link => {
             link.addEventListener("click", () => {
                 if (navList) navList.classList.remove("active");
                 if (menuToggle) menuToggle.classList.remove("open");
                 document.body.classList.remove("menu-open");
-                
-                dropdowns.forEach(drop => {
-                    drop.classList.remove("open");
-                    const t = drop.querySelector(".dropdown-toggle");
-                    if (t) t.classList.remove("open");
-                });
             });
         });
     </script>
