@@ -66,3 +66,46 @@ window.addEventListener('focus', () => {
         }
     }
 });
+
+// --- ADSTERRA ANTI-CHEAT & REDIRECT MƏNTİQİ ---
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Bütün "Watch AD" düymələrini seçirik
+    const adButtons = document.querySelectorAll('.watch-ad-btn');
+
+    adButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault(); // Düymənin standart işləməsini dayandırır
+            
+            // 1. Əsl hədəf linkini (Classroom və ya Docs) HTML-dən götürürük
+            const targetLink = this.getAttribute('data-link');
+            
+            // 2. Düymənin əvvəlki yazısını yadda saxlayırıq ki, sonra geri qaytaraq
+            const originalHTML = this.innerHTML;
+            
+            // 3. Adsterra Direct Link-i yeni tabda açırıq
+            const adsterraDirectLink = "https://www.profitableratecpmnetwork.com/fspm49jkm?key=88e5821febc3aed060a93ce3587926fc";
+            window.open(adsterraDirectLink, "_blank");
+            
+            // 4. Düyməni "Gözləmə" (Loading) rejiminə salırıq
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying AD...';
+            this.style.pointerEvents = 'none'; // Təkrar klikləməyi əngəlləyirik
+            this.style.opacity = '0.7';
+            
+            // 5. 4 saniyə (4000 ms) sonra əsl linki açırıq və düyməni əvvəlki halına qaytarırıq
+            setTimeout(() => {
+                // Əsl linki yeni tabda aç
+                if (targetLink && targetLink !== "YOUR_RU_PDF_LINK_HERE" && targetLink !== "YOUR_APPLI_LINK_HERE" && targetLink !== "YOUR_GOOGLE_DOCS_LINK_HERE") {
+                    window.open(targetLink, '_blank');
+                } else {
+                    alert("Link hələ əlavə edilməyib!"); // Əgər link qoymağı unutsan xəbərdarlıq edəcək
+                }
+                
+                // Düyməni bərpa et
+                this.innerHTML = originalHTML;
+                this.style.pointerEvents = 'auto';
+                this.style.opacity = '1';
+            }, 4000);
+        });
+    });
+});
