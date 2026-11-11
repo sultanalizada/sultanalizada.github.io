@@ -1,291 +1,369 @@
-/* Page Setup */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0a0f1d;
-  color: #f8fafc;
-  margin: 0;
-  padding: 0;
+/* ==========================================
+   GLOBAL & RESET
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Header */
+body {
+    background-color: #0f172a; /* Modern tünd göy fon */
+    color: #f8fafc;
+    overflow-x: hidden;
+    cursor: url('favicon.ico'), auto; /* Custom Cursor */
+}
+
+a, button, input {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================
+   HEADER (Glassmorphism)
+   ========================================== */
 .shop-header {
-  background-color: #111827;
-  border-bottom: 1px solid #1e293b;
-  padding: 20px 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .header-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .back-btn {
-  text-decoration: none;
-  color: #38bdf8;
-  font-weight: 700;
-  font-size: 15px;
+    text-decoration: none;
+    color: #38bdf8;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
 }
+.back-btn:hover { color: #7dd3fc; transform: translateX(-3px); }
 
 .shop-header h1 {
-  margin: 0;
-  font-size: 24px;
-  color: #ffffff;
+    font-size: 22px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.shop-header h1 i { color: #10b981; }
+
+.user-info-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logged-user {
+    color: #38bdf8;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .balance-badge {
-  background-color: #1e293b;
-  border: 1px solid #334155;
-  padding: 10px 18px;
-  border-radius: 25px;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.1);
 }
 
-.balance-badge strong {
-  color: #38bdf8;
-  font-size: 20px;
-}
+.balance-badge i { color: #f59e0b; }
+.balance-badge strong { color: #38bdf8; font-size: 18px; }
 
-/* --- YENİ LAYOUT: Reklamlar və Mərkəzi Hissə --- */
+/* ==========================================
+   LAYOUT & SIDEBARS
+   ========================================== */
 .layout-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  max-width: 1400px;
-  margin: 40px auto;
-  gap: 20px;
-  padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1400px;
+    margin: 40px auto;
+    gap: 30px;
+    padding: 0 20px;
 }
 
 .shop-container {
-  flex: 1; /* Ortadakı məzmun genişlənsin */
-  max-width: 900px;
-  margin: 0;
-  padding: 0;
+    flex: 1;
+    max-width: 900px;
 }
 
-/* Reklam Panelləri (Sağ və Sol) */
 .ad-sidebar {
-  width: 160px; /* Standart Skyscraper reklam ölçüsü */
-  height: 600px;
-  position: sticky;
-  top: 20px;
-  display: none; /* Mobildə yer dar olduğu üçün gizlədirik */
+    width: 160px;
+    height: 600px;
+    position: sticky;
+    top: 90px;
+    display: none;
 }
 
 .ad-placeholder {
-  width: 100%;
-  height: 100%;
-  background-color: #1e293b;
-  border: 1px dashed #475569;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #475569;
-  text-align: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px dashed #475569;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-/* Yalnız böyük ekranlarda (PC) reklamları göstər */
-@media (min-width: 1100px) {
-  .ad-sidebar {
-    display: block;
-  }
+@media (min-width: 1150px) {
+    .ad-sidebar { display: block; }
 }
 
-/* --- ƏSAS MƏZMUN (Kartlar və s.) --- */
-.action-card {
-  background-color: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 16px;
-  padding: 28px;
-  margin-bottom: 40px;
-  text-align: center;
+/* ==========================================
+   ACTION CARD (Login & Ads)
+   ========================================== */
+.glass-card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.card-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, rgba(0,0,0,0) 70%);
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
 }
 
 .action-card h2 {
-  margin-top: 0;
-  font-size: 26px;
-  color: #ffffff;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
+.action-card h2 i { color: #38bdf8; }
 
 .section-desc {
-  color: #94a3b8;
-  font-size: 15px;
-  margin-bottom: 20px;
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 30px;
 }
 
+/* Login Box */
 .login-box {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
 .login-box input {
-  width: 100%;
-  max-width: 380px;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid #475569;
-  background-color: #0f172a;
-  color: #ffffff;
-  font-size: 15px;
-  outline: none;
+    width: 100%;
+    max-width: 350px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    border: 1px solid #475569;
+    background: rgba(15, 23, 42, 0.8);
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
 }
-
-.login-box input:focus {
-  border-color: #38bdf8;
-}
+.login-box input:focus { border-color: #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
 
 .login-box button {
-  background-color: #2563eb;
-  color: #ffffff !important;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
+.login-box button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5); }
 
-.login-box button:hover {
-  background-color: #1d4ed8;
-}
-
-/* Offerwall / Reklam Düyməsi */
+/* Offerwall */
 .offerwall-container h3 {
-  color: #38bdf8;
-  font-size: 20px;
-  margin-bottom: 16px;
+    color: #10b981;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.offer-desc {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 20px;
 }
 
 .offerwall-wrapper {
-  position: relative;
-  width: 100%;
-  padding: 30px 0;
-  border-radius: 12px;
-  border: 1px solid #334155;
-  background-color: #0f172a;
-  text-align: center;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 30px 20px;
 }
 
 .watch-ad-btn {
-  display: inline-block;
-  padding: 15px 30px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  background-color: #10b981;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
+.watch-ad-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); }
+.watch-ad-btn:disabled { background: #475569; cursor: not-allowed; transform: none; box-shadow: none; opacity: 0.7; }
 
-.watch-ad-btn:hover {
-  background-color: #059669;
-  transform: translateY(-2px);
-}
-
-.watch-ad-btn:disabled {
-  background-color: #475569;
-  cursor: not-allowed;
-  transform: none;
+.ad-status {
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 15px;
 }
 
 .divider {
-  border: 0;
-  height: 1px;
-  background: #334155;
-  margin: 40px 0;
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #334155, transparent);
+    margin: 50px 0;
 }
 
-/* Shop Grid (Məhsullar) */
-.shop-section h2 {
-  font-size: 28px;
-  color: #ffffff;
-  margin-bottom: 6px;
+/* ==========================================
+   SHOP SECTION (Products Grid)
+   ========================================== */
+.section-title-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
 }
+
+.section-title-wrapper h2 {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.section-title-wrapper h2 i { color: #f59e0b; }
 
 .shop-subtitle {
-  color: #94a3b8;
-  margin-top: 0;
-  margin-bottom: 28px;
+    color: #94a3b8;
+    font-size: 15px;
 }
 
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
 }
 
-.loading-text {
-  grid-column: 1 / -1;
-  text-align: center;
-  color: #94a3b8;
+.loading-spinner {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #38bdf8;
+    font-size: 18px;
+    padding: 40px;
 }
 
 .product-card {
-  background-color: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 16px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.2s, border-color 0.2s;
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  border-color: #38bdf8;
+    transform: translateY(-8px);
+    border-color: #38bdf8;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
 .product-image {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  background-color: #0f172a;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background: #0f172a;
+    border: 1px solid #334155;
 }
 
 .product-title {
-  font-size: 19px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+    line-height: 1.3;
 }
 
 .product-price {
-  font-size: 17px;
-  font-weight: 700;
-  color: #38bdf8;
-  margin-bottom: 18px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f59e0b;
+    margin-bottom: 20px;
+    background: rgba(245, 158, 11, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
 }
 
 .buy-btn {
-  width: 100%;
-  background-color: #2563eb;
-  color: #ffffff !important;
-  border: none;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
+    width: 100%;
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: auto;
+    transition: 0.3s;
 }
+.buy-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3); }
 
-.buy-btn:hover {
-  background-color: #1d4ed8;
+/* ==========================================
+   MOBILE RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 10px; text-align: center; }
+    .shop-header h1 { font-size: 20px; }
+    .layout-wrapper { margin: 20px auto; }
+    .glass-card { padding: 30px 20px; }
+    .login-box input { max-width: 100%; }
+    .login-box button { width: 100%; }
+    .watch-ad-btn { width: 100%; font-size: 14px; padding: 14px; }
 }
