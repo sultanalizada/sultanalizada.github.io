@@ -32,7 +32,7 @@ loginBtn.addEventListener('click', async () => {
         return;
     }
 
-    // Bazada bu istifadəçini axtarırıq
+    // Bazada bu istifadəçini axtarırıqq
     const { data, error } = await supabase
         .from('users')
         .select('*')
