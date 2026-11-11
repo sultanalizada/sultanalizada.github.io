@@ -14,16 +14,15 @@ const watchAdBtn = document.getElementById('watchAdBtn');
 const adStatus = document.getElementById('adStatus');
 const productsGrid = document.getElementById('productsGrid');
 
-// Yeni UI elementləri
 const loggedInUser = document.getElementById('loggedInUser');
 const userNameText = document.getElementById('userNameText');
 const loginBox = document.querySelector('.login-box');
 const sectionDesc = document.querySelector('.section-desc');
 
 let currentUser = null;
-let currentSP = 0; // İstifadəçinin anlıq xalı
+let currentSP = 0;
 
-// --- 3. İSTİFADƏÇİ GİRİŞİ VƏ XALIN ÇƏKİLMƏSİ ---
+// --- 3. İSTİFADƏÇİ GİRİŞİ ---
 loginBtn.addEventListener('click', async () => {
     const username = userInput.value.trim().toLowerCase();
     
@@ -32,7 +31,8 @@ loginBtn.addEventListener('click', async () => {
         return;
     }
 
-    // Bazada bu istifadəçini axtarırıqq
+    loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+
     const { data, error } = await supabase
         .from('users')
         .select('*')
@@ -40,13 +40,11 @@ loginBtn.addEventListener('click', async () => {
         .single();
 
     if (data) {
-        // Köhnə istifadəçi tapıldı
         currentUser = username;
         currentSP = data.sp;
         userPointsDisplay.innerText = currentSP;
         alert(`Welcome back, ${username}! Your balance is loaded.`);
     } else {
-        // Yeni istifadəçidir, bazaya qeyd edirik
         const { data: newData, error: insertError } = await supabase
             .from('users')
             .insert([{ username: username, sp: 0 }])
@@ -59,52 +57,50 @@ loginBtn.addEventListener('click', async () => {
             userPointsDisplay.innerText = 0;
             alert("Account created successfully!");
         } else {
-            console.error(insertError);
             alert("Database error!");
+            loginBtn.innerHTML = '<i class="fas fa-save"></i> Save Identity';
             return;
         }
     }
 
-    // --- UI DƏYİŞİKLİYİ (Giriş uğurlu olanda) ---
     if (currentUser) {
-        loggedInUser.style.display = 'block'; // Yuxarıda adı göstər
-        userNameText.innerText = currentUser; // Adı yaz
-        loginBox.style.display = 'none'; // Login qutusunu gizlət
-        sectionDesc.innerText = "You are successfully logged in! Complete tasks below to earn SP."; // Mətni dəyiş
+        loggedInUser.classList.remove('hidden');
+        userNameText.innerText = currentUser;
+        loginBox.classList.add('hidden');
+        sectionDesc.innerText = "You are successfully logged in! Complete tasks below to earn SP.";
     }
 });
 
-// --- 4. ANTI-CHEAT REKLAM SİSTEMİ (Brauzer izləmə) ---
-let adStartTime = 0;
-let isAdRunning = false;
-
+// --- 4. ANTI-CHEAT REKLAM SİSTEMİ (YENİLƏNDİ) ---
 watchAdBtn.addEventListener('click', () => {
     if(!currentUser) {
         alert("Please save your identity first to earn points!");
         return;
     }
 
-    // Adsterra Linkin
+    // 1. Reklamı dərhal yeni tabda açırıq
     const adUrl = "https://www.profitableratecpmnetwork.com/fspm49jkm?key=88e5821febc3aed060a93ce3587926fc";
     window.open(adUrl, "_blank");
 
+    // 2. Düyməni dondururuq
     watchAdBtn.disabled = true;
-    adStatus.style.display = "block";
-    adStatus.innerText = "Ad is open... Stay on the ad tab for at least 10 seconds!";
-    adStatus.style.color = "#f59e0b"; // Narıncı rəng
+    adStatus.classList.remove('hidden');
+    adStatus.style.color = "#f59e0b"; 
     
-    adStartTime = Date.now();
-    isAdRunning = true;
-});
+    let timeLeft = 10;
+    watchAdBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Watching AD... ${timeLeft}s`;
+    adStatus.innerText = "Please wait... Do not close the page!";
 
-// İstifadəçi bizim səhifəyə qayıdanda (Focus olanda)
-window.addEventListener('focus', async () => {
-    if (isAdRunning) {
-        let timeSpentAway = (Date.now() - adStartTime) / 1000; 
-        isAdRunning = false; 
-
-        if (timeSpentAway >= 10) { // 10 saniyə qalıbsa
-            adStatus.innerText = "Verifying...";
+    // 3. 10 Saniyəlik Geri Sayım
+    const countdownTimer = setInterval(async () => {
+        timeLeft--;
+        
+        if (timeLeft > 0) {
+            watchAdBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Watching AD... ${timeLeft}s`;
+        } else {
+            // Vaxt bitdi!
+            clearInterval(countdownTimer);
+            watchAdBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Verifying...`;
             
             // Xalı artırırıq
             currentSP += 10;
@@ -117,41 +113,40 @@ window.addEventListener('focus', async () => {
                 userPointsDisplay.innerText = currentSP;
                 adStatus.innerText = "🎉 Success! 10 SP Added to your account!";
                 adStatus.style.color = "#10b981";
+            } else {
+                adStatus.innerText = "❌ Error saving points. Try again.";
+                adStatus.style.color = "#ef4444";
             }
-        } else {
-            // Tez qayıdıbsa fırıldaq!
-            adStatus.innerText = "❌ You closed the ad too early! No points awarded.";
-            adStatus.style.color = "#ef4444"; // Qırmızı
-        }
 
-        // 4 saniyə sonra düyməni bərpa et
-        setTimeout(() => {
+            // Düyməni bərpa et
+            watchAdBtn.innerHTML = `<i class="fas fa-play-circle"></i> Watch Sponsor Ad (+10 SP)`;
             watchAdBtn.disabled = false;
-            adStatus.style.display = "none";
-        }, 4000);
-    }
+            
+            setTimeout(() => {
+                adStatus.classList.add('hidden');
+            }, 4000);
+        }
+    }, 1000);
 });
 
-// --- 5. SHOP (MAĞAZA) MƏNTİQİ VƏ SIFIR YADDAŞ ---
+// --- 5. SHOP (MAĞAZA) MƏNTİQİ ---
 async function loadShopItems() {
-    // Bazadakı bütün məhsulları çəkirik
     const { data: items, error } = await supabase
         .from('shop_items')
         .select('*');
 
     if (error) {
-        productsGrid.innerHTML = "<p class='loading-text'>Error loading items.</p>";
+        productsGrid.innerHTML = "<p class='loading-spinner'>Error loading items.</p>";
         return;
     }
 
     if (items.length === 0) {
-        productsGrid.innerHTML = "<p class='loading-text'>Shop is currently empty.</p>";
+        productsGrid.innerHTML = "<p class='loading-spinner'>Shop is currently empty.</p>";
         return;
     }
 
-    productsGrid.innerHTML = ""; // Yüklənir yazısını təmizlə
+    productsGrid.innerHTML = ""; 
 
-    // Məhsulları HTML-ə düzürük
     items.forEach(item => {
         const card = document.createElement('div');
         card.className = 'product-card';
@@ -161,13 +156,12 @@ async function loadShopItems() {
             <h3 class="product-title">${item.title}</h3>
             <p class="product-price">${item.price} SP</p>
             <button class="buy-btn" data-id="${item.id}" data-price="${item.price}" data-link="${item.drive_link}">
-                Buy Item
+                <i class="fas fa-unlock"></i> Unlock Item
             </button>
         `;
         productsGrid.appendChild(card);
     });
 
-    // Satın Alma düymələrinə klik funksiyası əlavə edirik
     document.querySelectorAll('.buy-btn').forEach(btn => {
         btn.addEventListener('click', async (e) => {
             if (!currentUser) {
@@ -179,7 +173,6 @@ async function loadShopItems() {
             const driveLink = e.target.getAttribute('data-link');
 
             if (currentSP >= price) {
-                // Pulunu çıxırıq
                 currentSP -= price;
                 
                 const { error } = await supabase
@@ -189,13 +182,11 @@ async function loadShopItems() {
 
                 if (!error) {
                     userPointsDisplay.innerText = currentSP;
-                    // Əsl material linkini göstəririk
                     alert("Purchase successful! The material will open in a new tab.");
                     window.open(driveLink, "_blank");
                     
-                    // İstəsən düyməni "Purchased" edə bilərik
-                    e.target.innerText = "Purchased (Open again)";
-                    e.target.style.backgroundColor = "#10b981";
+                    e.target.innerHTML = '<i class="fas fa-check-circle"></i> Purchased';
+                    e.target.style.background = "linear-gradient(135deg, #10b981, #059669)";
                 }
             } else {
                 alert(`Not enough SP! You need ${price - currentSP} more SP. Watch some ads!`);
@@ -204,6 +195,4 @@ async function loadShopItems() {
     });
 }
 
-// Səhifə açılanda mağazanı yüklə
 window.addEventListener('DOMContentLoaded', loadShopItems);
-
