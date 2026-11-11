@@ -4,25 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sultan Academy - Rewards & Shop</title>
+  
+  <!-- Modern Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
   <link rel="stylesheet" href="shop.css">
 </head>
 <body>
 
-  <!-- Navigation Header -->
+  <!-- Navigation Header (Glassmorphism) -->
   <header class="shop-header">
     <div class="header-container">
-      <a href="index.html" class="back-btn">← Back to Main Site</a>
-      <h1>🎓 Sultan Academy Shop</h1>
+      <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Main Site</a>
+      <h1><i class="fas fa-store"></i> Sultan Academy Shop</h1>
       
       <!-- Sağ tərəf: İstifadəçi adı və Balans -->
-      <div style="display: flex; align-items: center; gap: 15px;">
-        <!-- Bura istifadəçi adı gələcək (əvvəlcə gizlidir) -->
-        <div id="loggedInUser" style="display: none; color: #38bdf8; font-weight: bold; font-size: 16px;">
-          👤 <span id="userNameText"></span>
+      <div class="user-info-wrapper">
+        <div id="loggedInUser" class="logged-user hidden">
+          <i class="fas fa-user-circle"></i> <span id="userNameText"></span>
         </div>
         
         <div class="balance-badge">
-          <span>Balance:</span>
+          <i class="fas fa-coins"></i>
           <strong id="userPoints">0</strong>
           <span>SP</span>
         </div>
@@ -33,10 +37,9 @@
   <!-- Əsas Layout: Sol Reklam + Orta Məzmun + Sağ Reklam -->
   <div class="layout-wrapper">
     
-    <!-- SOL REKLAM LÖVHƏSİ (160x600 banner) -->
+    <!-- SOL REKLAM LÖVHƏSİ -->
     <aside class="ad-sidebar left-ad">
       <div class="ad-placeholder">
-        <!-- Adsterra 160x600 embed kodunu bura yapışdıracaqsan -->
         <p><a href="" rel="nofollow"><img alt="banner" src="https://landings-cdn.adsterratech.com/referralBanners/gif/120x600_adsterra_reff.gif" /></a></p>
       </div>
     </aside>
@@ -44,26 +47,26 @@
     <main class="shop-container">
       
       <!-- Top Section: Identification & Rewarded Ads -->
-      <section class="action-card">
-        <h2>1. Enter Your Identity & Complete Tasks</h2>
+      <section class="action-card glass-card">
+        <div class="card-glow"></div>
+        <h2><i class="fas fa-id-badge"></i> 1. Identify & Earn</h2>
         <p class="section-desc">Enter your Username below to make sure your points are saved to your account!</p>
 
         <div class="login-box">
-          <input type="text" id="userInput" placeholder="Create or Enter your Username..." />
-          <button id="loginBtn">Save Identity</button>
+          <input type="text" id="userInput" placeholder="Create or Enter your Username..." autocomplete="off" />
+          <button id="loginBtn"><i class="fas fa-save"></i> Save Identity</button>
         </div>
 
         <!-- Rewarded Ads Container -->
         <div class="offerwall-container">
-          <h3>Watch Ads & Earn Points</h3>
-          <p style="margin-bottom: 15px; color: #94a3b8;">Click the button below, view the sponsor advertisement for at least 10 seconds, and collect your SP points!</p>
+          <h3><i class="fas fa-gift"></i> Watch Ads & Earn Points</h3>
+          <p class="offer-desc">Click the button below, view the sponsor advertisement for 10 seconds, and collect your SP points!</p>
           
           <div class="offerwall-wrapper">
-            <!-- Adsterra Smartlink -->
             <button id="watchAdBtn" class="watch-ad-btn">
-               ▶ Watch Sponsor Ad (+10 SP)
+               <i class="fas fa-play-circle"></i> Watch Sponsor Ad (+10 SP)
             </button>
-            <p id="adStatus" style="color: #4CAF50; margin-top: 15px; display: none;">Watching... Please wait!</p>
+            <p id="adStatus" class="ad-status hidden"></p>
           </div>
         </div>
       </section>
@@ -72,25 +75,29 @@
 
       <!-- Bottom Section: Sultan Shop Items -->
       <section class="shop-section">
-        <h2>2. Shop</h2>
-        <p class="shop-subtitle">Redeem your earned points for study materials and exclusive resources below!</p>
+        <div class="section-title-wrapper">
+          <h2><i class="fas fa-shopping-cart"></i> 2. Rewards Shop</h2>
+          <p class="shop-subtitle">Redeem your earned points for premium study materials and exclusive resources!</p>
+        </div>
 
         <div class="products-grid" id="productsGrid">
-          <p class="loading-text">Loading shop items...</p>
+          <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i> Loading shop items...
+          </div>
         </div>
       </section>
 
     </main>
 
-    <!-- SAĞ REKLAM LÖVHƏSİ (160x600 banner) -->
+    <!-- SAĞ REKLAM LÖVHƏSİ -->
     <aside class="ad-sidebar right-ad">
       <div class="ad-placeholder">
-        <!-- Adsterra 160x600 embed kodunu bura yapışdıracaqsan -->
         <p><a href="" rel="nofollow"><img alt="banner" src="https://landings-cdn.adsterratech.com/referralBanners/gif/120x600_adsterra_reff.gif" /></a></p>
       </div>
     </aside>
 
   </div>
 
-<script type="module" src="js/shop.js"></script></body>
+  <script type="module" src="js/shop.js"></script>
+</body>
 </html>
