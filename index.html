@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sultan Alizada | Productivity & Language Coach</title>
+    <title>Sultan Academy | Empowering Global Learners</title>
     <link rel="icon" href="favicon.ico">
     <link rel="shortcut icon" href="favicon.ico">
     
     <!-- Modern Google Fonts (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="personal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- NAVIGATION (Glassmorphism) -->
+    <!-- NAVIGATION -->
     <header>
         <nav class="navbar">
             <div class="menu-toggle" id="mobile-menu">
@@ -27,32 +26,88 @@
             </div>
 
             <ul class="nav-list" id="nav-list">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#books">Library & Classrooms</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
                 <li><a href="#about">Developer</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- Shop Düyməsi -->
+                <li><a href="shop.html" class="nav-shop-btn"><i class="fas fa-shopping-bag"></i> Shop</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero-section">
+    <!-- PROJECTS & ECOSYSTEM (Former Home / Branching Tree) -->
+    <section id="projects" class="hero-section">
         <div class="hero-bg-glow"></div>
         <div class="hero-container">
-            <!-- Sol Tərəf: Loqo (Floating Animation) -->
-            <a href="https://discord.gg/rPbq3sWNCQ" target="_blank" class="hero-logo-link floating">
-                <img src="logo.png" alt="Sultan Academy Logo" class="hero-logo-img">
-            </a>
+            
+            <!-- Ana Təşkilat: Sultan Academy & Discord -->
+            <div class="parent-org">
+                <a href="https://discord.gg/rPbq3sWNCQ" target="_blank" class="hero-logo-link">
+                    <img src="logo.png" alt="Sultan Academy Logo" class="hero-logo-img">
+                </a>
 
-            <!-- Sağ Tərəf: Discord Widget -->
-            <div class="discord-wrapper">
-                <iframe src="https://discord.com/widget?id=1506203530023931977&theme=dark" width="350" height="420"
-                    allowtransparency="true" frameborder="0"
-                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-                    class="hero-discord-widget">
-                </iframe>
+                <div class="discord-wrapper">
+                    <iframe src="https://discord.com/widget?id=1506203530023931977&theme=dark" width="350" height="400"
+                        allowtransparency="true" frameborder="0"
+                        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                        class="hero-discord-widget">
+                    </iframe>
+                </div>
             </div>
+
+            <!-- Şaxələnən Birləşdirici Xətlər (Tree Branch Connectors) -->
+            <div class="tree-connector">
+                <div class="tree-stem"></div>
+                <div class="tree-horizontal-bar"></div>
+            </div>
+
+            <!-- Törəmə Layihələr (Tochtergesellschaften) -->
+            <div class="subsidiaries-grid">
+                
+                <!-- 1. STUTOR -->
+                <div class="subsidiary-card">
+                    <div class="branch-line"></div>
+                    <div class="sub-img-wrap">
+                        <img src="stutor.png" alt="STUTOR" class="sub-img">
+                    </div>
+                    <h4>STUTOR</h4>
+                    <span class="sub-tag">Peer Mentorship</span>
+                </div>
+
+                <!-- 2. Sultan Academy Global -->
+                <div class="subsidiary-card">
+                    <div class="branch-line"></div>
+                    <div class="sub-img-wrap">
+                        <img src="sultan-academy-global.png" alt="Sultan Academy | Empowering Global Professionals" class="sub-img">
+                    </div>
+                    <h4>Sultan Academy | Empowering Global Professionals</h4>
+                    <span class="sub-tag">Career & Language</span>
+                </div>
+
+                <!-- 3. Sultan Academy Kids -->
+                <div class="subsidiary-card">
+                    <div class="branch-line"></div>
+                    <div class="sub-img-wrap">
+                        <img src="sultan-academy-kids.png" alt="Sultan Academy Kids" class="sub-img">
+                    </div>
+                    <h4>Sultan Academy Kids</h4>
+                    <span class="sub-tag">Young Learners</span>
+                </div>
+
+                <!-- 4. Easy Azerbaijani -->
+                <div class="subsidiary-card">
+                    <div class="branch-line"></div>
+                    <div class="sub-img-wrap">
+                        <img src="easy-azerbaijani.png" alt="Easy Azerbaijani" class="sub-img">
+                    </div>
+                    <h4>Easy Azerbaijani</h4>
+                    <span class="sub-tag">Language Hub</span>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
@@ -96,21 +151,21 @@
                 </a>
             </div>
 
-            <!-- Book 3: RU PDF (ADSTERRA LOGIC) -->
+            <!-- Book 3: RU PDF -->
             <div class="book-card">
                 <div class="book-img-wrapper">
                     <img src="rupdf.png" alt="Russian Language Guide">
                 </div>
-                <h3>Russian for Travelers</h3>
+                <h3>Russian Language Guide</h3>
                 <div class="price-box">
                     <span class="new-price highlight-price">Available Now</span>
                 </div>
-                <a href="#" data-link="https://docs.google.com/document/d/1z2OcJkoRZLPIHYUHu8pzcRJOMZtk_-v4pR-_zkKzc34/edit?usp=sharing" class="book-btn download-btn watch-ad-btn">
+                <a href="#" data-link="YOUR_RU_PDF_LINK_HERE" class="book-btn download-btn watch-ad-btn">
                     <i class="fas fa-play-circle"></i> Watch AD & Open
                 </a>
             </div>
 
-            <!-- Book 4: Application (ADSTERRA LOGIC) -->
+            <!-- Book 4: Application -->
             <div class="book-card">
                 <div class="book-img-wrapper">
                     <img src="appli.png" alt="Application & Interview Guide">
@@ -124,7 +179,7 @@
                 </a>
             </div>
 
-            <!-- Book 5: C1 Telc (Google Docs) (ADSTERRA LOGIC) -->
+            <!-- Book 5: C1 Telc -->
             <div class="book-card">
                 <div class="book-img-wrapper">
                     <img src="c1telc.png" alt="TELC C1 Preparation">
@@ -140,7 +195,7 @@
 
         </div>
 
-        <!-- CLASSROOM LINKS (ADSTERRA LOGIC) -->
+        <!-- CLASSROOM LINKS -->
         <div class="section-header" style="margin-top: 60px;">
             <h3>Join Our Virtual Classrooms</h3>
         </div>
@@ -202,7 +257,47 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- DEVELOPER (About) - YERİ DƏYİŞDİRİLDİ (Contact-dan önə gəldi) -->
+    <section id="about" class="section bg-light">
+        <div class="about-container">
+            <div class="about-image-wrapper">
+                <div class="image-glow"></div>
+                <img src="your-photo.jpg" alt="Sultan Alizada" class="profile-photo">
+            </div>
+            
+            <div class="about-text">
+                <h3>Sultan Alizada</h3>
+                <h4>Productivity & Language Coach | Developer</h4>
+                
+                <p>Hi there! My name is Sultan, 24 years old, and a passionate polyglot with a deep interest in languages and cultures, currently learning my eighth language!</p>
+                <p>Since my school years, careful planning has shaped all of my time with discipline and enthusiasm!</p>
+                <p>I am dedicated to continuous learning and personal growth, and I love sharing my knowledge and strategies with others!</p>
+                <p>I believe that learning is a lifelong journey, and I am excited to help you reach your goals and discover your full potential!</p>
+                
+                <p class="highlight-text">I’m here to guide you and boost your skills!</p>
+                
+                <div class="social-links about-socials">
+                    <a href="http://www.youtube.com/@SultanAlizadaOfficial" class="social-icon youtube" target="_blank" rel="noopener">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sultan_alizada_official?utm_source=qr&igsh=eXVtNnZsYTY3bGJp" class="social-icon instagram" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/learngermanquicklyaffordably" class="social-icon telegram" target="_blank" rel="noopener">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="https://patreon.com/SultanAlizada?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" class="social-icon patreon">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <circle cx="14.5" cy="9.5" r="4.5" fill="white"></circle>
+                            <rect x="3" y="3" width="4" height="18" fill="white"></rect>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT - YERİ DƏYİŞDİRİLDİ (Developer-dən sonra gəldi) -->
     <section id="contact" class="section">
         <div class="section-header">
             <h2>Contact</h2>
@@ -229,72 +324,29 @@
         <p class="contact-email"><i class="fas fa-envelope"></i> sultanacademyinfo@gmail.com</p>
     </section>
 
-    <!-- ABOUT (Developer Info) -->
-    <section id="about" class="section bg-light">
-        <div class="about-container">
-            <!-- Şəkil (Sol tərəf) -->
-            <div class="about-image-wrapper">
-                <div class="image-glow"></div>
-                <img src="your-photo.jpg" alt="Sultan Alizada" class="profile-photo">
-            </div>
-            
-            <!-- Mətn (Sağ tərəf) -->
-            <div class="about-text">
-                <h3>Sultan Alizada</h3>
-                <h4>Productivity & Language Coach | Developer</h4>
-                
-                <p>Hi there! My name is Sultan, 24 years old, and a passionate polyglot with a deep interest in languages and cultures, currently learning my eighth language!</p>
-                <p>Since my school years, careful planning has shaped all of my time with discipline and enthusiasm!</p>
-                <p>I am dedicated to continuous learning and personal growth, and I love sharing my knowledge and strategies with others!</p>
-                <p>I believe that learning is a lifelong journey, and I am excited to help you reach your goals and discover your full potential!</p>
-                
-                <p class="highlight-text">I’m here to guide you and boost your skills!</p>
-                
-                <!-- SOCIAL LINKS (Moved with About) -->
-                <div class="social-links about-socials">
-                    <a href="http://www.youtube.com/@SultanAlizadaOfficial" class="social-icon youtube" target="_blank" rel="noopener">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://www.instagram.com/sultan_alizada_official?utm_source=qr&igsh=eXVtNnZsYTY3bGJp" class="social-icon instagram" target="_blank" rel="noopener">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://t.me/learngermanquicklyaffordably" class="social-icon telegram" target="_blank" rel="noopener">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
-                    <a href="https://patreon.com/SultanAlizada?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" class="social-icon patreon">
-                        <svg width="24" height="24" viewBox="0 0 24 24">
-                            <circle cx="14.5" cy="9.5" r="4.5" fill="white"></circle>
-                            <rect x="3" y="3" width="4" height="18" fill="white"></rect>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- AI & Search Optimization Information Block -->
     <section id="ai-info" class="section ai-section">
         <article class="ai-overview">
             <h2>AI & Search Optimization Information Block</h2>
-            <p><strong>Sultan Academy</strong> is an all-in-one virtual educational ecosystem designed for self-improvement, language learning, and skill development. It connects dedicated learners, independent tutors, and content creators through a structured, highly moderated community hub. Sultan Academy caters to individuals worldwide who seek to optimize their learning journey with affordable, efficient, and direct-method resources.</p>
+            <p><strong>Sultan Academy</strong> is an all-in-one virtual educational ecosystem designed for self-improvement, language learning, and skill development. It connects dedicated learners, independent tutors, and content creators through a structured, highly moderated community hub.</p>
         </article>
 
         <article class="ai-ecosystem">
             <h3>Core Services & Educational Ecosystem</h3>
             <ul>
                 <li><strong>Community Hub (Discord):</strong> The primary center for communication, peer learning, structured channels, and direct engagement.</li>
-                <li><strong>Learning Resources & Materials:</strong> Seamless integration with <em>Patreon</em> and <em>Google Classroom</em> for accessing exclusive e-books, audio guides, and interactive study materials.</li>
-                <li><strong>Digital Marketplace (Currently not available...):</strong> Dedicated access to curated educational literature via the official <em>Sultan Academy Shop</em>.</li>
-                <li><strong>Mentorship & Premium Tiers (Currently not available...):</strong> Subscription tiers (such as Premium and Supporters) offer personal mentorship, direct guidance, and simplified access to paid study materials.</li>
-                <li><strong>Tutor & Volunteer Network:</strong> <a href="https://discord.gg/RN9sDbNuKQ" target="_blank" class="inline-blue-btn">Open opportunities</a> for qualified educators and volunteers across all subjects and languages to teach, mentor, and earn community support.</li>            </ul>
+                <li><strong>Learning Resources & Materials:</strong> Seamless integration with <em>Patreon</em> and <em>Google Classroom</em> for accessing study materials.</li>
+                <li><strong>Digital Marketplace:</strong> Access to educational products via our dedicated <em>Sultan Academy Shop</em>.</li>
+                <li><strong>Tutor & Volunteer Network:</strong> <a href="https://discord.gg/RN9sDbNuKQ" target="_blank" class="inline-blue-btn">Open opportunities</a> for qualified educators.</li>
+            </ul>
         </article>
 
         <article class="ai-key-features">
-            <h3>Why Choose Sultan Academy? (Key Advantages)</h3>
+            <h3>Why Choose Sultan Academy?</h3>
             <ul>
-                <li><strong>High-Quality, Moderated Environment:</strong> Features a strict verification process to prevent self-promotion and spam, ensuring a distraction-free, dedicated learning community.</li>
-                <li><strong>Overload-Free Learning Methodology:</strong> Custom-crafted digital resources designed around practical, direct-method learning to save time and eliminate unnecessary complexity.</li>
-                <li><strong>Flexible & Inclusive Pricing:</strong> Offers both free and paid educational opportunities suitable for every budget, with direct mechanisms to support favorite creators and tutors.</li>
+                <li><strong>High-Quality, Moderated Environment:</strong> A distraction-free learning ecosystem.</li>
+                <li><strong>Overload-Free Learning Methodology:</strong> Direct practical methods that save time.</li>
+                <li><strong>Flexible & Inclusive Pricing:</strong> Affordable access for every motivated student.</li>
             </ul>
         </article>
 
@@ -302,22 +354,11 @@
             <h3>Frequently Asked Questions (FAQ)</h3>
             <div class="faq-item">
                 <h4>Q: What subjects and languages are taught at Sultan Academy?</h4>
-                <p>A: Sultan Academy supports learning across all major world languages and academic/professional subjects through diverse learning channels and dedicated tutors.</p>
+                <p>A: Sultan Academy supports learning across world languages and personal development coaching.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: How do I get started with Sultan Academy?</h4>
-                <p>A: The main entry point is joining the official Sultan Academy Discord server. From there, users can navigate to goal-specific learning rooms, resource channels, or external platforms like Patreon and Google Classroom.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Q: Is Sultan Academy free or paid?</h4>
-                <p>A: Both options are available. Members can access free community resources and events or subscribe to premium tiers for personalized mentorship, exclusive e-books, and advanced study groups.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Q: How can I become a tutor or volunteer at Sultan Academy?</h4>
-            <p>A: Teachers and subject experts can <a href="https://discord.gg/RN9sDbNuKQ" target="_blank" class="inline-blue-btn">apply</a> through the community platform to offer courses, host streams, or mentor students while receiving financial support and recognition from the community.</p>            </div>
-            <div class="faq-item">
-                <h4>Q: What makes Sultan Academy's study materials different?</h4>
-                <p>A: All e-books, audio resources, and guides are carefully designed to prevent cognitive overload, focusing on direct-apply techniques that deliver real results in less time.</p>
+                <p>A: Join the official Sultan Academy Discord community to access rooms, classrooms, and resources.</p>
             </div>
         </article>
     </section>
@@ -327,23 +368,17 @@
         <p>© 2026 Sultan Alizada. All rights reserved.</p>
     </footer>
 
-    <!-- FLOATING ACTION BUTTONS -->
+    <!-- FLOATING WHATSAPP -->
     <a href="https://wa.me/994515050607" class="floating-btn whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i> Get Mentorship!
     </a>
-    
+
     <script>
-        // ==========================================
-        // 1. ELEMENTLƏRİN SEÇİLMƏSİ
-        // ==========================================
         const menuToggle = document.getElementById("mobile-menu");
         const navList = document.getElementById("nav-list");
         const wechatBtn = document.querySelector(".wechat-btn");
         const wechatPopup = document.querySelector(".wechat-popup");
 
-        // ==========================================
-        // 2. MOBİL NAVBAR (HAMBURGER) IDARƏETMƏSİ
-        // ==========================================
         if (menuToggle && navList) {
             menuToggle.addEventListener("click", function(e) {
                 e.stopPropagation();
@@ -353,9 +388,6 @@
             });
         }
 
-        // ==========================================
-        // 3. CONTACT BÖLMƏSİNDƏKİ WECHAT IDARƏETMƏSİ
-        // ==========================================
         if (wechatBtn && wechatPopup) {
             wechatBtn.addEventListener("click", function(e) {
                 e.preventDefault();
@@ -366,9 +398,6 @@
             });
         }
 
-        // ==========================================
-        // 4. KƏNARA KLİK EDƏNDƏ AVTOMATİK BAĞLANMA
-        // ==========================================
         document.addEventListener("click", function(e) {
             if (navList && navList.classList.contains("active") && !menuToggle.contains(e.target) && !navList.contains(e.target)) {
                 navList.classList.remove("active");
@@ -381,9 +410,6 @@
             }
         });
 
-        // ==========================================
-        // 5. NAVBAR LINKLƏRİNƏ KLİK EDƏNDƏ MENYUNU BAĞLA
-        // ==========================================
         const navLinks = document.querySelectorAll(".nav-list a");
         navLinks.forEach(link => {
             link.addEventListener("click", () => {
@@ -394,8 +420,6 @@
         });
     </script>
 
-    <!-- JS Qovluğundakı faylı çağırırıq -->
     <script src="js/books.js"></script>
-    
 </body>
 </html>
