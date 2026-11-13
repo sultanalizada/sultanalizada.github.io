@@ -67,59 +67,54 @@ window.addEventListener('focus', () => {
     }
 });
 
-// --- ADSTERRA ANTI-CHEAT & REDIRECT MƏNTİQİ ---
+// --- ADSTERRA ANTI-CHEAT & POPUP BLOCKER FIX ---
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Bütün "Watch AD" düymələrini seçirik
     const adButtons = document.querySelectorAll('.watch-ad-btn');
 
     adButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
-            e.preventDefault(); // Düymənin standart işləməsini dayandırır
+            e.preventDefault();
             
-            // 1. Əsl hədəf linkini (Classroom və ya Docs) HTML-dən götürürük
             const targetLink = this.getAttribute('data-link');
-            
-            // 2. Düymənin əvvəlki yazısını yadda saxlayırıq
             const originalHTML = this.innerHTML;
             
-            // 3. Adsterra Direct Link-i YENİ TABDA açırıq
             const adsterraDirectLink = "https://www.profitableratecpmnetwork.com/fspm49jkm?key=88e5821febc3aed060a93ce3587926fc";
-            window.open(adsterraDirectLink, "_blank");
             
-            // 4. Düyməni dondururuq
+            // Reklamı açırıq
+            const adWindow = window.open(adsterraDirectLink, "_blank");
+            
+            // TELEFONLARDA POPUP BLOKLANIB-BLOKLANMADIĞINI YOXLAYIRIQ:
+            if (!adWindow || adWindow.closed || typeof adWindow.closed === 'undefined') {
+                alert("⚠️ Pop-up Blocked!\nYour browser blocked the sponsor advertisement. Please enable pop-ups in your browser settings to verify the sponsor ad and unlock the material.");
+                return; // Reklam açılmadısa, TAYMER İŞƏ DÜŞMÜR VƏ LİNK VERİLMİR!
+            }
+            
+            // Reklam uğurla açıldısa:
             this.style.pointerEvents = 'none'; 
             this.style.opacity = '0.7';
             
-            // 5. 10 Saniyəlik Geri Sayım (Countdown) Məntiqi
             let timeLeft = 10;
-            
-            // İlk saniyənin yazısını ekrana veririk
             this.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Verifying AD... ${timeLeft}s`;
             
-            // Hər 1 saniyədən bir vaxtı azaldırıq
             const countdownTimer = setInterval(() => {
                 timeLeft--;
                 
                 if (timeLeft > 0) {
-                    // Vaxt hələ bitməyibsə, saniyəni yenilə
                     this.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Verifying AD... ${timeLeft}s`;
                 } else {
-                    // Vaxt bitdi! Taymeri dayandır
                     clearInterval(countdownTimer);
                     
-                    // Mövcud səhifəni əsl linkə yönləndir
                     if (targetLink && !targetLink.includes("YOUR_")) {
                         window.location.href = targetLink; 
                     } else {
                         alert("Sultan, bu düyməyə hələ əsl linki qoymamısan! HTML-də data-link hissəsini yenilə."); 
-                        // Düyməni bərpa et
                         this.innerHTML = originalHTML;
                         this.style.pointerEvents = 'auto';
                         this.style.opacity = '1';
                     }
                 }
-            }, 1000); // 1000 millisaniyə = 1 saniyə
+            }, 1000);
         });
     });
 });
