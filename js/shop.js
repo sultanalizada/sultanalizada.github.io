@@ -71,18 +71,22 @@ loginBtn.addEventListener('click', async () => {
     }
 });
 
-// --- 4. ANTI-CHEAT REKLAM SİSTEMİ (YENİLƏNDİ) ---
+// --- 4. ANTI-CHEAT REKLAM SİSTEMİ (POPUP CHECK FIX) ---
 watchAdBtn.addEventListener('click', () => {
     if(!currentUser) {
         alert("Please save your identity first to earn points!");
         return;
     }
 
-    // 1. Reklamı dərhal yeni tabda açırıq
     const adUrl = "https://www.profitableratecpmnetwork.com/fspm49jkm?key=88e5821febc3aed060a93ce3587926fc";
-    window.open(adUrl, "_blank");
+    const adWindow = window.open(adUrl, "_blank");
 
-    // 2. Düyməni dondururuq
+    // Əgər telefonda pop-up bloklanıbsa:
+    if (!adWindow || adWindow.closed || typeof adWindow.closed === 'undefined') {
+        alert("⚠️ Pop-up Blocked!\nYour browser blocked the sponsor advertisement. Please allow pop-ups in your browser settings to earn SP points.");
+        return; // XAL VERİLMİR!
+    }
+
     watchAdBtn.disabled = true;
     adStatus.classList.remove('hidden');
     adStatus.style.color = "#f59e0b"; 
@@ -91,18 +95,15 @@ watchAdBtn.addEventListener('click', () => {
     watchAdBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Watching AD... ${timeLeft}s`;
     adStatus.innerText = "Please wait... Do not close the page!";
 
-    // 3. 10 Saniyəlik Geri Sayım
     const countdownTimer = setInterval(async () => {
         timeLeft--;
         
         if (timeLeft > 0) {
             watchAdBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Watching AD... ${timeLeft}s`;
         } else {
-            // Vaxt bitdi!
             clearInterval(countdownTimer);
             watchAdBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Verifying...`;
             
-            // Xalı artırırıq
             currentSP += 10;
             const { error } = await supabase
                 .from('users')
@@ -118,7 +119,6 @@ watchAdBtn.addEventListener('click', () => {
                 adStatus.style.color = "#ef4444";
             }
 
-            // Düyməni bərpa et
             watchAdBtn.innerHTML = `<i class="fas fa-play-circle"></i> Watch Sponsor Ad (+10 SP)`;
             watchAdBtn.disabled = false;
             
