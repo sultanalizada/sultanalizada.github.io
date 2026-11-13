@@ -779,3 +779,107 @@ img {
     .floating-btn { bottom: 20px; padding: 11px 18px; font-size: 13px; }
     .whatsapp-float { right: 15px; }
 }
+
+
+/* ==========================================
+   LIVE SOCIAL PROOF NOTIFICATIONS (Sol Aşağı)
+   ========================================== */
+#social-proof-container {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    z-index: 99999;
+    pointer-events: none;
+}
+
+.sp-card {
+    pointer-events: auto;
+    min-width: 290px;
+    max-width: 360px;
+    padding: 14px 18px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(35px) scale(0.92);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-top: 10px;
+}
+
+/* Ekrana daxil olma */
+.sp-card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Yuxarı qalxaraq kölgə olub buxarlanma effekti */
+.sp-card.exit {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.9);
+    filter: blur(6px);
+}
+
+.sp-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.sp-details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.sp-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #f8fafc;
+    line-height: 1.2;
+}
+
+.sp-action {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.35;
+    margin-top: 2px;
+}
+
+.sp-action strong {
+    color: #38bdf8;
+}
+
+.sp-time {
+    font-size: 10px;
+    color: #64748b;
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+@media (max-width: 768px) {
+    #social-proof-container {
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+    }
+    .sp-card {
+        min-width: 100%;
+    }
+}
